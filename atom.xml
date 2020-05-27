@@ -97,6 +97,34 @@
   </entry>
   
   <entry>
+    <title>美团2019秋面经</title>
+    <link href="https://www.baidu.com/2020/05/26/blog/%E7%BE%8E%E5%9B%A2/"/>
+    <id>https://www.baidu.com/2020/05/26/blog/%E7%BE%8E%E5%9B%A2/</id>
+    <published>2020-05-26T05:26:02.000Z</published>
+    <updated>2020-05-26T13:07:07.803Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、RESTful调用和 RPC调用有什么区别？如果让你设计一个RPC服务治理框架你会设计那些模块？是否了解过Service Mesh，如果了解Service Mesh是用来解决什么问题的？&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="https://www.baidu.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面经" scheme="https://www.baidu.com/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>面试清单（抄于知乎）</title>
     <link href="https://www.baidu.com/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/"/>
     <id>https://www.baidu.com/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/</id>
@@ -122,34 +150,6 @@
     
     
       <category term="芝士" scheme="https://www.baidu.com/tags/%E8%8A%9D%E5%A3%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美团2019秋面经</title>
-    <link href="https://www.baidu.com/2020/05/26/blog/%E7%BE%8E%E5%9B%A2/"/>
-    <id>https://www.baidu.com/2020/05/26/blog/%E7%BE%8E%E5%9B%A2/</id>
-    <published>2020-05-26T05:26:02.000Z</published>
-    <updated>2020-05-26T13:07:07.803Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;1、RESTful调用和 RPC调用有什么区别？如果让你设计一个RPC服务治理框架你会设计那些模块？是否了解过Service Mesh，如果了解Service Mesh是用来解决什么问题的？&lt;/p&gt;
-&lt;figure class=&quot;highlight
-        
-      
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="https://www.baidu.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="面经" scheme="https://www.baidu.com/tags/%E9%9D%A2%E7%BB%8F/"/>
     
   </entry>
   
@@ -239,6 +239,35 @@
   </entry>
   
   <entry>
+    <title>java笔记</title>
+    <link href="https://www.baidu.com/2020/05/26/interview/%E7%AC%94%E8%AE%B0/"/>
+    <id>https://www.baidu.com/2020/05/26/interview/%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-26T05:26:02.000Z</published>
+    <updated>2020-05-26T13:09:48.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%e4%b8%80-java%e7%9f%a5%e8%af%86%e6%80%bb%e7%bb%93&quot;&gt;一. Java知识总结&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="面试" scheme="https://www.baidu.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="芝士" scheme="https://www.baidu.com/tags/%E8%8A%9D%E5%A3%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网易有道2019秋一面</title>
     <link href="https://www.baidu.com/2020/05/26/interview/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/"/>
     <id>https://www.baidu.com/2020/05/26/interview/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/</id>
@@ -290,35 +319,6 @@
     
     
       <category term="技术" scheme="https://www.baidu.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java笔记</title>
-    <link href="https://www.baidu.com/2020/05/26/interview/%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.baidu.com/2020/05/26/interview/%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-05-26T05:26:02.000Z</published>
-    <updated>2020-05-26T13:09:48.868Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#%e4%b8%80-java%e7%9f%a5%e8%af%86%e6%80%bb%e7%bb%93&quot;&gt;一. Java知识总结&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="面试" scheme="https://www.baidu.com/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="芝士" scheme="https://www.baidu.com/tags/%E8%8A%9D%E5%A3%AB/"/>
     
   </entry>
   

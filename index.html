@@ -293,83 +293,6 @@
 
 </article>
     
-    <article id="post-blog/面试清单" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/"
-    >面试清单（抄于知乎）</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/" class="article-date">
-  <time datetime="2020-05-26T05:26:02.000Z" itemprop="datePublished">2020-05-26</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p><strong>面试清单（Java岗）</strong></p>
-<p>Java+JVM+数据库+算法+Spring+中间件+设计模式</p>
-<h1 id="01-JAVA基础"><a href="#01-JAVA基础" class="headerlink" title="01 JAVA基础"></a>01 JAVA基础</h1><h2 id="1-1-java知识点"><a href="#1-1-java知识点" class="headerlink" title="1.1 java知识点"></a>1.1 java知识点</h2><p>Hashmap 源码级掌握，扩容，红黑树，最小树化容量，hash冲突解决，有些面试官会提出发自灵魂的审问，比如为什么是红黑树，别的树不可以吗；为什么8的时候树化，4不可以吗，等等<br>concureentHashMap，段锁，如何分段，和hashmap在hash上的区别，性能，等等<br>HashTable ，同步锁，这块可能会问你synchronized关键字 1.6之后提升了什么，怎么提升的这些<br>ArrayList 优势，扩容，什么时候用<br>LinkedList 优势，什么时候用，和arraylist的区别 等等<br>基本类型和包装类型的区别，涉及自动装箱和拆箱，怎么做的，原理<br>String ，StringBuffer，StringBuilder哪个是安全的<br>字符串编码的区别，被问到过，我觉得比较容易被忽视的一个点<br>什么是泛型，怎么用泛型<br>static能不能修饰threadLocal，为什么，这道题我当时一听到其实挺懵逼的<br>Comparable和Comparator接口是干什么的，其区别<br>多态的原理是什么，感觉这个很容易被问到<br>接口和抽象类，面试官问我是怎么理解的，我说接口对应功能，抽象类对应属性，然后面试官给我说了他的看法，说抽象类更偏向于一种模板~ 然后又交流了一下各自的想法<br>如何通过反射和设置对象私有字段的值<br>快速失败(fail-fast)和安全失败(fail-safe)的区别是什么<br>synchronized 的实现原理以及锁优化？<br>volatile 的实现原理？<br>Java 的信号灯？<br>synchronized 在静态方法和普通方法的区别？<br>怎么实现所有线程在等待某个事件的发生才会去执行？<br>CAS？CAS 有什么缺陷，如何解决？<br>synchronized 和 lock 有什么区别？<br>Hashtable 是怎么加锁的 ？<br>List，Map，Set接口在取元素师，各有什么特点<br>如何线程安全的实现一个计数器<br>生产者消费者模式，要求手写过代码，还是要知道的<br>单例模式，饿汉式，懒汉式，线程安全的做法，两次判断instance是否为空，每次判断的作用是什么。<br>线程池，这个还是很重要的，在生产中用的挺多，四个线程池类型，其参数，参数的理解很重要，corepoolSize怎么设置，maxpoolsize怎么设置，keep-alive各种的，和美团面试官探讨过阻塞队列在生产中的设置，他说他一般设置为0，防止用户阻塞<br>cyclicbarrier 和countdownlatch的区别，个人理解 赛马和点火箭<br>线程回调，这块 被问过让我设计一个RPC，怎么实现，其实用到了回调这块的东西<br>sleep 和yeild方法有什么区别<br>volatile关键字，可见性。<br>乐观锁和悲观锁的使用场景<br>悲观锁的常见实现方式：lock synchronized retreentlock<br>乐观锁：CAS MVCC<br>读写锁的实现方式，16位int的前八位和后八位分别作为读锁和写锁的标志位<br>死锁的条件，怎么解除死锁，怎么观测死锁。<br>希望大家能够好好看一下反射的原理，怎么确定类，怎么调方法<br>RPC框架，同步异步，响应时间，这些都被问到过，还让设计过<br>同步，异步，阻塞，非阻塞 在深信服的面试中遇到过，最好再找一些应用场景加以理解<br>1.2 JVM</p>
-<p>内存模型以及分区，需要详细到每个区放什么。<br>堆里面的分区：Eden，survival （from+ to），老年代，各自的特点。<br>对象创建方法，对象的内存分配，对象的访问定位。<br>GC 的两种判定方法<br>GC 的三种收集方法：标记清除、标记整理、复制算法的原理与特点，分别用在什么地方，如果让你优化收集方法，有什么思路？<br>GC 收集器有哪些？CMS 收集器与 G1 收集器的特点<br>Minor GC 与 Full GC 分别在什么时候发生？<br>JVM 内存分哪几个区，每个区的作用是什么?<br>如和判断一个对象是否存活?(或者 GC 对象的判定方法)<br>java 中垃圾收集的方法有哪些?<br>类加载器双亲委派模型机制？<br>java 内存模型，java 类加载过程?<br>什么是类加载器，类加载器有哪些?<br>简述 java 内存分配与回收策率以及 Minor GC 和Major GC<br>02 数据库<br>2.1 MySQL</p>
-<p>事务四大特性（ACID）原子性、一致性、隔离性、持久性？<br>事务的并发？事务隔离级别，每个级别会引发什么问题，MySQL默认是哪个级别？<br>MySQL常见的三种存储引擎（InnoDB、MyISAM、MEMORY）的区别？<br>MySQL的MyISAM与InnoDB两种存储引擎在，事务、锁级别，各自的适用场景？<br>查询语句不同元素（where、jion、limit、group by、having等等）执行先后顺序<br>索引为什么要用B+树，B+树和B-树的区别是什么<br>mysql的默认事务级别，一共有哪些事务级别<br>mysql的一些语句，这些肯定需要掌握的<br>mysql锁，行锁，表锁 ，什么时候发生锁，怎么锁，原理<br>数据库优化，最左原则啊，水平分表，垂直分表<br>什么是临时表，临时表什么时候删除?<br>MySQL B+Tree索引和Hash索引的区别？<br>sql查询语句确定创建哪种类型的索引？如何优化查询？<br>聚集索引和非聚集索引区别？<br>有哪些锁（乐观锁悲观锁），select 时怎么加排它锁？<br>非关系型数据库和关系型数据库区别，优势比较？<br>数据库三范式，根据某个场景设计数据表？<br>数据库的读写分离、主从复制，主从复制分析的 7 个问题？<br>使用explain优化sql和索引？<br>MySQL慢查询怎么解决？<br>什么是 内连接、外连接、交叉连接、笛卡尔积等？<br>mysql都有什么锁，死锁判定原理和具体场景，死锁怎么解决？<br>varchar和char的使用场景？<br>mysql 高并发环境解决方案？<br>数据库崩溃时事务的恢复机制（REDO日志和UNDO日志）？<br>03 Spring相关<br>spring的两大特性- ioc aop，实现原理<br>如果存在A依赖B，B依赖A，那么是怎么加到IOC中去的<br>beanFactory的理解，怎么加载bean<br>FactoryBean的理解<br>基于注解的形式，是怎么实现的， 你知道其原理吗，说一下<br>依赖冲突，有碰到过吗，你是怎么解决的~<br>bean的生命周期<br>spring中的自动装配方式<br>BeanFactory 和 FactoryBean<br>Spring IOC 的理解，其初始化过程？<br>BeanFactory 和 ApplicationContext？<br>Spring Bean 的生命周期，如何被管理的？Spring Bean 的加载过程是怎样的？<br>如果要你实现Spring AOP，请问怎么实现？<br>如果要你实现Spring IOC，你会注意哪些问题？<br>Spring 是如何管理事务的，事务管理机制？<br>Spring 的不同事务传播行为有哪些，干什么用的？<br>Spring 中用到了那些设计模式？<br>Spring MVC 的工作原理？<br>Spring 循环注入的原理？<br>Spring 如何保证 Controller 并发的安全？<br>你一般是怎么对mvc项目进行分层的<br>dispatch-servlet的工作原理<br>为什么有了springmvc还要在项目中使用spring？<br>springmvc的运行机制，dispatch -》 hanldermapping-—》handler -》handlerAdapter-》执行handler-》modelandview -》 返回mv -》 视图解析器-》返回view -》 渲染响应<br>怎么防止依赖注入<br>怎么让mapper 和xml对应<br>如何自动包装对象<br>和spring相比，做了什么改变<br>starter你知道哪些<br>如何部署springmvc项目 以及如何部署springboot项目<br>springboot的插件，你使用过哪些<br>04 中间件<br>4.1 redis<br>Redis用过哪些数据数据，以及Redis底层怎么实现<br>Redis缓存穿透，缓存雪崩<br>如何使用Redis来实现分布式锁<br>Redis的并发竞争问题如何解决<br>Redis持久化的几种方式，优缺点是什么，怎么实现的<br>Redis的缓存失效策略<br>Redis集群，高可用，原理<br>Redis缓存分片，Redis的数据淘汰策略<br>为什么选择redis，有什么好处，基于内存，抗压<br>redis集群怎么进行数据分配，hash槽<br>redis的主从复制是怎么实现的<br>redis的数据结构 最常问 hash是什么， sorted set怎么实现的<br>因为项目的原因，问我redis是怎么保证高可用的，主从和集群怎么加在一起<br>redis 和memcache的区别<br>redis 分布式锁的实现原理 setNX 啥的<br>redis模拟session，除了redis你还考虑过别的吗<br>redis的缓存击穿，怎么处理这个问题<br>redis是基于内存的，那么它有持久化吗，aof rdb<br>aof和rdb的优缺点，你在项目中使用的哪一个<br>4.2 MQ<br>为什么选择rabbitMQ， 社区活跃，高并发<br>别的MQ也要了解，比如RocketMQ(阿里的，java开发，再次开发，并发高，分布式，出错少)<br>ActiveMQ， kafka<br>topic 和 block<br>MQ的作用，同步转异步，消除峰值<br>如何保证数据一致性，即原子性，ack<br>消息队列在项目中的应用<br>4.3 nginx<br>怎么配置负载均衡<br>怎么限流<br>怎么使用nginx缓存<br>为什么使用nginx，有别的替代品吗<br>请解释 x Nginx 如何处理 P HTTP 请求<br>在 x Nginx 中，如何使用未定义的服务器名称来阻止处理请求? ?<br>使用“ 反向代理服务器 ” 的优点是什么?<br>x Nginx 服务器上的 r Master 和 和 r Worker 进程分别是什么?<br>nginx的压力测试，你测试过吗，能抗住多少压力<br>你如何通过不同于 0 80 的端口开启 Nginx?<br>是否有可能将 x Nginx 的错误替换为 2 502 错误、 503<br>s stub_status 和 和 r sub_filter 指令的作用是什么? ?<br>4.5 dubbo<br>原理，怎么用<br>和erueka有什么区别<br>为什么要用dubbo，不用行不行？<br>跨域请求的一些知识点<br>Dubbo 支持哪些协议，每种协议的应用场景，优缺点？<br>Dubbo 超时时间怎样设置？<br>Dubbo 集群的负载均衡有哪些策略<br>Dubbo 的主要应用场景？<br>Dubbo 服务注册与发现的流程？<br>Dubbo 中 中 zookeeper 做注册中心，如果注册中心集群都挂掉，发布者和订阅者之间还能通信么？<br>dubbo 服务负载均衡策略？<br>05 其他插件<br>5.1 shiro<br>怎么做权限控制<br>为什么使用shiro，你直接使用aop不也是一样的吗，shiro还有标签<del>各种扯<br>shiro的两个最重要的函数<br>认证和授权是怎么做的<br>5.2 docker<br>和vmware的区别<br>你一般是怎么部署的 IDEA，直接把项目部署到docker并打包到云服务器<br>docker的好处，小，快<br>06 Linux<br>常见的命令<br>sed 和 awk 感觉linux必考。。<br>linux的使用场景，你什么时候会用linux – 》 布置服务器<br>怎么查看进程和杀死进程<br>打印一个文件夹中的所有文件<br>float在计算机中是怎么存储的，当时被问到的时候，我也在问自己，怎么存的</del> 佛了<br>线程和进程的区别<br>线程的通信方式，进程的通信方式<br>系统线程的数量上限是多少<br>页式存储的概念<br>内存碎片，你有了解过吗，有想过解决方案吗~<br>07 算法<br>7.1 排序算法<br>八大排序算法真的是面试宠儿<br>最常考 快速排序 和归并排序<br>哪些排序算法是稳定的 哪些是不稳定的<br>堆排 也应该掌握<br>7.2 树<br>根据遍历结果恢复树，递归<br>二叉搜索树第k大<br>树的和为k的路径<br>层次遍历<br>根据层次遍历和后序遍历恢复树<br>镜像树<br>树的深度<br>是不是平衡二叉树<br>7.3 链表<br>反转链表<br>链表环的入口<br>交叉链表的交点<br>复杂链表的复制<br>二叉搜索树变成双向链表<br>7.4 回溯算法<br>走迷宫<br>游戏通关<br>7.5 递推算法<br>走台阶<br>断钢筋<br>7.6 背包问题<br>装最多的东西<br>7.7 贪心算法<br>覆盖问题<br>时间问题<br>08 设计模式<br>面试中设计模式其实也是挺重要的</p>
-<p>Java 中什么叫单例设计模式？请用 Java 写出线程安全的单例模式<br>在 Java 中，什么叫观察者设计模式（observer design pattern）<br>使用工厂模式最主要的好处是什么？在哪里使用<br>举一个用 Java 实现的装饰模式(decorator design pattern) ？它是作用于对象层次还是类层次？<br>在 Java 中，什么时候用重载，什么时候用重写？<br>举例说明什么情况下会更倾向于使用抽象类而不是接口<br>观察者模式<br>适配模式<br>工厂模式<br>…</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8A%9D%E5%A3%AB/" rel="tag">芝士</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
     <article id="post-blog/美团" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -455,6 +378,83 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-blog/面试清单" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/"
+    >面试清单（抄于知乎）</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/" class="article-date">
+  <time datetime="2020-05-26T05:26:02.000Z" itemprop="datePublished">2020-05-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><strong>面试清单（Java岗）</strong></p>
+<p>Java+JVM+数据库+算法+Spring+中间件+设计模式</p>
+<h1 id="01-JAVA基础"><a href="#01-JAVA基础" class="headerlink" title="01 JAVA基础"></a>01 JAVA基础</h1><h2 id="1-1-java知识点"><a href="#1-1-java知识点" class="headerlink" title="1.1 java知识点"></a>1.1 java知识点</h2><p>Hashmap 源码级掌握，扩容，红黑树，最小树化容量，hash冲突解决，有些面试官会提出发自灵魂的审问，比如为什么是红黑树，别的树不可以吗；为什么8的时候树化，4不可以吗，等等<br>concureentHashMap，段锁，如何分段，和hashmap在hash上的区别，性能，等等<br>HashTable ，同步锁，这块可能会问你synchronized关键字 1.6之后提升了什么，怎么提升的这些<br>ArrayList 优势，扩容，什么时候用<br>LinkedList 优势，什么时候用，和arraylist的区别 等等<br>基本类型和包装类型的区别，涉及自动装箱和拆箱，怎么做的，原理<br>String ，StringBuffer，StringBuilder哪个是安全的<br>字符串编码的区别，被问到过，我觉得比较容易被忽视的一个点<br>什么是泛型，怎么用泛型<br>static能不能修饰threadLocal，为什么，这道题我当时一听到其实挺懵逼的<br>Comparable和Comparator接口是干什么的，其区别<br>多态的原理是什么，感觉这个很容易被问到<br>接口和抽象类，面试官问我是怎么理解的，我说接口对应功能，抽象类对应属性，然后面试官给我说了他的看法，说抽象类更偏向于一种模板~ 然后又交流了一下各自的想法<br>如何通过反射和设置对象私有字段的值<br>快速失败(fail-fast)和安全失败(fail-safe)的区别是什么<br>synchronized 的实现原理以及锁优化？<br>volatile 的实现原理？<br>Java 的信号灯？<br>synchronized 在静态方法和普通方法的区别？<br>怎么实现所有线程在等待某个事件的发生才会去执行？<br>CAS？CAS 有什么缺陷，如何解决？<br>synchronized 和 lock 有什么区别？<br>Hashtable 是怎么加锁的 ？<br>List，Map，Set接口在取元素师，各有什么特点<br>如何线程安全的实现一个计数器<br>生产者消费者模式，要求手写过代码，还是要知道的<br>单例模式，饿汉式，懒汉式，线程安全的做法，两次判断instance是否为空，每次判断的作用是什么。<br>线程池，这个还是很重要的，在生产中用的挺多，四个线程池类型，其参数，参数的理解很重要，corepoolSize怎么设置，maxpoolsize怎么设置，keep-alive各种的，和美团面试官探讨过阻塞队列在生产中的设置，他说他一般设置为0，防止用户阻塞<br>cyclicbarrier 和countdownlatch的区别，个人理解 赛马和点火箭<br>线程回调，这块 被问过让我设计一个RPC，怎么实现，其实用到了回调这块的东西<br>sleep 和yeild方法有什么区别<br>volatile关键字，可见性。<br>乐观锁和悲观锁的使用场景<br>悲观锁的常见实现方式：lock synchronized retreentlock<br>乐观锁：CAS MVCC<br>读写锁的实现方式，16位int的前八位和后八位分别作为读锁和写锁的标志位<br>死锁的条件，怎么解除死锁，怎么观测死锁。<br>希望大家能够好好看一下反射的原理，怎么确定类，怎么调方法<br>RPC框架，同步异步，响应时间，这些都被问到过，还让设计过<br>同步，异步，阻塞，非阻塞 在深信服的面试中遇到过，最好再找一些应用场景加以理解<br>1.2 JVM</p>
+<p>内存模型以及分区，需要详细到每个区放什么。<br>堆里面的分区：Eden，survival （from+ to），老年代，各自的特点。<br>对象创建方法，对象的内存分配，对象的访问定位。<br>GC 的两种判定方法<br>GC 的三种收集方法：标记清除、标记整理、复制算法的原理与特点，分别用在什么地方，如果让你优化收集方法，有什么思路？<br>GC 收集器有哪些？CMS 收集器与 G1 收集器的特点<br>Minor GC 与 Full GC 分别在什么时候发生？<br>JVM 内存分哪几个区，每个区的作用是什么?<br>如和判断一个对象是否存活?(或者 GC 对象的判定方法)<br>java 中垃圾收集的方法有哪些?<br>类加载器双亲委派模型机制？<br>java 内存模型，java 类加载过程?<br>什么是类加载器，类加载器有哪些?<br>简述 java 内存分配与回收策率以及 Minor GC 和Major GC<br>02 数据库<br>2.1 MySQL</p>
+<p>事务四大特性（ACID）原子性、一致性、隔离性、持久性？<br>事务的并发？事务隔离级别，每个级别会引发什么问题，MySQL默认是哪个级别？<br>MySQL常见的三种存储引擎（InnoDB、MyISAM、MEMORY）的区别？<br>MySQL的MyISAM与InnoDB两种存储引擎在，事务、锁级别，各自的适用场景？<br>查询语句不同元素（where、jion、limit、group by、having等等）执行先后顺序<br>索引为什么要用B+树，B+树和B-树的区别是什么<br>mysql的默认事务级别，一共有哪些事务级别<br>mysql的一些语句，这些肯定需要掌握的<br>mysql锁，行锁，表锁 ，什么时候发生锁，怎么锁，原理<br>数据库优化，最左原则啊，水平分表，垂直分表<br>什么是临时表，临时表什么时候删除?<br>MySQL B+Tree索引和Hash索引的区别？<br>sql查询语句确定创建哪种类型的索引？如何优化查询？<br>聚集索引和非聚集索引区别？<br>有哪些锁（乐观锁悲观锁），select 时怎么加排它锁？<br>非关系型数据库和关系型数据库区别，优势比较？<br>数据库三范式，根据某个场景设计数据表？<br>数据库的读写分离、主从复制，主从复制分析的 7 个问题？<br>使用explain优化sql和索引？<br>MySQL慢查询怎么解决？<br>什么是 内连接、外连接、交叉连接、笛卡尔积等？<br>mysql都有什么锁，死锁判定原理和具体场景，死锁怎么解决？<br>varchar和char的使用场景？<br>mysql 高并发环境解决方案？<br>数据库崩溃时事务的恢复机制（REDO日志和UNDO日志）？<br>03 Spring相关<br>spring的两大特性- ioc aop，实现原理<br>如果存在A依赖B，B依赖A，那么是怎么加到IOC中去的<br>beanFactory的理解，怎么加载bean<br>FactoryBean的理解<br>基于注解的形式，是怎么实现的， 你知道其原理吗，说一下<br>依赖冲突，有碰到过吗，你是怎么解决的~<br>bean的生命周期<br>spring中的自动装配方式<br>BeanFactory 和 FactoryBean<br>Spring IOC 的理解，其初始化过程？<br>BeanFactory 和 ApplicationContext？<br>Spring Bean 的生命周期，如何被管理的？Spring Bean 的加载过程是怎样的？<br>如果要你实现Spring AOP，请问怎么实现？<br>如果要你实现Spring IOC，你会注意哪些问题？<br>Spring 是如何管理事务的，事务管理机制？<br>Spring 的不同事务传播行为有哪些，干什么用的？<br>Spring 中用到了那些设计模式？<br>Spring MVC 的工作原理？<br>Spring 循环注入的原理？<br>Spring 如何保证 Controller 并发的安全？<br>你一般是怎么对mvc项目进行分层的<br>dispatch-servlet的工作原理<br>为什么有了springmvc还要在项目中使用spring？<br>springmvc的运行机制，dispatch -》 hanldermapping-—》handler -》handlerAdapter-》执行handler-》modelandview -》 返回mv -》 视图解析器-》返回view -》 渲染响应<br>怎么防止依赖注入<br>怎么让mapper 和xml对应<br>如何自动包装对象<br>和spring相比，做了什么改变<br>starter你知道哪些<br>如何部署springmvc项目 以及如何部署springboot项目<br>springboot的插件，你使用过哪些<br>04 中间件<br>4.1 redis<br>Redis用过哪些数据数据，以及Redis底层怎么实现<br>Redis缓存穿透，缓存雪崩<br>如何使用Redis来实现分布式锁<br>Redis的并发竞争问题如何解决<br>Redis持久化的几种方式，优缺点是什么，怎么实现的<br>Redis的缓存失效策略<br>Redis集群，高可用，原理<br>Redis缓存分片，Redis的数据淘汰策略<br>为什么选择redis，有什么好处，基于内存，抗压<br>redis集群怎么进行数据分配，hash槽<br>redis的主从复制是怎么实现的<br>redis的数据结构 最常问 hash是什么， sorted set怎么实现的<br>因为项目的原因，问我redis是怎么保证高可用的，主从和集群怎么加在一起<br>redis 和memcache的区别<br>redis 分布式锁的实现原理 setNX 啥的<br>redis模拟session，除了redis你还考虑过别的吗<br>redis的缓存击穿，怎么处理这个问题<br>redis是基于内存的，那么它有持久化吗，aof rdb<br>aof和rdb的优缺点，你在项目中使用的哪一个<br>4.2 MQ<br>为什么选择rabbitMQ， 社区活跃，高并发<br>别的MQ也要了解，比如RocketMQ(阿里的，java开发，再次开发，并发高，分布式，出错少)<br>ActiveMQ， kafka<br>topic 和 block<br>MQ的作用，同步转异步，消除峰值<br>如何保证数据一致性，即原子性，ack<br>消息队列在项目中的应用<br>4.3 nginx<br>怎么配置负载均衡<br>怎么限流<br>怎么使用nginx缓存<br>为什么使用nginx，有别的替代品吗<br>请解释 x Nginx 如何处理 P HTTP 请求<br>在 x Nginx 中，如何使用未定义的服务器名称来阻止处理请求? ?<br>使用“ 反向代理服务器 ” 的优点是什么?<br>x Nginx 服务器上的 r Master 和 和 r Worker 进程分别是什么?<br>nginx的压力测试，你测试过吗，能抗住多少压力<br>你如何通过不同于 0 80 的端口开启 Nginx?<br>是否有可能将 x Nginx 的错误替换为 2 502 错误、 503<br>s stub_status 和 和 r sub_filter 指令的作用是什么? ?<br>4.5 dubbo<br>原理，怎么用<br>和erueka有什么区别<br>为什么要用dubbo，不用行不行？<br>跨域请求的一些知识点<br>Dubbo 支持哪些协议，每种协议的应用场景，优缺点？<br>Dubbo 超时时间怎样设置？<br>Dubbo 集群的负载均衡有哪些策略<br>Dubbo 的主要应用场景？<br>Dubbo 服务注册与发现的流程？<br>Dubbo 中 中 zookeeper 做注册中心，如果注册中心集群都挂掉，发布者和订阅者之间还能通信么？<br>dubbo 服务负载均衡策略？<br>05 其他插件<br>5.1 shiro<br>怎么做权限控制<br>为什么使用shiro，你直接使用aop不也是一样的吗，shiro还有标签<del>各种扯<br>shiro的两个最重要的函数<br>认证和授权是怎么做的<br>5.2 docker<br>和vmware的区别<br>你一般是怎么部署的 IDEA，直接把项目部署到docker并打包到云服务器<br>docker的好处，小，快<br>06 Linux<br>常见的命令<br>sed 和 awk 感觉linux必考。。<br>linux的使用场景，你什么时候会用linux – 》 布置服务器<br>怎么查看进程和杀死进程<br>打印一个文件夹中的所有文件<br>float在计算机中是怎么存储的，当时被问到的时候，我也在问自己，怎么存的</del> 佛了<br>线程和进程的区别<br>线程的通信方式，进程的通信方式<br>系统线程的数量上限是多少<br>页式存储的概念<br>内存碎片，你有了解过吗，有想过解决方案吗~<br>07 算法<br>7.1 排序算法<br>八大排序算法真的是面试宠儿<br>最常考 快速排序 和归并排序<br>哪些排序算法是稳定的 哪些是不稳定的<br>堆排 也应该掌握<br>7.2 树<br>根据遍历结果恢复树，递归<br>二叉搜索树第k大<br>树的和为k的路径<br>层次遍历<br>根据层次遍历和后序遍历恢复树<br>镜像树<br>树的深度<br>是不是平衡二叉树<br>7.3 链表<br>反转链表<br>链表环的入口<br>交叉链表的交点<br>复杂链表的复制<br>二叉搜索树变成双向链表<br>7.4 回溯算法<br>走迷宫<br>游戏通关<br>7.5 递推算法<br>走台阶<br>断钢筋<br>7.6 背包问题<br>装最多的东西<br>7.7 贪心算法<br>覆盖问题<br>时间问题<br>08 设计模式<br>面试中设计模式其实也是挺重要的</p>
+<p>Java 中什么叫单例设计模式？请用 Java 写出线程安全的单例模式<br>在 Java 中，什么叫观察者设计模式（observer design pattern）<br>使用工厂模式最主要的好处是什么？在哪里使用<br>举一个用 Java 实现的装饰模式(decorator design pattern) ？它是作用于对象层次还是类层次？<br>在 Java 中，什么时候用重载，什么时候用重写？<br>举例说明什么情况下会更倾向于使用抽象类而不是接口<br>观察者模式<br>适配模式<br>工厂模式<br>…</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8A%9D%E5%A3%AB/" rel="tag">芝士</a></li></ul>
 
 
     </footer>
@@ -915,6 +915,553 @@
 
 </article>
     
+    <article id="post-interview/笔记" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/26/interview/%E7%AC%94%E8%AE%B0/"
+    >java笔记</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/26/interview/%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-05-26T05:26:02.000Z" itemprop="datePublished">2020-05-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <ul>
+<li><a href="#%e4%b8%80-java%e7%9f%a5%e8%af%86%e6%80%bb%e7%bb%93">一. Java知识总结</a><ul>
+<li><a href="#1-java-4-%e7%89%b9%e5%be%81%e6%8a%bd%e8%b1%a1%e5%b0%81%e8%a3%85%e7%bb%a7%e6%89%bf%e5%a4%9a%e6%80%81">1. java 4 特征：抽象、封装、继承、多态;</a></li>
+<li><a href="#2-%e5%85%ad%e5%a4%a7%e5%8e%9f%e5%88%99">2. 六大原则：</a><ul>
+<li><a href="#%e5%8d%95%e4%b8%80%e8%81%8c%e8%b4%a3">单一职责</a></li>
+<li><a href="#%e5%bc%80%e9%97%ad">开闭</a></li>
+<li><a href="#%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2">里氏替换</a></li>
+<li><a href="#%e4%be%9d%e8%b5%96%e5%80%92%e7%bd%ae">依赖倒置</a></li>
+<li><a href="#%e5%90%88%e6%88%90%e8%81%9a%e5%90%88%e5%a4%8d%e7%94%a8">合成聚合复用</a></li>
+<li><a href="#%e6%8e%a5%e5%8f%a3%e9%9a%94%e7%a6%bb">接口隔离</a></li>
+<li><a href="#%e7%8b%84%e7%b1%b3%e7%89%b9%e6%b3%95%e5%88%99">狄米特法则</a></li>
+</ul>
+</li>
+<li><a href="#3-23%e7%a7%8d%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f">3. 23种设计模式</a><ul>
+<li><a href="#%e5%88%86%e7%b1%bb">分类</a></li>
+<li><a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f">单例模式</a></li>
+<li><a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f">原型模式</a></li>
+<li><a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f">工厂模式</a><ul>
+<li><a href="#%e7%ae%80%e5%8d%95%e5%b7%a5%e5%8e%82">简单工厂</a></li>
+<li><a href="#%e5%b7%a5%e5%8e%82%e6%96%b9%e6%b3%95">工厂方法</a></li>
+<li><a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82">抽象工厂</a></li>
+</ul>
+</li>
+<li><a href="#%e5%bb%ba%e9%80%a0%e8%80%85%e6%a8%a1%e5%bc%8f">建造者模式</a></li>
+<li><a href="#%e4%bb%a3%e7%90%86%e6%a8%a1%e5%bc%8f">代理模式</a></li>
+<li><a href="#%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f">适配器模式</a></li>
+<li><a href="#%e6%a1%a5%e6%8e%a5%e6%a8%a1%e5%bc%8f">桥接模式</a></li>
+<li><a href="#%e8%a7%82%e5%af%9f%e8%80%85%e6%a8%a1%e5%bc%8f">观察者模式</a></li>
+</ul>
+</li>
+<li><a href="#4-jvm-%e5%86%85%e5%ae%b9">4. jvm 内容</a><ul>
+<li><a href="#%e5%b8%b8%e8%a7%81%e7%9a%84gc%e7%a7%8d%e7%b1%bb">常见的GC种类</a><ul>
+<li><a href="#serial%e4%b8%b2%e8%a1%8c">serial(串行)</a></li>
+<li><a href="#parnew">parNew</a></li>
+<li><a href="#parallel-scavebge">parallel Scavebge</a></li>
+<li><a href="#serial-old">serial old</a></li>
+<li><a href="#parallel-old">parallel old</a></li>
+<li><a href="#cms">CMS</a></li>
+</ul>
+</li>
+<li><a href="#minor-gc-%e5%92%8cfull-gc">Minor GC 和Full GC</a></li>
+<li><a href="#%e6%96%b0%e7%94%9f%e4%bb%a3%e8%80%81%e5%b9%b4%e4%bb%a3">新生代老年代</a></li>
+<li><a href="#4%e7%a7%8d%e5%8f%af%e4%bd%9c%e4%b8%bagc-root%e7%9a%84%e5%af%b9%e8%b1%a1">4种可作为GC root的对象</a></li>
+<li><a href="#%e4%bb%80%e4%b9%88%e6%83%85%e5%86%b5%e4%b8%8b%e5%88%a4%e6%96%ad%e9%9c%80%e8%a6%81%e8%b0%83%e6%95%b4%e6%96%b0%e7%94%9f%e5%b8%a6%e7%9a%84%e5%a4%a7%e5%b0%8f">什么情况下判断需要调整新生带的大小</a></li>
+<li><a href="#jvm%e7%9a%84%e5%b8%b8%e8%a7%81%e5%8f%82%e6%95%b0">jvm的常见参数</a></li>
+</ul>
+</li>
+<li><a href="#static--final">static &amp; final</a><ul>
+<li><a href="#hashtablehashmapcurrenthashmap">hashtable、hashmap、currenthashmap:</a></li>
+<li><a href="#%e5%ba%8f%e5%88%97%e5%8c%96">序列化：</a></li>
+<li><a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b">多线程：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%e4%ba%8c-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9f%a5%e8%af%86">二. 数据库知识</a><pre><code>- [ACID](#acid)
+- [脏读、不可重复读、幻读](#%e8%84%8f%e8%af%bb%e4%b8%8d%e5%8f%af%e9%87%8d%e5%a4%8d%e8%af%bb%e5%b9%bb%e8%af%bb)
+- [索引](#%e7%b4%a2%e5%bc%95)
+- [MyISAM和InnoDB](#myisam%e5%92%8cinnodb)
+  - [分页查询](#%e5%88%86%e9%a1%b5%e6%9f%a5%e8%af%a2)</code></pre></li>
+<li><a href="#%e4%b8%89-%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e7%9f%a5%e8%af%86">三. 计算机网络知识</a><ul>
+<li><a href="#%e5%8d%8f%e8%ae%ae%e4%b8%89%e8%a6%81%e7%b4%a0">协议三要素</a></li>
+<li><a href="#http%e4%b8%8ehttps%e7%9a%84%e5%8c%ba%e5%88%ab">http与https的区别</a></li>
+<li><a href="#tcp%e5%8f%af%e9%9d%a0%e4%bc%a0%e8%be%93%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e5%9b%9b%e6%ad%a4%e6%8c%a5%e6%89%8b">TCP可靠传输&amp;三次握手&amp;四此挥手</a></li>
+<li><a href="#ddos%e6%94%bb%e5%87%bb">DDOS攻击</a></li>
+<li><a href="#getpost">GET&amp;POST</a></li>
+<li><a href="#osi%e6%a8%a1%e5%9e%8b">OSI模型</a><ul>
+<li><a href="#6-%e7%bd%91%e7%bb%9c%e5%b1%82">6. 网络层</a></li>
+<li><a href="#7-%e6%95%b0%e6%8d%ae%e9%93%be%e8%b7%af%e5%b1%82">7. 数据链路层</a><ul>
+<li><a href="#71-%e5%a4%9a%e8%b7%af%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6%e5%8d%8f%e8%ae%aemac">7.1 多路访问控制协议MAC</a></li>
+<li><a href="#72-arp%e5%8d%8f%e8%ae%ae">7.2 ARP协议</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tcp%e5%bf%ab%e9%80%9f%e9%87%8d%e4%bc%a0">TCP快速重传</a></li>
+<li><a href="#5%e7%b1%bbip%e5%9c%b0%e5%9d%80">5类ip地址</a></li>
+<li><a href="#%e5%89%91%e6%8c%87off">剑指off</a><h1 id="一-Java知识总结"><a href="#一-Java知识总结" class="headerlink" title="一. Java知识总结"></a>一. Java知识总结</h1></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-java-4-特征：抽象、封装、继承、多态"><a href="#1-java-4-特征：抽象、封装、继承、多态" class="headerlink" title="1. java 4 特征：抽象、封装、继承、多态;"></a>1. java 4 特征：抽象、封装、继承、多态;</h2><p>重载：方法同名，参数不同;参数类型、或个数不同，或顺序不同<br>重写：比父类更好访问，最好不要额外申明异常（里氏替换原则），其他返回类型，参数都要相同;</p>
+<h2 id="2-六大原则："><a href="#2-六大原则：" class="headerlink" title="2. 六大原则："></a>2. 六大原则：</h2><h3 id="单一职责"><a href="#单一职责" class="headerlink" title="单一职责"></a>单一职责</h3><p>该原则提出对象不应该承担太多职责，如果一个对象承担了太多的职责，至少存在以下两个缺点：一个职责的变化可能会削弱或者抑制这个类实现其他职责的能力；当客户端需要该对象的某一个职责时，不得不将其他不需要的职责全都包含进来，从而造成冗余代码或代码的浪费</p>
+<h3 id="开闭"><a href="#开闭" class="headerlink" title="开闭"></a>开闭</h3><p>对扩展开放,对修改关闭  </p>
+<h3 id="里氏替换"><a href="#里氏替换" class="headerlink" title="里氏替换"></a>里氏替换</h3><p>父类所拥有的性质在子类仍然成立,即子类可以扩展父类的功能,但不能改变父类原有的功能. </p>
+<h3 id="依赖倒置"><a href="#依赖倒置" class="headerlink" title="依赖倒置"></a>依赖倒置</h3><p>高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象  </p>
+<h3 id="合成聚合复用"><a href="#合成聚合复用" class="headerlink" title="合成聚合复用"></a>合成聚合复用</h3><p>它要求在软件复用时，要尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现。</p>
+<h3 id="接口隔离"><a href="#接口隔离" class="headerlink" title="接口隔离"></a>接口隔离</h3><p>要求程序员尽量将臃肿庞大的接口拆分成更小的和更具体的接口，让接口中只包含客户感兴趣的方法。<br>接口隔离原则和单一职责都是为了提高类的内聚性、降低它们之间的耦合性，体现了封装的思想，但两者是不同的：<br>单一职责原则注重的是职责，而接口隔离原则注重的是对接口依赖的隔离。<br>单一职责原则主要是约束类，它针对的是程序中的实现和细节；接口隔离原则主要约束接口，主要针对抽象和程序整体框架的构建。</p>
+<h3 id="狄米特法则"><a href="#狄米特法则" class="headerlink" title="狄米特法则"></a>狄米特法则</h3><p>如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。其目的是降低类之间的耦合度，提高模块的相对独立性。</p>
+<h2 id="3-23种设计模式"><a href="#3-23种设计模式" class="headerlink" title="3. 23种设计模式"></a>3. 23种设计模式</h2><hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>创建型模式<ul>
+<li>单例模式</li>
+<li>原型模式</li>
+<li>工厂模式</li>
+<li>建造者模式</li>
+</ul>
+</li>
+<li>结构型模式<ul>
+<li>代理</li>
+<li>适配器</li>
+<li>桥接</li>
+<li>装饰</li>
+<li>外观</li>
+<li>享元</li>
+<li>组合</li>
+</ul>
+</li>
+<li>行为型模式<ul>
+<li>模版方法</li>
+<li>策略</li>
+<li>命令</li>
+<li>职责链</li>
+<li>观察者</li>
+<li>中介者</li>
+<li>迭代器</li>
+<li>备忘录</li>
+<li>解释器</li>
+</ul>
+</li>
+</ul>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>只产生一个实例，内部新建一个实例，通过static方法返回这个实例</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>复制实例以创建实例</p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><h4 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h4><h4 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h4><p>主要角色有:抽象工厂,具体工厂,抽象产品,具体产品<br>每个具体工厂对应着具体产品</p>
+<h4 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><p>可生产多个等级的产品<br><img src="image/3-1Q11416002NW.gif" alt="">  </p>
+<h3 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h3><p>将一个复杂的对象分解为多个简单的对象,然后一步一步构建而成. 主要角色有产品, 抽象建造者, 具体建造者, 指挥者<br><img src="image/3-1Q1141H441X4.gif" alt="建造者模式"></p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式的主要角色如下。<br>抽象主题（Subject）类：通过接口或抽象类声明真实主题和代理对象实现的业务方法。<br>真实主题（Real Subject）类：实现了抽象主题中的具体业务，是代理对象所代表的真实对象，是最终要引用的对象。<br>代理（Proxy）类：提供了与真实主题相同的接口，其内部含有对真实主题的引用，它可以访问、控制或扩展真实主题的功能。<br><img src="image/3-1Q115093011523.gif" alt=""></p>
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。适配器模式分为类结构型模式和对象结构型模式两种，前者类之间的耦合度比后者高，且要求程序员了解现有组件库中的相关组件的内部结构，所以应用相对较少些。</p>
+<p>类适配器<br><img src="image/3-1Q1151045351c.gif" alt=""><br>对象适配器<br><img src="image/3-1Q1151046105A.gif" alt=""></p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。<br>可以将抽象化部分与实现化部分分开，取消二者的继承关系，改用组合关系。<br>模式的结构<br>桥接（Bridge）模式包含以下主要角色。<br>抽象化（Abstraction）角色：定义抽象类，并包含一个对实现化对象的引用。<br>扩展抽象化（Refined    Abstraction）角色：是抽象化角色的子类，实现父类中的业务方法，并通过组合关系调用实现化角色中的业务方法。<br>实现化（Implementor）角色：定义实现化角色的接口，供扩展抽象化角色调用。<br>具体实现化（Concrete Implementor）角色：给出实现化角色接口的具体实现。<br><img src="image/3-1Q115125253H1.gif" alt=""><br>桥接模式通常适用于以下场景。<br>当一个类存在两个独立变化的维度，且这两个维度都需要进行扩展时。<br>当一个系统不希望使用继承或因为多层次继承导致系统类的个数急剧增加时。<br>当一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性时。  </p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>观察对象接口（+observerList、-add、-remove、-change)<br>观察者接口：（-change）<br>当观察者对象改变时调用change函数，遍历调用observerList的观察者的change函数<br>主要角色有:抽象主题, 具体主题, 抽象观察者, 具体观察者<br><img src="image/3-1Q1161A6221S.gif" alt="观察者模式"><br><br><br>实现代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> observer;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverPattern</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Subject subject=<span class="keyword">new</span> ConcreteSubject();</span><br><span class="line">        Observer obs1=<span class="keyword">new</span> ConcreteObserver1();</span><br><span class="line">        Observer obs2=<span class="keyword">new</span> ConcreteObserver2();</span><br><span class="line">        subject.add(obs1);</span><br><span class="line">        subject.add(obs2);</span><br><span class="line">        subject.notifyObserver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//抽象目标</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> List&lt;Observer&gt; observers=<span class="keyword">new</span> ArrayList&lt;Observer&gt;();   </span><br><span class="line">    <span class="comment">//增加观察者方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Observer observer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        observers.add(observer);</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="comment">//删除观察者方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(Observer observer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        observers.remove(observer);</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>; <span class="comment">//通知观察者方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体目标</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteSubject</span> <span class="keyword">extends</span> <span class="title">Subject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体目标发生改变..."</span>);</span><br><span class="line">        System.out.println(<span class="string">"--------------"</span>);       </span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(Object obs:observers)</span><br><span class="line">        &#123;</span><br><span class="line">            ((Observer)obs).response();</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">    &#125;          </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//抽象观察者</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span>; <span class="comment">//反应</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体观察者1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver1</span> <span class="keyword">implements</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体观察者1作出反应！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体观察者1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver2</span> <span class="keyword">implements</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体观察者2作出反应！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-jvm-内容"><a href="#4-jvm-内容" class="headerlink" title="4. jvm 内容"></a>4. jvm 内容</h2><h3 id="常见的GC种类"><a href="#常见的GC种类" class="headerlink" title="常见的GC种类"></a>常见的GC种类</h3><p><img src="image/1.jpg" alt="HOTSpot"><br>注意:有连线表示可以搭配使用  </p>
+<h4 id="serial-串行"><a href="#serial-串行" class="headerlink" title="serial(串行)"></a>serial(串行)</h4><ul>
+<li>针对新生代</li>
+<li>复制算法</li>
+<li>单线程</li>
+<li>必须停止所有工作线程即”Stop the word”</li>
+<li>多应用于client模式</li>
+</ul>
+<h4 id="parNew"><a href="#parNew" class="headerlink" title="parNew"></a>parNew</h4><ul>
+<li>serial的多线程版本</li>
+<li>除多线程特点外和serial一样</li>
+<li>多应用于server模式</li>
+</ul>
+<h4 id="parallel-Scavebge"><a href="#parallel-Scavebge" class="headerlink" title="parallel Scavebge"></a>parallel Scavebge</h4><ul>
+<li>吞吐量收集器</li>
+<li>复制算法</li>
+<li>多线程</li>
+<li>目标是达到可控的吞吐量(吞吐量=运行用户代码时间/(运行用户代码时间+垃圾收集时间))</li>
+<li>减少垃圾收集时间,以让用户代码获得更长的运行时间</li>
+</ul>
+<h4 id="serial-old"><a href="#serial-old" class="headerlink" title="serial old"></a>serial old</h4><ul>
+<li>serial的老年代版本</li>
+<li>老年代</li>
+<li>单线程</li>
+<li>标记整理(有压缩)</li>
+<li>主要client模式</li>
+</ul>
+<h4 id="parallel-old"><a href="#parallel-old" class="headerlink" title="parallel old"></a>parallel old</h4><ul>
+<li>parallel Scavenge的老年代版本</li>
+<li>标记整理</li>
+<li>多线程 </li>
+</ul>
+<h4 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h4><ul>
+<li><p>并发标记清理 低停顿 低延迟</p>
+</li>
+<li><p>标记清除算法(不压缩,产生内存碎片)</p>
+</li>
+<li><p>消耗更多内存</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、初始标记</span><br><span class="line">只是标记一下 GC Roots 能直接关联的对象,速度很快,仍然需要暂停所有的工作线程。</span><br><span class="line">2、并发标记</span><br><span class="line">进行 GC Roots 跟踪的过程,和用户线程一起工作,不需要暂停工作线程。</span><br><span class="line">3、重新标记</span><br><span class="line">为了修正在并发标记期间,因用户程序继续运行而导致标记产生变动的那一部分对象的标记记录,仍然需要暂停所有的工作线程。</span><br><span class="line">4、并发清除</span><br><span class="line">清除 GC Roots 不可达对象,和用户线程一起工作,不需要暂停工作线程。由于耗时最长的并</span><br><span class="line">发标记和并发清除过程中,垃圾收集线程可以和用户现在一起并发工作,所以总体上来看</span><br><span class="line">CMS 收集器的内存回收和用户线程是一起并发地执行。</span><br></pre></td></tr></table></figure>
+
+<h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><p>  Garbage first 垃圾收集器是目前垃圾收集器理论发展的最前沿成果,相比与 CMS 收集器,G1 收<br>  集器两个最突出的改进是:</p>
+<ol>
+<li>基于标记-整理算法,不产生内存碎片。</li>
+<li>可以非常精确控制停顿时间,在不牺牲吞吐量前提下,实现低停顿垃圾回收。<br>G1 收集器避免全区域垃圾收集,它把堆内存划分为大小固定的几个独立区域,并且跟踪这些区域<br>的垃圾收集进度,同时在后台维护一个优先级列表,每次根据所允许的收集时间,优先回收垃圾<br>最多的区域。区域划分和优先级区域回收机制,确保 G1 收集器可以在有限时间获得最高的垃圾收<br>集效率。</li>
+</ol>
+<h3 id="Minor-GC-和Full-GC"><a href="#Minor-GC-和Full-GC" class="headerlink" title="Minor GC 和Full GC"></a>Minor GC 和Full GC</h3><p>MinorGC 是发生在新生代的GC<br>FullGC也称MajorGC,是发生在老年代的GC</p>
+<h3 id="新生代老年代"><a href="#新生代老年代" class="headerlink" title="新生代老年代"></a>新生代老年代</h3><p>一般新生代:老年代=1:2<br>新生代包含,Eden:servivor:servivor=8:1:1, 新生代因为对象”朝生夕死”故采用”复制清除法”,把Eden和一个servivor区域的存活对象复制到另一个servivor区域,两个servivor交替使用,即第一次minorGC时把Eden和servivor1的存活对象复制到servivor2,第二次就把Eden和servivor2的的存活对象复制到servivor1中,依次交替下.<br>老年代,一般使用标记整理法.对象放入老年代的原因可能有</p>
+<ul>
+<li>minorgc中servivor满了还未放进去的对象</li>
+<li>大对象</li>
+<li>经过多次minorGC还存活的对象(一般16次)</li>
+<li>servivor超过一半对象是某个年龄的对象(minor经历过GC的次数称为年龄),那么大于该年龄的对象会直接进入老年代</li>
+</ul>
+<h3 id="4种可作为GC-root的对象"><a href="#4种可作为GC-root的对象" class="headerlink" title="4种可作为GC root的对象"></a>4种可作为GC root的对象</h3><p>虚拟机栈中引用的对象<br>方法区静态属性引用的对象<br>方法区常量引用的对象<br>本地方法栈中JNI(即一般说的Native方法)引用的对象</p>
+<h3 id="4种引用类型"><a href="#4种引用类型" class="headerlink" title="4种引用类型"></a>4种引用类型</h3><p><strong>强引用</strong></p>
+<p>Java中默认声明的就是强引用，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object(); <span class="comment">//只要obj还指向Object对象，Object对象就不会被回收</span></span><br><span class="line">obj = <span class="keyword">null</span>;  <span class="comment">//手动置null</span></span><br></pre></td></tr></table></figure>
+
+<p>只要强引用存在，垃圾回收器将永远不会回收被引用的对象，哪怕内存不足时，JVM也会直接抛出OutOfMemoryError，不会去回收。如果想中断强引用与对象之间的联系，可以显示的将强引用赋值为null，这样一来，JVM就可以适时的回收对象了</p>
+<p><strong>软引用</strong></p>
+<p>软引用是用来描述一些非必需但仍有用的对象。<strong>在内存足够的时候，软引用对象不会被回收，只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常</strong>。这种特性常常被用来实现缓存技术，比如网页缓存，图片缓存等。<br>在 JDK1.2 之后，用java.lang.ref.SoftReference类来表示软引用。</p>
+<p>下面以一个例子来进一步说明强引用和软引用的区别：<br>在运行下面的Java代码之前，需要先配置参数 -Xms2M -Xmx3M，将 JVM 的初始内存设为2M，最大可用内存为 3M。</p>
+<p>首先先来测试一下强引用，在限制了 JVM 内存的前提下，下面的代码运行正常</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOOM</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         testStrongReference();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testStrongReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当 new byte为 1M 时，程序运行正常</span></span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果我们将</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+<p>替换为创建一个大小为 2M 的字节数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+
+<p>则内存不够使用，程序直接报OOM，强引用并不会被回收</p>
+<p>接着来看一下软引用会有什么不一样，在下面的示例中连续创建了 10 个大小为 1M 的字节数组，并赋值给了软引用，然后循环遍历将这些对象打印出来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOOM</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         testSoftReference();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSoftReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">            SoftReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> SoftReference&lt;&gt;(buff);</span><br><span class="line">            list.add(sr);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">            Object obj = ((SoftReference) list.get(i)).get();</span><br><span class="line">            System.out.println(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们发现无论循环创建多少个软引用对象，打印结果总是只有最后一个对象被保留，其他的obj全都被置空回收了。<br>这里就说明了在内存不足的情况下，软引用将会被自动回收。<br>值得注意的一点 , 即使有 byte[] buff 引用指向对象, 且 buff 是一个strong reference, 但是 SoftReference sr 指向的对象仍然被回收了，这是因为Java的编译器发现了在之后的代码中, buff 已经没有被使用了, 所以自动进行了优化。<br>如果我们将上面示例稍微修改一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSoftReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] buff = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">        SoftReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> SoftReference&lt;&gt;(buff);</span><br><span class="line">        list.add(sr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">        Object obj = ((SoftReference) list.get(i)).get();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"buff: "</span> + buff.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则 buff 会因为强引用的存在，而无法被垃圾回收，从而抛出OOM的错误。</p>
+<p>如果一个对象惟一剩下的引用是软引用，那么该对象是软可及的（softly reachable）。垃圾收集器并不像其收集弱可及的对象一样尽量地收集软可及的对象，相反，它只在真正 “需要” 内存时才收集软可及的对象。</p>
+<p><strong>弱引用</strong></p>
+<p>弱引用的引用强度比软引用要更弱一些，<strong>无论内存是否足够，只要 JVM 开始进行垃圾回收，那些被弱引用关联的对象都会被回收</strong>。在 JDK1.2 之后，用 java.lang.ref.WeakReference 来表示弱引用。<br>我们以与软引用同样的方式来测试一下弱引用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testWeakReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">        WeakReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> WeakReference&lt;&gt;(buff);</span><br><span class="line">        list.add(sr);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">        Object obj = ((WeakReference) list.get(i)).get();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：全部为null</p>
+<p>可以发现所有被弱引用关联的对象都被垃圾回收了。</p>
+<p><strong>虚引用</strong></p>
+<p>虚引用是最弱的一种引用关系，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，它随时可能会被回收，在 JDK1.2 之后，用 PhantomReference 类来表示，通过查看这个类的源码，发现它只有一个构造函数和一个 get() 方法，而且它的 get() 方法仅仅是返回一个null，也就是说将永远无法通过虚引用来获取对象，虚引用必须要和 ReferenceQueue 引用队列一起使用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhantomReference</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">Reference</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns this reference object's referent.  Because the referent of a</span></span><br><span class="line"><span class="comment">     * phantom reference is always inaccessible, this method always returns</span></span><br><span class="line"><span class="comment">     * &lt;code&gt;null&lt;/code&gt;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  &lt;code&gt;null&lt;/code&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PhantomReference</span><span class="params">(T referent, ReferenceQueue&lt;? <span class="keyword">super</span> T&gt; q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(referent, q);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>主要作用是跟踪对象被垃圾回收的状态</p>
+<h3 id="什么情况下判断需要调整新生带的大小"><a href="#什么情况下判断需要调整新生带的大小" class="headerlink" title="什么情况下判断需要调整新生带的大小"></a>什么情况下判断需要调整新生带的大小</h3><p>笨想一下,新生代最好每次minorGC最好大部分对象已经”死去”,这样对新生代采用的”复制清除算法”更有利.</p>
+<h3 id="jvm的常见参数"><a href="#jvm的常见参数" class="headerlink" title="jvm的常见参数"></a>jvm的常见参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-verbose:gc -XX:+printGC</td>
+<td>打印GC的简要信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDetails</td>
+<td>打印GC详细信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintGCTimeStamps</td>
+<td>打印GC发生的时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xlog:&lt;path&gt;</td>
+<td>指定GClog的的位置,文件输出log</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:TraceClassLoading</td>
+<td>监控类的的加载</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintClassHistogram</td>
+<td>按下Ctr+Break后,打印类的信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xmx -Xms</td>
+<td>指定最大堆,最小堆</td>
+<td>默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制.空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制</td>
+</tr>
+<tr>
+<td>-XX:NewRatio</td>
+<td>表示老年代:新生代的比值</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:SurivorRatio</td>
+<td>eden:survivor的值</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+HeapDumpOnOutOfMemoryError</td>
+<td>OOM时导出堆到文件</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+HeapDumpPath</td>
+<td>导出OOM的路径</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xss</td>
+<td>设置栈的大小</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:PermSize</td>
+<td>永久区的初始空间</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:MaxPermSize</td>
+<td>永久区的最大空间</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:OnOutOfMemoryError</td>
+<td>在OOM时执行一个脚本</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="static-amp-final"><a href="#static-amp-final" class="headerlink" title="static &amp; final"></a>static &amp; final</h2><p>static:</p>
+<ul>
+<li>变量：类加载时被初始话，内存中只有一个;</li>
+<li>方法：不能引用非static的方法或变量、必须实现;  </li>
+<li>因为static是成员变量是gcRoot,不会随着该类new出来的对象回收而回收<br>static 变量在内存只有一个实体, 如下述代码中, 三个输出结果皆为2. <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ChildrenMySort.anInt=<span class="number">0</span>;</span><br><span class="line">        ChildrenMySort childrenMySort=<span class="keyword">new</span> ChildrenMySort();</span><br><span class="line">        ChildrenMySort childrenMySort2=<span class="keyword">new</span> ChildrenMySort();</span><br><span class="line">        childrenMySort.anInt=<span class="number">1</span>;</span><br><span class="line">        childrenMySort2.anInt=<span class="number">2</span>;</span><br><span class="line">        System.out.println(ChildrenMySort.anInt);</span><br><span class="line">        System.out.println(childrenMySort.anInt);</span><br><span class="line">        System.out.println(childrenMySort2.anInt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+final ：</li>
+<li>变量：类加载初始化，不可改变或引用不可变;</li>
+<li>方法：不能被被子类重写;类：不能被继承;</li>
+<li>形参：不能被子类修改;</li>
+<li>final修饰的成员变量是gcroot 不会随改类定义的对象回收而回收;</li>
+</ul>
+<h3 id="hashtable、hashmap、currenthashmap"><a href="#hashtable、hashmap、currenthashmap" class="headerlink" title="hashtable、hashmap、currenthashmap:"></a>hashtable、hashmap、currenthashmap:</h3><p>线程安全：table安全，current安全而且效率更高，因为划分粒度更小，将哈希桶分段加锁;map不线程安全<br>null：table不允许空值，map允许，key和value都包括;<br>遍历：table使用枚举类，map使用迭代类<br>父类：table是Dictionary类，map继承AbstractMap<br>哈希值使用：table直接使用hashcode，map对hashcode在hash()<br>map的初始容量16 转化因子0.75</p>
+<p>String +String 实际转化成stringbuild 的append（）</p>
+<h3 id="序列化："><a href="#序列化：" class="headerlink" title="序列化："></a>序列化：</h3><p>TODO<br>将对象转化成字节序列，java远程调用，javabean。序列化内容：类名、属性，static属性不序列化、方法不序列化;反序列花：需要对应的class文件，实现ExternalSerialble的会调用构造方法，seriable不会;transient关键字修饰不必序列花的属性。</p>
+<h3 id="多线程："><a href="#多线程：" class="headerlink" title="多线程："></a>多线程：</h3><p>TODO<br>三种方式：<br>继承Thread类，重写run函数<br>runable接口<br>callable接口 有返回值<br>线程安全：<br>volitate<br>synchronized<br>lock</p>
+<p>线程池：</p>
+<p>java内存泄露与溢出</p>
+<h1 id="二-数据库知识"><a href="#二-数据库知识" class="headerlink" title="二. 数据库知识"></a>二. 数据库知识</h1><h4 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h4><p>原子性：保证事务中的所有操作全部或全部不执行</p>
+<p>一致性： 保持系统处于一致的状态</p>
+<p>隔离性： 多事务并发执行 ，结果与多个事务串行效果一致</p>
+<p>持久性：事物务操作后，对数据库的影响是持久的，即使数据库因故障而受到破坏。</p>
+<h4 id="脏读、不可重复读、幻读"><a href="#脏读、不可重复读、幻读" class="headerlink" title="脏读、不可重复读、幻读"></a>脏读、不可重复读、幻读</h4><p>脏读：T1更新了一行记录的内容、但是没有提交、T2读取更新的行，然后T1回滚，T2就无效了。</p>
+<p>不可重复读：T1读取一行，T2修改该行，T1又再次读取这行，发现与读取的结果不同</p>
+<p>幻读：T1根据条件索引到N条数据，T2增添了M条数据，T1再次搜索发现幻读</p>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="MyISAM和InnoDB"><a href="#MyISAM和InnoDB" class="headerlink" title="MyISAM和InnoDB"></a>MyISAM和InnoDB</h4><p>m非事务安全，i事务安全</p>
+<p>m粒度表级，i行级</p>
+<p>m支持全文类型索引，而I不支持</p>
+<p>m相对简单，效率高，适合小型应用</p>
+<p>m表保存为文件格式，数据转移简单</p>
+<p>i更安全</p>
+<p>m适合查询，i适合修改</p>
+<h5 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h5><p>select * from table limit m offset n;</p>
+<h1 id="三-计算机网络知识"><a href="#三-计算机网络知识" class="headerlink" title="三. 计算机网络知识"></a>三. 计算机网络知识</h1><h2 id="协议三要素"><a href="#协议三要素" class="headerlink" title="协议三要素"></a>协议三要素</h2><p>语法、语义、时序</p>
+<p>DNS 查询：迭代、递归</p>
+<p>格式：（name,value,type,type,ttl）</p>
+<p>Type=A name 主机域名 value Ip地址</p>
+<p>Ns  域 该域权威域名解析服务器的主机域名</p>
+<p>chame 真实域名的别名 真实域名</p>
+<p>MX valueiname相对应的邮件服务器</p>
+<h2 id="http与https的区别"><a href="#http与https的区别" class="headerlink" title="http与https的区别"></a>http与https的区别</h2><p>http-TCP 80 </p>
+<p>https-SSL/TLS-TCP 443 需要证书，一般收费</p>
+<h2 id="TCP可靠传输-amp-三次握手-amp-四此挥手"><a href="#TCP可靠传输-amp-三次握手-amp-四此挥手" class="headerlink" title="TCP可靠传输&amp;三次握手&amp;四此挥手"></a>TCP可靠传输&amp;三次握手&amp;四此挥手</h2><p>可靠：数据包校验、超时重传、流量控制 </p>
+<p>三次：c反送SYN包 x 、s发送SYN ACK ack=x+1 编号 y 、c发送ACK  ack=y+1</p>
+<p>四次：c发送FIN 编号m 、s发送ack m+1 、s发送FIN n、c发送ack n+1</p>
+<h2 id="DDOS攻击"><a href="#DDOS攻击" class="headerlink" title="DDOS攻击"></a>DDOS攻击</h2><p>一直握2次手，不握第三次</p>
+<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET&amp;POST"></a>GET&amp;POST</h2><p>三get：数据小，不能发大量数据，请求不安全，幂等，</p>
+<p>post：不能被缓存、安全、稳定可靠、数据量无限制</p>
+<h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><ul>
+<li>应用层</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<h3 id="6-网络层"><a href="#6-网络层" class="headerlink" title="6. 网络层"></a>6. 网络层</h3><p>核心功能: 转发与路由</p>
+<h3 id="7-数据链路层"><a href="#7-数据链路层" class="headerlink" title="7. 数据链路层"></a>7. 数据链路层</h3><p>负责通过一条链路从一个节点向另一个物理链路直接相连的相邻节点传送数据报<br>功能:</p>
+<ul>
+<li>组帧</li>
+<li>链路接入,在共享介质中需要信道接入</li>
+<li>可靠交付,有线链路很少采用,无线链路误码率高故需采用</li>
+<li>流量控制</li>
+<li>差错检测 接收端通知重传或直接丢弃</li>
+<li>差错纠正 接收端直接纠正</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>发送端</th>
+<th>接收端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将数据封装成帧</td>
+<td>提取数据报,交付上层协议</td>
+</tr>
+<tr>
+<td>增加差错检测</td>
+<td>检测差错,实现可靠数据传输和流量控制</td>
+</tr>
+</tbody></table>
+<h4 id="7-1-多路访问控制协议MAC"><a href="#7-1-多路访问控制协议MAC" class="headerlink" title="7.1 多路访问控制协议MAC"></a>7.1 多路访问控制协议MAC</h4><p>点对点链路: </p>
+<ul>
+<li>拨号的PPP</li>
+<li>以太网交换机与主机  </li>
+</ul>
+<p>广播链路:</p>
+<ul>
+<li>802.11无线局域网</li>
+</ul>
+<p>MAC三大类:</p>
+<ul>
+<li><p>信道划分</p>
+<blockquote>
+<p>多路复用,TDMA,FDMA,CDMA,WDMA</p>
+</blockquote>
+</li>
+<li><p>随机访问</p>
+<blockquote>
+<p>允许冲突,冲突恢复机制</p>
+</blockquote>
+</li>
+<li><p>轮转</p>
+<blockquote>
+<p>轮流使用</p>
+</blockquote>
+<h4 id="7-2-ARP协议"><a href="#7-2-ARP协议" class="headerlink" title="7.2 ARP协议"></a>7.2 ARP协议</h4></li>
+</ul>
+<h2 id="TCP快速重传"><a href="#TCP快速重传" class="headerlink" title="TCP快速重传"></a>TCP快速重传</h2><p>连续收到三个相同的ACK就直接重传</p>
+<h2 id="5类ip地址"><a href="#5类ip地址" class="headerlink" title="5类ip地址"></a>5类ip地址</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>组成</th>
+<th>范围</th>
+<th>备注</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>1字节的网络地址3字节的主机地址</td>
+<td>1.0.0.0~127.0.0.0</td>
+<td>最高位为0,为大型网络设计</td>
+<td>127.0.0.1表示主机本身</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2字节网络2字节主机</td>
+<td>128.0.0.0~191.255.255.255</td>
+<td>网络地址最高为为10</td>
+<td>其中128.0.0.0和191.255.0.0为保留ip，实际范围是128.1.0.0–191.254.0.0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3字节网络地址1字节主机地址</td>
+<td>192.0.0.0~223.255.255.255</td>
+<td>最高位110</td>
+<td>其中192.0.0.0和223.255.255.0为保留ip，实际范围是192.0.1.0–223.255.254.0</td>
+</tr>
+<tr>
+<td>D</td>
+<td>多点广播</td>
+<td>224.0.0~239.255.255.255</td>
+<td>最高位1110</td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>保留地址</td>
+<td>240.0.0.0~255.255.255.254</td>
+<td>最高11110</td>
+<td>255.255.255.255用于广播</td>
+</tr>
+</tbody></table>
+<ul>
+<li>0.0.0.0 对应当前主机</li>
+<li></li>
+</ul>
+<h2 id="剑指off"><a href="#剑指off" class="headerlink" title="剑指off"></a>剑指off</h2><p>不确定问题大胆提问</p>
+<p>自我介绍：30到60秒，主要学习经历</p>
+<p>项目介绍：简短的项目背景、详细自己完成的任务、详细自己怎么完成的、自己的贡献</p>
+<p>了解、熟悉、精通</p>
+<p>重点算法：二分查找、归并排序、快速排序、动态规划、贪心算法</p>
+<p>简单程序要有健壮性，考虑特殊情况</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8A%9D%E5%A3%AB/" rel="tag">芝士</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-interview/网易有道一面" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -970,82 +1517,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-learn/flink" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/26/learn/flink/"
-    >flink笔记</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/26/learn/flink/" class="article-date">
-  <time datetime="2020-05-26T05:26:02.000Z" itemprop="datePublished">2020-05-26</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1 基础概念"></a>1 基础概念</h1><h2 id="bound"><a href="#bound" class="headerlink" title="bound"></a>bound</h2><p>bounded数据 有始有终的数据<br>unbounde数据 无界的数据,有始无终 </p>
-<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>无状态是数据来一条处理一条,不装载数据 </p>
-<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>Even Time : event创建的时间<br>ingestion time:<br>Process time:</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>有界无界数据流<br>部署灵活<br>极高伸缩性<br>极致流式处理性能  </p>
-<h2 id="operatino"><a href="#operatino" class="headerlink" title="operatino"></a>operatino</h2><p>高可用  </p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
 
 
     </footer>
