@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    拼多多2019秋一面 |  yzqaq
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="yzqaq" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-interview/拼多多一面" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  拼多多2019秋一面
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/26/interview/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E4%B8%80%E9%9D%A2/" class="article-date">
+  <time datetime="2020-05-26T05:26:02.000Z" itemprop="datePublished">2020-05-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>自我介绍</li>
+<li>熟悉的语言是什么<ul>
+<li>java</li>
+</ul>
+</li>
+<li>用过那些java的容器类<ul>
+<li>HashMap、HashSet、ArrayList、LinkList</li>
+</ul>
+</li>
+<li>HashTable与CurrentHashMap的区别<ul>
+<li>HashTable key和value 不能为空值，CurrentHashMap可以</li>
+<li>CurrentHashMap的加锁的粒度更小，所以性能要高一点</li>
+</ul>
+</li>
+<li>为什么CurrentHashMap性能要高一点<ul>
+<li>加锁的粒度更小，加在目标桶上，同时其它对其他桶的操作与读取</li>
+<li>java8以后CurrentHashMap从Synchronized改使用CAS实现，即乐观锁，提高了性能</li>
+</ul>
+</li>
+<li>HashMap查询效率特别低的话，总是发生碰撞有什么办法优化<ul>
+<li>扩容</li>
+</ul>
+</li>
+<li>不能扩容呢，一个链表特别长<ul>
+<li>把链表转化成查找树，可以实现O(log n)的复杂度</li>
+</ul>
+</li>
+<li>你知道哪些查找树呢，这里用什么好    <ul>
+<li>（突然蒙了），就一般的查找树就好</li>
+</ul>
+</li>
+<li>一般得得得查找树的最坏的复杂度是多少呢<ul>
+<li>O(n)，如果树一边倒的话，相当一个链表</li>
+</ul>
+</li>
+<li>红黑树有了解过吗，这里用红黑树行不行<ul>
+<li>可以，但是我实现不出来，仅限了解</li>
+</ul>
+</li>
+<li>为什么可以呢<ul>
+<li>因为红黑树维护这一个性质，根节点到叶节点的路径上有相同的黑色节点，这样保证了平衡性</li>
+</ul>
+</li>
+<li>你知道哪些垃圾回收器<ul>
+<li>（蒙～）</li>
+</ul>
+</li>
+<li>哪些回收算法<ul>
+<li>新生代和老年代有不同的算法，新生是标记需要回收的，然后直接回收，老年把需要回收的对象移动到一端，然后清除</li>
+</ul>
+</li>
+<li>怎么判断新生代老年代<ul>
+<li>一般先放在新生代，若干次新生代回收后还没有被回收的话转移到老年代，也有例外，比如大对象可能直接放入到老年代</li>
+</ul>
+</li>
+<li>怎么判断对象需要回收、从哪开始找  <ul>
+<li>没有引用时，从根节点开始</li>
+</ul>
+</li>
+<li>哪些可以当成根节点<ul>
+<li>忘了</li>
+</ul>
+</li>
+<li>java类加载的过程<ul>
+<li>不太了解，好像是什么双亲加载模型什么的，就是要加载这个对象前先从父亲代加载，依次递归下去</li>
+</ul>
+</li>
+<li>计算机中段和页知道吗<ul>
+<li>不了解</li>
+</ul>
+</li>
+<li>mysql中有哪些引擎<ul>
+<li>MyIsam Innodb ，My不支持事务安全，使用文件保存，方便转移，粒度表级，更适合查询，适合小型项目，Innodb支持事务安全、粒度行级、写效率高，适合复杂的项目</li>
+</ul>
+</li>
+<li>Innodb 使用什么索引<ul>
+<li>懵，好像是B+树  </li>
+</ul>
+</li>
+<li>为什么使用B+树，B+树有什么特点<ul>
+<li>这里答乱七八糟、略</li>
+</ul>
+</li>
+<li>B+树为什么把所有放在叶节点<ul>
+<li>维护树的平衡性，降低树的高度</li>
+</ul>
+</li>
+<li>有用过哪些Nosql，各自有什么特点</li>
+<li>问了一个项目</li>
+<li>通过短信给用户发送一个长链接，但短信长度有限，可能链接放不下你怎么解决<ul>
+<li>使用t.cn类似的短链接</li>
+</ul>
+</li>
+<li>你实现这个t.cn的功能<ul>
+<li>可以后台生成一个Host+编号的短连接，然后重定向到对应的长链接，编号的方式可以采用时间戳</li>
+</ul>
+</li>
+<li>要求生成链接是杂乱的，不要暴露编号<ul>
+<li>比如只使用小写字母和大写字母，就可以得到一个52进制的表示方法，如a表示1，z表示26，az表示53+26=79</li>
+</ul>
+</li>
+<li>你有什么问题问我吗<ul>
+<li>你们后端开发一般用什么<ul>
+<li>java的多一点，也有c++等其他语言</li>
+</ul>
+</li>
+<li>今晚表现的最差的一点是哪里<ul>
+<li>作为应届生，虽然课程没教，但基础的还是应该学好一点（这里应该指段和页那题，我说的是没上过计算级系统这门课，可能和其他基础没打出来也有关系，这言外之意就是“你基础不太行”，所以理论上应该没有二面了）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>果然又败在了基础部分。这次面试心态还可以，这么多没答出来，依然面不改色，这是进步点，当然也有面试官氛围维持好的原因。</p>
+<h1 id="重现"><a href="#重现" class="headerlink" title="重现"></a>重现</h1><h2 id="计算机中的段和页"><a href="#计算机中的段和页" class="headerlink" title="计算机中的段和页"></a>计算机中的段和页</h2><p>一个段中包含若干页，在段式存储管理中，将程序的地址空间划分为若干段（segment），如代码段，数据段，堆栈段；这样每个进程有一个二维地址空间，相互独立，互不干扰。段式管理的优点是：没有内碎片（因为段大小可变，改变段大小来消除内碎片）。但段换入换出时，会产生外碎片（比如4k的段换5k的段，会产生1k的外碎片）。<br>在页式存储管理中，将程序的逻辑地址划分为固定大小的页（page），而物理内存划分为同样大小的页框，程序加载时，可以将任意一页放入内存中任意一个页框，这些页框不必连续，从而实现了离散分离。页式存储管理的优点是：没有外碎片（因为页的大小固定），但会产生内碎片（一个页可能填充不满）<br>两者结合——段页式存储管理：内存分为几个段，每个段分为大小相同的页，主存分配以页为单位。地址结构：段号、页号、页内偏移量。每个进程一个段表，每个段一个页表。<br>2．地址变换的过程：<br>（1）程序执行时，从PCB中取出段表始址和段表长度，装入段表寄存器。<br>（2）由地址变换机构将逻辑地址自动分成段号、页号和页内地址。<br>（3）将段号与段表长度进行比较，若段号大于或等于段表长度，则表示本次访问的地址已超越进程的地址空间，产生越界中断。<br>（4）将段表始址与段号和段表项长度的乘积相加，便得到该段表项在段表中的位置。<br>（5）取出段描述子得到该段的页表始址和页表长度。<br>（6）将页号与页表长度进行比较，若页号大于或等于页表长度，则表示本次访问的地址已超越进程的地址空间，产生越界中断。<br>（7）将页表始址与页号和页表项长度的乘积相加，便得到该页表项在页表中的位置。<br>（8）取出页描述子得到该页的物理块号。<br>（9）对该页的存取控制进行检查。<br>（10）将物理块号送入物理地址寄存器中，再将有效地址寄存器中的页内地址直接送入物理地址寄存器的块内地址字段中，拼接得到实际的物理地址。</p>
+<hr>
+<h2 id="操作系统相关知识"><a href="#操作系统相关知识" class="headerlink" title="操作系统相关知识"></a>操作系统相关知识</h2><ol>
+<li><p>进程间的通信的几种方式  </p>
+<ul>
+<li><p>管道（pipe）及命名管道（named pipe）：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信；</p>
+</li>
+<li><p>信号（signal）：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生；</p>
+</li>
+<li><p>消息队列：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限得进程可以按照一定得规则向消息队列中添加新信息；对消息队列有读权限得进程则可以从消息队列中读取信息；</p>
+</li>
+<li><p>共享内存：可以说这是最有用的进程间通信方式。它使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据得更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等；</p>
+</li>
+<li><p>信号量：主要作为进程之间及同一种进程的不同线程之间得同步和互斥手段；</p>
+</li>
+<li><p>套接字：这是一种更为一般得进程间通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛。  </p>
+</li>
+</ul>
+</li>
+<li><p>进程状态</p>
+<ul>
+<li>就绪状态，已获得除cpu的所需资源</li>
+<li>运行状态，处于此状态的进程数不大于cpu数</li>
+<li>阻塞状态</li>
+</ul>
+</li>
+<li><p>进程调度策略</p>
+<ul>
+<li>FCFS：先来的先得</li>
+<li>SJF ：最短作业优先调度算法，使平均等待时间最短</li>
+<li>优先级调度算法，优先级越高越先分配，相同优先级先到先得，问题是低优先级线程可能会饿死，即无限等待</li>
+<li>时间片轮转调度算法： 每个轮流使用一个时间片后，放回就绪队列</li>
+<li>多级队列调度算发：将就绪对列分成多个独立的队列，队列间按优先级抢占调度</li>
+<li>多级反馈队列调度算法</li>
+</ul>
+</li>
+<li><p>进程同步机制<br>原子操作<br>信号量操作<br>自旋锁管程<br>回合<br>分布式系统</p>
+</li>
+</ol>
+<hr>
+<p>线程同步方式  </p>
+<ul>
+<li>互斥量：只有拥有互斥对象的线程才有访问公共资源的权限。</li>
+<li>信号量：允许多个线程同一时刻访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+</ul>
+<ul>
+<li>事件（信号）：通知操作保持多线程同步</li>
+</ul>
+<p>线程状态：<br>创建<br>就绪<br>运行<br>阻塞<br>等待<br>时间等待<br>终止<br><img src="./image/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.jpg" alt="线程状态"></p>
+<hr>
+<p>死锁</p>
+<ol>
+<li>概念<br>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组进程产生了死锁。通俗的讲，就是两个或多个进程无限期的阻塞、相互等待的一种状态。  </li>
+<li>产生死锁的4个必要条件<ul>
+<li>互斥：至少有一个资源一次只能被一个进程占有</li>
+<li>占有等待：一个进程占有至少一个资源，并等待另一个被其他进程占有的资源</li>
+<li>非抢占：资源只能在进程完成后资源释放</li>
+<li>循环等待：若干进程形成环形等待关系</li>
+</ul>
+</li>
+<li>死锁处理<ul>
+<li>预防</li>
+<li>避免，动态检测资源状态</li>
+<li>解除，进程终止，资源抢占  </li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>虚拟内存</p>
+<ol>
+<li>页面置换算法<ul>
+<li>FIFO先进先出算法</li>
+<li>LRU 最少使用算法：根据使用时间</li>
+<li>LFU 最少使用次数算法</li>
+<li>OPT 最有置换算法 理论最优，保证置换出去的的页是不再使用的页<h2 id="java类的加载过程"><a href="#java类的加载过程" class="headerlink" title="java类的加载过程"></a>java类的加载过程</h2></li>
+</ul>
+</li>
+<li>加载  </li>
+<li>验证<br>文件格式验证：验证字节流是否符合Class文件规范<br>元数据验证：对字节流进行语义分析，是否符合java语言语法的规范<br>字节码验证：分析数据流和控制，保证该类不会危害虚拟机<br>符号引用验证：对常量池中中各种符号引用进行匹配性校验</li>
+<li>准备<br>为类变量进行内存分配设置初始值为0（0，null，false等），这些内存在方法区分配<br>但是如果变量被static final ,则在准备阶段就被初始化。  <strong>可以理解为放入调动它的类的常量池中</strong> </li>
+<li>解析<br>讲常量池中的符号引用转化为直接引用。可能在之前也可能在之后开始。  <ul>
+<li>类或接口</li>
+<li>字段解析</li>
+<li>类方法解析</li>
+<li>接口方法解析</li>
+</ul>
+</li>
+<li>初始化<br>虚拟机规范严格规定了有且只有四种情况必须立即对类进行初始化：<ul>
+<li>遇到new、getstatic、putstatic、invokestatic这四条字节码指令时，如果类还没有进行过初始化，则需要先触发其初始化。生成这四条指令最常见的Java代码场景是：使用new关键字实例化对象时、读取或设置一个类的静态字段（static）时（被static修饰又被final修饰的，已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。</li>
+<li>使用Java.lang.refect包的方法对类进行反射调用时，如果类还没有进行过初始化，则需要先触发其初始化。</li>
+<li>当初始化一个类的时候，如果发现其父类还没有进行初始化，则需要先触发其父类的初始化。</li>
+<li>当虚拟机启动时，用户需要指定一个要执行的主类，虚拟机会先执行该主类。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="jvm垃圾回收"><a href="#jvm垃圾回收" class="headerlink" title="jvm垃圾回收"></a>jvm垃圾回收</h2><hr>
+<p>##参考</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.baidu.com/2020/05/26/interview/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E4%B8%80%E9%9D%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag">面经</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/05/26/interview/%E5%BF%AB%E6%89%8B%E4%B8%80%E9%9D%A2/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            快手2019秋一面
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/05/26/interview/%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">java笔记</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> yzqaq
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="yzqaq"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2020/05/26/about/">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['且将新火试新茶，诗酒趁年华', '', ''],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

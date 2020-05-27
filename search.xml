@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>About Me</title>
+    <url>/2020/05/26/about/</url>
+    <content><![CDATA[<p>GitHub: <a href="https://github.com/yzqaq" target="_blank" rel="noopener">Shen-Yu</a><br>mail: <a href="mailto:abloibce@qq.com">abloibce@qq.com</a></p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>十大排序</title>
+    <url>/2020/05/26/blog/sort/</url>
+    <content><![CDATA[<h1 id="图解十大经典排序"><a href="#图解十大经典排序" class="headerlink" title="图解十大经典排序"></a>图解十大经典排序</h1><p><img src="img/sort0.jpg" alt=""><br>注：n表示数据规模，k表示桶的个数，In-place表示占用常数内存或不占用额外内存，Out-place表示占用额外内存。什么是稳定性？当排序后2个相等键值的顺序 和 排序前它们的顺序相同，则表示“稳定”。</p>
+<h2 id="1、冒泡排序"><a href="#1、冒泡排序" class="headerlink" title="1、冒泡排序"></a>1、冒泡排序</h2><p><img src="img/2463290-759e8a17f2f8fe49.gif" alt=""></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 冒泡排序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a.length - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = a[j];</span><br><span class="line">                a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">                a[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 冒泡排序 改进</span></span><br><span class="line"><span class="comment"> * 置一个标志位，记录最后换位置的位置</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bubbleSortPro</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> point = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">        point = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a.length - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                temp = a[j];</span><br><span class="line">                a[j] = a[j + <span class="number">1</span>];</span><br><span class="line">                a[j + <span class="number">1</span>] = temp;</span><br><span class="line">                point = j + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i = a.length - point - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、选择排序"><a href="#2、选择排序" class="headerlink" title="2、选择排序"></a>2、选择排序</h2><p><img src="img/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt=""></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 选择排序</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> a</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> minIndex = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; a.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt; a[minIndex]) &#123;</span><br><span class="line">                minIndex = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (minIndex != i) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = a[i];</span><br><span class="line">            a[i] = a[minIndex];</span><br><span class="line">            a[minIndex] = temp;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3 插入排序"></a>3 插入排序</h2>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>芝士</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>洗牌算法</title>
+    <url>/2020/05/26/blog/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p><strong>Fisher-Yates shuffle</strong> 算法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">将最后一个数和前面任意n-1个数中的一个数进行交换，然后倒数第二个数和前面任意n-2个数的一个数进行交换，以此类推.</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>芝士</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美团2019秋面经</title>
+    <url>/2020/05/26/blog/%E7%BE%8E%E5%9B%A2/</url>
+    <content><![CDATA[<p>1、RESTful调用和 RPC调用有什么区别？如果让你设计一个RPC服务治理框架你会设计那些模块？是否了解过Service Mesh，如果了解Service Mesh是用来解决什么问题的？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、RESTful是一种软件架构风格，用于约束客户端和服务器交互，满足这些约束条件和原则的应用程序或设计就是 RESTful。比如HTTP协议使用同一个URL地址，通过GET，POST，PUT，DELETE等方式实现查询、提交、删除数据。RPC是远程过程调用，是用于解决分布式系统服务间调用的一种方式。RPC采用客户端与服务端模式，双方通过约定的接口（常见为通过IDL定义或者是代码定义）以类似本地方法调用的方式来进行交互，客户端根据约定传输调用函数+参数给服务端（一般是网络传输TCP&#x2F;UDP），服务端处理完按照约定将返回值返回给客户端。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">重点为RESTful HTTP的约束风格，RPC调用模型。</span><br><span class="line">1、可分为两大部分RPC +服务治理</span><br><span class="line">RPC部分 &#x3D; IDL  +客户端&#x2F;服务端实现层  +协议层 +数据传输层</span><br><span class="line">服务治理 &#x3D;服务管理（注册中心） +服务监控 +服务容灾 +服务鉴权</span><br><span class="line"></span><br><span class="line">2、 Service Mesh为了解决传统微服务框架&quot;胖客户端&quot;方式，引入的如下问题：</span><br><span class="line">与业务无关的服务治理逻辑与业务代码强耦合，框架、SDK的升级与业务代码强绑定，多语言的胖客户端支持起来性价比极低。</span><br></pre></td></tr></table></figure>
+
+<p>2、请描述避免多线程竞争时有哪些手段？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1) 不可变对象；</span><br><span class="line"></span><br><span class="line">2) 互斥锁；</span><br><span class="line"></span><br><span class="line">3)  ThreadLocal 对象；</span><br><span class="line"></span><br><span class="line">4) CAS；</span><br></pre></td></tr></table></figure>
+
+<p>3、1929年，匈牙利作家Frigyes Karinthy在短篇故事‘Chains’中首次提出的“六度人脉理论”，是指地球上所有的人都可以通过六层以内的熟人链和任何其他人联系起来。我们定义A的‘一度好友’为A直接相识的好友，A的‘二度好友’为A一度好友的好友且与A不是一度好友，A的‘三度好友’为A二度好友的好友且与A不是一度好友、二度好友，以此类推。</p>
+<p>在美团点评，小美、小团、小卓、小越、小诚、小信的好友关系见下图。</p>
+<p><img src="/home/yz/codespace/blog/blog/img/meituan-1.png" alt=""></p>
+<p>小团、小卓、小诚是小美的一度好友。小越、小信是小美的二度好友。小诚、小越是小信的一度好友，小美、小卓是小信的二度好友，小团是小信的三度好友。</p>
+<p>现在已知每个人的所有一度好友，需要为‘小点’推荐10个六度好友，请使用伪代码写出计算方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">        Node[] friends;</span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span> == o) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> Node)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            Node node = (Node) o;</span><br><span class="line">            <span class="keyword">return</span> Arrays.equals(getFriends(), node.getFriends()) &amp;&amp;</span><br><span class="line">                    getName().equals(node.getName());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> result = Objects.hash(getName());</span><br><span class="line">            result = <span class="number">31</span> * result + Arrays.hashCode(getFriends());</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> Node[] getFriends() &#123;</span><br><span class="line">            <span class="keyword">return</span> friends;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFriends</span><span class="params">(Node[] friends)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.friends = friends;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> Node[] sixDegreeFriend(Node node) &#123;</span><br><span class="line">        Queue&lt;Node&gt; nodeQueue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        Set&lt;Node&gt; nodeSet = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        Node nodeFlag = <span class="keyword">new</span> Node();</span><br><span class="line">        nodeQueue.add(node);</span><br><span class="line">        nodeQueue.add(nodeFlag);</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!nodeQueue.isEmpty())&#123;</span><br><span class="line">            Node node1 = nodeQueue.poll();</span><br><span class="line">            <span class="keyword">if</span> (node1==nodeFlag)&#123;</span><br><span class="line">                level++;</span><br><span class="line">                <span class="keyword">if</span> (level==<span class="number">5</span>)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                nodeQueue.add(nodeFlag);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            nodeSet.add(node1);</span><br><span class="line">            <span class="keyword">for</span> (Node node2:node1.friends)&#123;</span><br><span class="line">                <span class="keyword">if</span> (!nodeSet.contains(node2)) &#123;</span><br><span class="line">                    nodeQueue.add(node2);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        Node [] result=nodeQueue.toArray(<span class="keyword">new</span> Node[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">if</span> (result.length&gt;<span class="number">10</span>)&#123;</span><br><span class="line">            result = Arrays.copyOf(result, <span class="number">10</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>4、请简述HTTP的5个常用Method及其含义，以及5个常用Status Code及其含义？HTTP与HTTPS的区别是什么，简述一下HTTPS的实现原理。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Method：</span><br><span class="line">POST</span><br><span class="line">DELETE</span><br><span class="line">PUT</span><br><span class="line">GET</span><br><span class="line">HEAD</span><br><span class="line">Status Code :</span><br><span class="line">200 请求成功</span><br><span class="line">404 Not Found</span><br><span class="line">403 Forbidden 禁止访问</span><br><span class="line">400 请求的语法错误</span><br><span class="line">500 服务器内部错误</span><br><span class="line">HTTPS 原理</span><br><span class="line">1、浏览器发起往服务器的443端口发起请求，请求携带了浏览器支持的加密算法和哈希算法。</span><br><span class="line"></span><br><span class="line">2、服务器收到请求，选择浏览器支持的加密算法和哈希算法。</span><br><span class="line"></span><br><span class="line">3、服务器下将数字证书返回给浏览器，这里的数字证书可以是向某个可靠机构申请的，也可以是自制的。</span><br><span class="line"></span><br><span class="line">4、浏览器进入数字证书认证环节，这一部分是浏览器内置的TLS完成的：</span><br><span class="line"></span><br><span class="line">4.1 首先浏览器会从内置的证书列表中索引，找到服务器下发证书对应的机构，如果没有找到，此时就会提示用户该证书是不是由权威机构颁发，是不可信任的。如果查到了对应的机构，则取出该机构颁发的公钥。</span><br><span class="line"></span><br><span class="line">4.2 用机构的证书公钥解密得到证书的内容和证书签名，内容包括网站的网址、网站的公钥、证书的有效期等。浏览器会先验证证书签名的合法性（验证过程类似上面Bob和Susan的通信）。签名通过后，浏览器验证证书记录的网址是否和当前网址是一致的，不一致会提示用户。如果网址一致会检查证书有效期，证书过期了也会提示用户。这些都通过认证时，浏览器就可以安全使用证书中的网站公钥了。</span><br><span class="line"></span><br><span class="line">4.3 浏览器生成一个随机数R，并使用网站公钥对R进行加密。</span><br><span class="line"></span><br><span class="line">5、浏览器将加密的R传送给服务器。</span><br><span class="line"></span><br><span class="line">6、服务器用自己的私钥解密得到R。</span><br><span class="line"></span><br><span class="line">7、服务器以R为密钥使用了对称加密算法加密网页内容并传输给浏览器。</span><br><span class="line"></span><br><span class="line">8、浏览器以R为密钥使用之前约定好的解密算法获取网页内容。</span><br></pre></td></tr></table></figure>
+
+<p>5、给出一个布尔表达式的字符串，比如：true or false and false，表达式只包含true，false，and和or，现在要对这个表达式进行布尔求值，计算结果为真时输出true、为假时输出false，不合法的表达时输出error（比如：true true）。表达式求值是注意and 的优先级比 or 要高，比如：true or false and false，等价于 true or (false and false)，计算结果是 true。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TODO</span><br></pre></td></tr></table></figure>
+
+<p>6、给出两个字符串，分别是模式串P和目标串T，判断模式串和目标串是否匹配，匹配输出 1，不匹配输出 0。模式串中‘？’可以匹配目标串中的任何字符，模式串中的 ’*’可以匹配目标串中的任何长度的串，模式串的其它字符必须和目标串的字符匹配。例如P=a?b，T=acb，则P 和 T 匹配。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TODO</span><br></pre></td></tr></table></figure>
+
+<p>7、打车派单场景, 假定有N个订单， 待分配给N个司机。每个订单在匹配司机前，会对候选司机进行打分，打分的结果保存在N*N的矩阵A， 其中Aij 代表订单i司机j匹配的分值。</p>
+<p>假定每个订单只能派给一位司机，司机只能分配到一个订单。求最终的派单结果，使得匹配的订单和司机的分值累加起来最大，并且所有订单得到分配。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>8、2110年美团外卖火星第3000号配送站点有26名骑手，分别以大写字母A-Z命名，因此可以称呼这些骑手为黄家骑士特工A，黄家骑士特工B…黄家骑士特工Z，某美团黑珍珠餐厅的外卖流水线上会顺序产出一组包裹，美团配送调度引擎已经将包裹分配到骑手，并在包裹上粘贴好骑手名称，如RETTEBTAE代表一组流水线包裹共9个，同时分配给了名字为A B E R T的5名骑手。请在不打乱流水线产出顺序的情况下，把这组包裹划分为尽可能多的片段，同一个骑手只会出现在其中的一个片段，返回一个表示每个包裹片段的长度的列表。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>9、已知一种新的火星文的单词由英文字母（仅小写字母）组成，但是此火星文中的字母先后顺序未知。给出一组非空的火星文单词，且此组单词已经按火星文字典序进行好了排序（从小到大），请推断出此火星文中的字母先后顺序。</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面试清单（抄于知乎）</title>
+    <url>/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/</url>
+    <content><![CDATA[<p><strong>面试清单（Java岗）</strong></p>
+<p>Java+JVM+数据库+算法+Spring+中间件+设计模式</p>
+<h1 id="01-JAVA基础"><a href="#01-JAVA基础" class="headerlink" title="01 JAVA基础"></a>01 JAVA基础</h1><h2 id="1-1-java知识点"><a href="#1-1-java知识点" class="headerlink" title="1.1 java知识点"></a>1.1 java知识点</h2><p>Hashmap 源码级掌握，扩容，红黑树，最小树化容量，hash冲突解决，有些面试官会提出发自灵魂的审问，比如为什么是红黑树，别的树不可以吗；为什么8的时候树化，4不可以吗，等等<br>concureentHashMap，段锁，如何分段，和hashmap在hash上的区别，性能，等等<br>HashTable ，同步锁，这块可能会问你synchronized关键字 1.6之后提升了什么，怎么提升的这些<br>ArrayList 优势，扩容，什么时候用<br>LinkedList 优势，什么时候用，和arraylist的区别 等等<br>基本类型和包装类型的区别，涉及自动装箱和拆箱，怎么做的，原理<br>String ，StringBuffer，StringBuilder哪个是安全的<br>字符串编码的区别，被问到过，我觉得比较容易被忽视的一个点<br>什么是泛型，怎么用泛型<br>static能不能修饰threadLocal，为什么，这道题我当时一听到其实挺懵逼的<br>Comparable和Comparator接口是干什么的，其区别<br>多态的原理是什么，感觉这个很容易被问到<br>接口和抽象类，面试官问我是怎么理解的，我说接口对应功能，抽象类对应属性，然后面试官给我说了他的看法，说抽象类更偏向于一种模板~ 然后又交流了一下各自的想法<br>如何通过反射和设置对象私有字段的值<br>快速失败(fail-fast)和安全失败(fail-safe)的区别是什么<br>synchronized 的实现原理以及锁优化？<br>volatile 的实现原理？<br>Java 的信号灯？<br>synchronized 在静态方法和普通方法的区别？<br>怎么实现所有线程在等待某个事件的发生才会去执行？<br>CAS？CAS 有什么缺陷，如何解决？<br>synchronized 和 lock 有什么区别？<br>Hashtable 是怎么加锁的 ？<br>List，Map，Set接口在取元素师，各有什么特点<br>如何线程安全的实现一个计数器<br>生产者消费者模式，要求手写过代码，还是要知道的<br>单例模式，饿汉式，懒汉式，线程安全的做法，两次判断instance是否为空，每次判断的作用是什么。<br>线程池，这个还是很重要的，在生产中用的挺多，四个线程池类型，其参数，参数的理解很重要，corepoolSize怎么设置，maxpoolsize怎么设置，keep-alive各种的，和美团面试官探讨过阻塞队列在生产中的设置，他说他一般设置为0，防止用户阻塞<br>cyclicbarrier 和countdownlatch的区别，个人理解 赛马和点火箭<br>线程回调，这块 被问过让我设计一个RPC，怎么实现，其实用到了回调这块的东西<br>sleep 和yeild方法有什么区别<br>volatile关键字，可见性。<br>乐观锁和悲观锁的使用场景<br>悲观锁的常见实现方式：lock synchronized retreentlock<br>乐观锁：CAS MVCC<br>读写锁的实现方式，16位int的前八位和后八位分别作为读锁和写锁的标志位<br>死锁的条件，怎么解除死锁，怎么观测死锁。<br>希望大家能够好好看一下反射的原理，怎么确定类，怎么调方法<br>RPC框架，同步异步，响应时间，这些都被问到过，还让设计过<br>同步，异步，阻塞，非阻塞 在深信服的面试中遇到过，最好再找一些应用场景加以理解<br>1.2 JVM</p>
+<p>内存模型以及分区，需要详细到每个区放什么。<br>堆里面的分区：Eden，survival （from+ to），老年代，各自的特点。<br>对象创建方法，对象的内存分配，对象的访问定位。<br>GC 的两种判定方法<br>GC 的三种收集方法：标记清除、标记整理、复制算法的原理与特点，分别用在什么地方，如果让你优化收集方法，有什么思路？<br>GC 收集器有哪些？CMS 收集器与 G1 收集器的特点<br>Minor GC 与 Full GC 分别在什么时候发生？<br>JVM 内存分哪几个区，每个区的作用是什么?<br>如和判断一个对象是否存活?(或者 GC 对象的判定方法)<br>java 中垃圾收集的方法有哪些?<br>类加载器双亲委派模型机制？<br>java 内存模型，java 类加载过程?<br>什么是类加载器，类加载器有哪些?<br>简述 java 内存分配与回收策率以及 Minor GC 和Major GC<br>02 数据库<br>2.1 MySQL</p>
+<p>事务四大特性（ACID）原子性、一致性、隔离性、持久性？<br>事务的并发？事务隔离级别，每个级别会引发什么问题，MySQL默认是哪个级别？<br>MySQL常见的三种存储引擎（InnoDB、MyISAM、MEMORY）的区别？<br>MySQL的MyISAM与InnoDB两种存储引擎在，事务、锁级别，各自的适用场景？<br>查询语句不同元素（where、jion、limit、group by、having等等）执行先后顺序<br>索引为什么要用B+树，B+树和B-树的区别是什么<br>mysql的默认事务级别，一共有哪些事务级别<br>mysql的一些语句，这些肯定需要掌握的<br>mysql锁，行锁，表锁 ，什么时候发生锁，怎么锁，原理<br>数据库优化，最左原则啊，水平分表，垂直分表<br>什么是临时表，临时表什么时候删除?<br>MySQL B+Tree索引和Hash索引的区别？<br>sql查询语句确定创建哪种类型的索引？如何优化查询？<br>聚集索引和非聚集索引区别？<br>有哪些锁（乐观锁悲观锁），select 时怎么加排它锁？<br>非关系型数据库和关系型数据库区别，优势比较？<br>数据库三范式，根据某个场景设计数据表？<br>数据库的读写分离、主从复制，主从复制分析的 7 个问题？<br>使用explain优化sql和索引？<br>MySQL慢查询怎么解决？<br>什么是 内连接、外连接、交叉连接、笛卡尔积等？<br>mysql都有什么锁，死锁判定原理和具体场景，死锁怎么解决？<br>varchar和char的使用场景？<br>mysql 高并发环境解决方案？<br>数据库崩溃时事务的恢复机制（REDO日志和UNDO日志）？<br>03 Spring相关<br>spring的两大特性- ioc aop，实现原理<br>如果存在A依赖B，B依赖A，那么是怎么加到IOC中去的<br>beanFactory的理解，怎么加载bean<br>FactoryBean的理解<br>基于注解的形式，是怎么实现的， 你知道其原理吗，说一下<br>依赖冲突，有碰到过吗，你是怎么解决的~<br>bean的生命周期<br>spring中的自动装配方式<br>BeanFactory 和 FactoryBean<br>Spring IOC 的理解，其初始化过程？<br>BeanFactory 和 ApplicationContext？<br>Spring Bean 的生命周期，如何被管理的？Spring Bean 的加载过程是怎样的？<br>如果要你实现Spring AOP，请问怎么实现？<br>如果要你实现Spring IOC，你会注意哪些问题？<br>Spring 是如何管理事务的，事务管理机制？<br>Spring 的不同事务传播行为有哪些，干什么用的？<br>Spring 中用到了那些设计模式？<br>Spring MVC 的工作原理？<br>Spring 循环注入的原理？<br>Spring 如何保证 Controller 并发的安全？<br>你一般是怎么对mvc项目进行分层的<br>dispatch-servlet的工作原理<br>为什么有了springmvc还要在项目中使用spring？<br>springmvc的运行机制，dispatch -》 hanldermapping-—》handler -》handlerAdapter-》执行handler-》modelandview -》 返回mv -》 视图解析器-》返回view -》 渲染响应<br>怎么防止依赖注入<br>怎么让mapper 和xml对应<br>如何自动包装对象<br>和spring相比，做了什么改变<br>starter你知道哪些<br>如何部署springmvc项目 以及如何部署springboot项目<br>springboot的插件，你使用过哪些<br>04 中间件<br>4.1 redis<br>Redis用过哪些数据数据，以及Redis底层怎么实现<br>Redis缓存穿透，缓存雪崩<br>如何使用Redis来实现分布式锁<br>Redis的并发竞争问题如何解决<br>Redis持久化的几种方式，优缺点是什么，怎么实现的<br>Redis的缓存失效策略<br>Redis集群，高可用，原理<br>Redis缓存分片，Redis的数据淘汰策略<br>为什么选择redis，有什么好处，基于内存，抗压<br>redis集群怎么进行数据分配，hash槽<br>redis的主从复制是怎么实现的<br>redis的数据结构 最常问 hash是什么， sorted set怎么实现的<br>因为项目的原因，问我redis是怎么保证高可用的，主从和集群怎么加在一起<br>redis 和memcache的区别<br>redis 分布式锁的实现原理 setNX 啥的<br>redis模拟session，除了redis你还考虑过别的吗<br>redis的缓存击穿，怎么处理这个问题<br>redis是基于内存的，那么它有持久化吗，aof rdb<br>aof和rdb的优缺点，你在项目中使用的哪一个<br>4.2 MQ<br>为什么选择rabbitMQ， 社区活跃，高并发<br>别的MQ也要了解，比如RocketMQ(阿里的，java开发，再次开发，并发高，分布式，出错少)<br>ActiveMQ， kafka<br>topic 和 block<br>MQ的作用，同步转异步，消除峰值<br>如何保证数据一致性，即原子性，ack<br>消息队列在项目中的应用<br>4.3 nginx<br>怎么配置负载均衡<br>怎么限流<br>怎么使用nginx缓存<br>为什么使用nginx，有别的替代品吗<br>请解释 x Nginx 如何处理 P HTTP 请求<br>在 x Nginx 中，如何使用未定义的服务器名称来阻止处理请求? ?<br>使用“ 反向代理服务器 ” 的优点是什么?<br>x Nginx 服务器上的 r Master 和 和 r Worker 进程分别是什么?<br>nginx的压力测试，你测试过吗，能抗住多少压力<br>你如何通过不同于 0 80 的端口开启 Nginx?<br>是否有可能将 x Nginx 的错误替换为 2 502 错误、 503<br>s stub_status 和 和 r sub_filter 指令的作用是什么? ?<br>4.5 dubbo<br>原理，怎么用<br>和erueka有什么区别<br>为什么要用dubbo，不用行不行？<br>跨域请求的一些知识点<br>Dubbo 支持哪些协议，每种协议的应用场景，优缺点？<br>Dubbo 超时时间怎样设置？<br>Dubbo 集群的负载均衡有哪些策略<br>Dubbo 的主要应用场景？<br>Dubbo 服务注册与发现的流程？<br>Dubbo 中 中 zookeeper 做注册中心，如果注册中心集群都挂掉，发布者和订阅者之间还能通信么？<br>dubbo 服务负载均衡策略？<br>05 其他插件<br>5.1 shiro<br>怎么做权限控制<br>为什么使用shiro，你直接使用aop不也是一样的吗，shiro还有标签<del>各种扯<br>shiro的两个最重要的函数<br>认证和授权是怎么做的<br>5.2 docker<br>和vmware的区别<br>你一般是怎么部署的 IDEA，直接把项目部署到docker并打包到云服务器<br>docker的好处，小，快<br>06 Linux<br>常见的命令<br>sed 和 awk 感觉linux必考。。<br>linux的使用场景，你什么时候会用linux – 》 布置服务器<br>怎么查看进程和杀死进程<br>打印一个文件夹中的所有文件<br>float在计算机中是怎么存储的，当时被问到的时候，我也在问自己，怎么存的</del> 佛了<br>线程和进程的区别<br>线程的通信方式，进程的通信方式<br>系统线程的数量上限是多少<br>页式存储的概念<br>内存碎片，你有了解过吗，有想过解决方案吗~<br>07 算法<br>7.1 排序算法<br>八大排序算法真的是面试宠儿<br>最常考 快速排序 和归并排序<br>哪些排序算法是稳定的 哪些是不稳定的<br>堆排 也应该掌握<br>7.2 树<br>根据遍历结果恢复树，递归<br>二叉搜索树第k大<br>树的和为k的路径<br>层次遍历<br>根据层次遍历和后序遍历恢复树<br>镜像树<br>树的深度<br>是不是平衡二叉树<br>7.3 链表<br>反转链表<br>链表环的入口<br>交叉链表的交点<br>复杂链表的复制<br>二叉搜索树变成双向链表<br>7.4 回溯算法<br>走迷宫<br>游戏通关<br>7.5 递推算法<br>走台阶<br>断钢筋<br>7.6 背包问题<br>装最多的东西<br>7.7 贪心算法<br>覆盖问题<br>时间问题<br>08 设计模式<br>面试中设计模式其实也是挺重要的</p>
+<p>Java 中什么叫单例设计模式？请用 Java 写出线程安全的单例模式<br>在 Java 中，什么叫观察者设计模式（observer design pattern）<br>使用工厂模式最主要的好处是什么？在哪里使用<br>举一个用 Java 实现的装饰模式(decorator design pattern) ？它是作用于对象层次还是类层次？<br>在 Java 中，什么时候用重载，什么时候用重写？<br>举例说明什么情况下会更倾向于使用抽象类而不是接口<br>观察者模式<br>适配模式<br>工厂模式<br>…</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>芝士</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷题</title>
+    <url>/2020/05/26/interview/%E5%81%9A%E9%A2%98%E6%84%9F%E6%83%B3/</url>
+    <content><![CDATA[<h1 id="跳跃游戏2"><a href="#跳跃游戏2" class="headerlink" title="跳跃游戏2"></a>跳跃游戏2</h1><p>  /**<br>     * 给定一个非负整数数组，你最初位于数组的第一个位置。<br>     * <p><br>     * 数组中的每个元素代表你在该位置可以跳跃的最大长度。<br>     * <p><br>     * 你的目标是使用最少的跳跃次数到达数组的最后一个位置。<br>     * <p><br>     * 来源：力扣（LeetCode）<br>     * 链接：<a href="https://leetcode-cn.com/problems/jump-game-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game-ii</a><br>     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。<br>     * 输入: [2,3,1,1,4]<br>     * 输出: 2<br>     * 解释: 跳到最后一个位置的最小跳跃数是 2。<br>     *      从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。<br>     * <p><br>     * 来源：力扣（LeetCode）<br>     * 链接：<a href="https://leetcode-cn.com/problems/jump-game-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/jump-game-ii</a><br>     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。<br>     *<br>     * @param nums<br>     * @return<br>     */</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">       <span class="comment">/**</span></span><br><span class="line"><span class="comment">          * 给定一个非负整数数组，你最初位于数组的第一个位置。</span></span><br><span class="line"><span class="comment">          * &lt;p&gt;</span></span><br><span class="line"><span class="comment">          * 数组中的每个元素代表你在该位置可以跳跃的最大长度。</span></span><br><span class="line"><span class="comment">          * &lt;p&gt;</span></span><br><span class="line"><span class="comment">          * 你的目标是使用最少的跳跃次数到达数组的最后一个位置。</span></span><br><span class="line"><span class="comment">          * &lt;p&gt;</span></span><br><span class="line"><span class="comment">          * 来源：力扣（LeetCode）</span></span><br><span class="line"><span class="comment">          * 链接：https://leetcode-cn.com/problems/jump-game-ii</span></span><br><span class="line"><span class="comment">          * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span></span><br><span class="line"><span class="comment">          * 输入: [2,3,1,1,4]</span></span><br><span class="line"><span class="comment">          * 输出: 2</span></span><br><span class="line"><span class="comment">          * 解释: 跳到最后一个位置的最小跳跃数是 2。</span></span><br><span class="line"><span class="comment">          *      从下标为 0 跳到下标为 1 的位置，跳 1 步，然后跳 3 步到达数组的最后一个位置。</span></span><br><span class="line"><span class="comment">          * &lt;p&gt;</span></span><br><span class="line"><span class="comment">          * 来源：力扣（LeetCode）</span></span><br><span class="line"><span class="comment">          * 链接：https://leetcode-cn.com/problems/jump-game-ii</span></span><br><span class="line"><span class="comment">          * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</span></span><br><span class="line"><span class="comment">          *</span></span><br><span class="line"><span class="comment">          * <span class="doctag">@param</span> nums</span></span><br><span class="line"><span class="comment">          * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">          */</span></span><br><span class="line">       <span class="function">xzsfhfeefdfwwpublic <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums.length == <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">/</span><br><span class="line">                <span class="keyword">int</span>[] steps = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">                Arrays.fill(steps, Integer.MAX_VALUE);</span><br><span class="line">                steps[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= nums[i] &amp;&amp; ((j + i) &lt; nums.length); j++) &#123;</span><br><span class="line">                        steps[i + j] = Math.min(steps[i] + <span class="number">1</span>, steps[i + j]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> steps[steps.length - <span class="number">1</span>];</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<p>上述思路显而易见，就是暴力法，下面解法很巧妙</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">jump</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(nums.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> reach = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> nextreach = nums[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">int</span> step = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">      nextreach = Math.max(i+nums[i],nextreach);</span><br><span class="line">      <span class="keyword">if</span>(nextreach &gt;= nums.length-<span class="number">1</span>) <span class="keyword">return</span> (step+<span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span>(i == reach)&#123;</span><br><span class="line">          step++;</span><br><span class="line">          reach = nextreach;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> step;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>刷题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快手2019秋一面</title>
+    <url>/2020/05/26/interview/%E5%BF%AB%E6%89%8B%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<ul>
+<li>自我介绍一下</li>
+<li>你学过的比较好的课程</li>
+<li>java有哪些基础类型</li>
+<li>int 和byte的区别</li>
+<li>除了基础了类型还有哪些类型</li>
+<li>进程和线程的区别</li>
+<li>java一个程序可以开几个线程</li>
+<li>给定一串连续数字,会缺失一个数字,求找出这个数字,如  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">input: &#123;0,1,2,4,5,6&#125;</span><br><span class="line">output &#123;3&#125;</span><br></pre></td></tr></table></figure>
+因为做这道题做太久了,后面面试官就没有再问,应该是没有二面了.</li>
+</ul>
+<p>9.4 227 18.30</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>拼多多2019秋一面</title>
+    <url>/2020/05/26/interview/%E6%8B%BC%E5%A4%9A%E5%A4%9A%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>自我介绍</li>
+<li>熟悉的语言是什么<ul>
+<li>java</li>
+</ul>
+</li>
+<li>用过那些java的容器类<ul>
+<li>HashMap、HashSet、ArrayList、LinkList</li>
+</ul>
+</li>
+<li>HashTable与CurrentHashMap的区别<ul>
+<li>HashTable key和value 不能为空值，CurrentHashMap可以</li>
+<li>CurrentHashMap的加锁的粒度更小，所以性能要高一点</li>
+</ul>
+</li>
+<li>为什么CurrentHashMap性能要高一点<ul>
+<li>加锁的粒度更小，加在目标桶上，同时其它对其他桶的操作与读取</li>
+<li>java8以后CurrentHashMap从Synchronized改使用CAS实现，即乐观锁，提高了性能</li>
+</ul>
+</li>
+<li>HashMap查询效率特别低的话，总是发生碰撞有什么办法优化<ul>
+<li>扩容</li>
+</ul>
+</li>
+<li>不能扩容呢，一个链表特别长<ul>
+<li>把链表转化成查找树，可以实现O(log n)的复杂度</li>
+</ul>
+</li>
+<li>你知道哪些查找树呢，这里用什么好    <ul>
+<li>（突然蒙了），就一般的查找树就好</li>
+</ul>
+</li>
+<li>一般得得得查找树的最坏的复杂度是多少呢<ul>
+<li>O(n)，如果树一边倒的话，相当一个链表</li>
+</ul>
+</li>
+<li>红黑树有了解过吗，这里用红黑树行不行<ul>
+<li>可以，但是我实现不出来，仅限了解</li>
+</ul>
+</li>
+<li>为什么可以呢<ul>
+<li>因为红黑树维护这一个性质，根节点到叶节点的路径上有相同的黑色节点，这样保证了平衡性</li>
+</ul>
+</li>
+<li>你知道哪些垃圾回收器<ul>
+<li>（蒙～）</li>
+</ul>
+</li>
+<li>哪些回收算法<ul>
+<li>新生代和老年代有不同的算法，新生是标记需要回收的，然后直接回收，老年把需要回收的对象移动到一端，然后清除</li>
+</ul>
+</li>
+<li>怎么判断新生代老年代<ul>
+<li>一般先放在新生代，若干次新生代回收后还没有被回收的话转移到老年代，也有例外，比如大对象可能直接放入到老年代</li>
+</ul>
+</li>
+<li>怎么判断对象需要回收、从哪开始找  <ul>
+<li>没有引用时，从根节点开始</li>
+</ul>
+</li>
+<li>哪些可以当成根节点<ul>
+<li>忘了</li>
+</ul>
+</li>
+<li>java类加载的过程<ul>
+<li>不太了解，好像是什么双亲加载模型什么的，就是要加载这个对象前先从父亲代加载，依次递归下去</li>
+</ul>
+</li>
+<li>计算机中段和页知道吗<ul>
+<li>不了解</li>
+</ul>
+</li>
+<li>mysql中有哪些引擎<ul>
+<li>MyIsam Innodb ，My不支持事务安全，使用文件保存，方便转移，粒度表级，更适合查询，适合小型项目，Innodb支持事务安全、粒度行级、写效率高，适合复杂的项目</li>
+</ul>
+</li>
+<li>Innodb 使用什么索引<ul>
+<li>懵，好像是B+树  </li>
+</ul>
+</li>
+<li>为什么使用B+树，B+树有什么特点<ul>
+<li>这里答乱七八糟、略</li>
+</ul>
+</li>
+<li>B+树为什么把所有放在叶节点<ul>
+<li>维护树的平衡性，降低树的高度</li>
+</ul>
+</li>
+<li>有用过哪些Nosql，各自有什么特点</li>
+<li>问了一个项目</li>
+<li>通过短信给用户发送一个长链接，但短信长度有限，可能链接放不下你怎么解决<ul>
+<li>使用t.cn类似的短链接</li>
+</ul>
+</li>
+<li>你实现这个t.cn的功能<ul>
+<li>可以后台生成一个Host+编号的短连接，然后重定向到对应的长链接，编号的方式可以采用时间戳</li>
+</ul>
+</li>
+<li>要求生成链接是杂乱的，不要暴露编号<ul>
+<li>比如只使用小写字母和大写字母，就可以得到一个52进制的表示方法，如a表示1，z表示26，az表示53+26=79</li>
+</ul>
+</li>
+<li>你有什么问题问我吗<ul>
+<li>你们后端开发一般用什么<ul>
+<li>java的多一点，也有c++等其他语言</li>
+</ul>
+</li>
+<li>今晚表现的最差的一点是哪里<ul>
+<li>作为应届生，虽然课程没教，但基础的还是应该学好一点（这里应该指段和页那题，我说的是没上过计算级系统这门课，可能和其他基础没打出来也有关系，这言外之意就是“你基础不太行”，所以理论上应该没有二面了）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>果然又败在了基础部分。这次面试心态还可以，这么多没答出来，依然面不改色，这是进步点，当然也有面试官氛围维持好的原因。</p>
+<h1 id="重现"><a href="#重现" class="headerlink" title="重现"></a>重现</h1><h2 id="计算机中的段和页"><a href="#计算机中的段和页" class="headerlink" title="计算机中的段和页"></a>计算机中的段和页</h2><p>一个段中包含若干页，在段式存储管理中，将程序的地址空间划分为若干段（segment），如代码段，数据段，堆栈段；这样每个进程有一个二维地址空间，相互独立，互不干扰。段式管理的优点是：没有内碎片（因为段大小可变，改变段大小来消除内碎片）。但段换入换出时，会产生外碎片（比如4k的段换5k的段，会产生1k的外碎片）。<br>在页式存储管理中，将程序的逻辑地址划分为固定大小的页（page），而物理内存划分为同样大小的页框，程序加载时，可以将任意一页放入内存中任意一个页框，这些页框不必连续，从而实现了离散分离。页式存储管理的优点是：没有外碎片（因为页的大小固定），但会产生内碎片（一个页可能填充不满）<br>两者结合——段页式存储管理：内存分为几个段，每个段分为大小相同的页，主存分配以页为单位。地址结构：段号、页号、页内偏移量。每个进程一个段表，每个段一个页表。<br>2．地址变换的过程：<br>（1）程序执行时，从PCB中取出段表始址和段表长度，装入段表寄存器。<br>（2）由地址变换机构将逻辑地址自动分成段号、页号和页内地址。<br>（3）将段号与段表长度进行比较，若段号大于或等于段表长度，则表示本次访问的地址已超越进程的地址空间，产生越界中断。<br>（4）将段表始址与段号和段表项长度的乘积相加，便得到该段表项在段表中的位置。<br>（5）取出段描述子得到该段的页表始址和页表长度。<br>（6）将页号与页表长度进行比较，若页号大于或等于页表长度，则表示本次访问的地址已超越进程的地址空间，产生越界中断。<br>（7）将页表始址与页号和页表项长度的乘积相加，便得到该页表项在页表中的位置。<br>（8）取出页描述子得到该页的物理块号。<br>（9）对该页的存取控制进行检查。<br>（10）将物理块号送入物理地址寄存器中，再将有效地址寄存器中的页内地址直接送入物理地址寄存器的块内地址字段中，拼接得到实际的物理地址。</p>
+<hr>
+<h2 id="操作系统相关知识"><a href="#操作系统相关知识" class="headerlink" title="操作系统相关知识"></a>操作系统相关知识</h2><ol>
+<li><p>进程间的通信的几种方式  </p>
+<ul>
+<li><p>管道（pipe）及命名管道（named pipe）：管道可用于具有亲缘关系的父子进程间的通信，有名管道除了具有管道所具有的功能外，它还允许无亲缘关系进程间的通信；</p>
+</li>
+<li><p>信号（signal）：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生；</p>
+</li>
+<li><p>消息队列：消息队列是消息的链接表，它克服了上两种通信方式中信号量有限的缺点，具有写权限得进程可以按照一定得规则向消息队列中添加新信息；对消息队列有读权限得进程则可以从消息队列中读取信息；</p>
+</li>
+<li><p>共享内存：可以说这是最有用的进程间通信方式。它使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据得更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等；</p>
+</li>
+<li><p>信号量：主要作为进程之间及同一种进程的不同线程之间得同步和互斥手段；</p>
+</li>
+<li><p>套接字：这是一种更为一般得进程间通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛。  </p>
+</li>
+</ul>
+</li>
+<li><p>进程状态</p>
+<ul>
+<li>就绪状态，已获得除cpu的所需资源</li>
+<li>运行状态，处于此状态的进程数不大于cpu数</li>
+<li>阻塞状态</li>
+</ul>
+</li>
+<li><p>进程调度策略</p>
+<ul>
+<li>FCFS：先来的先得</li>
+<li>SJF ：最短作业优先调度算法，使平均等待时间最短</li>
+<li>优先级调度算法，优先级越高越先分配，相同优先级先到先得，问题是低优先级线程可能会饿死，即无限等待</li>
+<li>时间片轮转调度算法： 每个轮流使用一个时间片后，放回就绪队列</li>
+<li>多级队列调度算发：将就绪对列分成多个独立的队列，队列间按优先级抢占调度</li>
+<li>多级反馈队列调度算法</li>
+</ul>
+</li>
+<li><p>进程同步机制<br>原子操作<br>信号量操作<br>自旋锁管程<br>回合<br>分布式系统</p>
+</li>
+</ol>
+<hr>
+<p>线程同步方式  </p>
+<ul>
+<li>互斥量：只有拥有互斥对象的线程才有访问公共资源的权限。</li>
+<li>信号量：允许多个线程同一时刻访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+</ul>
+<ul>
+<li>事件（信号）：通知操作保持多线程同步</li>
+</ul>
+<p>线程状态：<br>创建<br>就绪<br>运行<br>阻塞<br>等待<br>时间等待<br>终止<br><img src="./image/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.jpg" alt="线程状态"></p>
+<hr>
+<p>死锁</p>
+<ol>
+<li>概念<br>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组进程产生了死锁。通俗的讲，就是两个或多个进程无限期的阻塞、相互等待的一种状态。  </li>
+<li>产生死锁的4个必要条件<ul>
+<li>互斥：至少有一个资源一次只能被一个进程占有</li>
+<li>占有等待：一个进程占有至少一个资源，并等待另一个被其他进程占有的资源</li>
+<li>非抢占：资源只能在进程完成后资源释放</li>
+<li>循环等待：若干进程形成环形等待关系</li>
+</ul>
+</li>
+<li>死锁处理<ul>
+<li>预防</li>
+<li>避免，动态检测资源状态</li>
+<li>解除，进程终止，资源抢占  </li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>虚拟内存</p>
+<ol>
+<li>页面置换算法<ul>
+<li>FIFO先进先出算法</li>
+<li>LRU 最少使用算法：根据使用时间</li>
+<li>LFU 最少使用次数算法</li>
+<li>OPT 最有置换算法 理论最优，保证置换出去的的页是不再使用的页<h2 id="java类的加载过程"><a href="#java类的加载过程" class="headerlink" title="java类的加载过程"></a>java类的加载过程</h2></li>
+</ul>
+</li>
+<li>加载  </li>
+<li>验证<br>文件格式验证：验证字节流是否符合Class文件规范<br>元数据验证：对字节流进行语义分析，是否符合java语言语法的规范<br>字节码验证：分析数据流和控制，保证该类不会危害虚拟机<br>符号引用验证：对常量池中中各种符号引用进行匹配性校验</li>
+<li>准备<br>为类变量进行内存分配设置初始值为0（0，null，false等），这些内存在方法区分配<br>但是如果变量被static final ,则在准备阶段就被初始化。  <strong>可以理解为放入调动它的类的常量池中</strong> </li>
+<li>解析<br>讲常量池中的符号引用转化为直接引用。可能在之前也可能在之后开始。  <ul>
+<li>类或接口</li>
+<li>字段解析</li>
+<li>类方法解析</li>
+<li>接口方法解析</li>
+</ul>
+</li>
+<li>初始化<br>虚拟机规范严格规定了有且只有四种情况必须立即对类进行初始化：<ul>
+<li>遇到new、getstatic、putstatic、invokestatic这四条字节码指令时，如果类还没有进行过初始化，则需要先触发其初始化。生成这四条指令最常见的Java代码场景是：使用new关键字实例化对象时、读取或设置一个类的静态字段（static）时（被static修饰又被final修饰的，已在编译期把结果放入常量池的静态字段除外）、以及调用一个类的静态方法时。</li>
+<li>使用Java.lang.refect包的方法对类进行反射调用时，如果类还没有进行过初始化，则需要先触发其初始化。</li>
+<li>当初始化一个类的时候，如果发现其父类还没有进行初始化，则需要先触发其父类的初始化。</li>
+<li>当虚拟机启动时，用户需要指定一个要执行的主类，虚拟机会先执行该主类。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="jvm垃圾回收"><a href="#jvm垃圾回收" class="headerlink" title="jvm垃圾回收"></a>jvm垃圾回收</h2><hr>
+<p>##参考</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java笔记</title>
+    <url>/2020/05/26/interview/%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<ul>
+<li><a href="#%e4%b8%80-java%e7%9f%a5%e8%af%86%e6%80%bb%e7%bb%93">一. Java知识总结</a><ul>
+<li><a href="#1-java-4-%e7%89%b9%e5%be%81%e6%8a%bd%e8%b1%a1%e5%b0%81%e8%a3%85%e7%bb%a7%e6%89%bf%e5%a4%9a%e6%80%81">1. java 4 特征：抽象、封装、继承、多态;</a></li>
+<li><a href="#2-%e5%85%ad%e5%a4%a7%e5%8e%9f%e5%88%99">2. 六大原则：</a><ul>
+<li><a href="#%e5%8d%95%e4%b8%80%e8%81%8c%e8%b4%a3">单一职责</a></li>
+<li><a href="#%e5%bc%80%e9%97%ad">开闭</a></li>
+<li><a href="#%e9%87%8c%e6%b0%8f%e6%9b%bf%e6%8d%a2">里氏替换</a></li>
+<li><a href="#%e4%be%9d%e8%b5%96%e5%80%92%e7%bd%ae">依赖倒置</a></li>
+<li><a href="#%e5%90%88%e6%88%90%e8%81%9a%e5%90%88%e5%a4%8d%e7%94%a8">合成聚合复用</a></li>
+<li><a href="#%e6%8e%a5%e5%8f%a3%e9%9a%94%e7%a6%bb">接口隔离</a></li>
+<li><a href="#%e7%8b%84%e7%b1%b3%e7%89%b9%e6%b3%95%e5%88%99">狄米特法则</a></li>
+</ul>
+</li>
+<li><a href="#3-23%e7%a7%8d%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f">3. 23种设计模式</a><ul>
+<li><a href="#%e5%88%86%e7%b1%bb">分类</a></li>
+<li><a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f">单例模式</a></li>
+<li><a href="#%e5%8e%9f%e5%9e%8b%e6%a8%a1%e5%bc%8f">原型模式</a></li>
+<li><a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f">工厂模式</a><ul>
+<li><a href="#%e7%ae%80%e5%8d%95%e5%b7%a5%e5%8e%82">简单工厂</a></li>
+<li><a href="#%e5%b7%a5%e5%8e%82%e6%96%b9%e6%b3%95">工厂方法</a></li>
+<li><a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82">抽象工厂</a></li>
+</ul>
+</li>
+<li><a href="#%e5%bb%ba%e9%80%a0%e8%80%85%e6%a8%a1%e5%bc%8f">建造者模式</a></li>
+<li><a href="#%e4%bb%a3%e7%90%86%e6%a8%a1%e5%bc%8f">代理模式</a></li>
+<li><a href="#%e9%80%82%e9%85%8d%e5%99%a8%e6%a8%a1%e5%bc%8f">适配器模式</a></li>
+<li><a href="#%e6%a1%a5%e6%8e%a5%e6%a8%a1%e5%bc%8f">桥接模式</a></li>
+<li><a href="#%e8%a7%82%e5%af%9f%e8%80%85%e6%a8%a1%e5%bc%8f">观察者模式</a></li>
+</ul>
+</li>
+<li><a href="#4-jvm-%e5%86%85%e5%ae%b9">4. jvm 内容</a><ul>
+<li><a href="#%e5%b8%b8%e8%a7%81%e7%9a%84gc%e7%a7%8d%e7%b1%bb">常见的GC种类</a><ul>
+<li><a href="#serial%e4%b8%b2%e8%a1%8c">serial(串行)</a></li>
+<li><a href="#parnew">parNew</a></li>
+<li><a href="#parallel-scavebge">parallel Scavebge</a></li>
+<li><a href="#serial-old">serial old</a></li>
+<li><a href="#parallel-old">parallel old</a></li>
+<li><a href="#cms">CMS</a></li>
+</ul>
+</li>
+<li><a href="#minor-gc-%e5%92%8cfull-gc">Minor GC 和Full GC</a></li>
+<li><a href="#%e6%96%b0%e7%94%9f%e4%bb%a3%e8%80%81%e5%b9%b4%e4%bb%a3">新生代老年代</a></li>
+<li><a href="#4%e7%a7%8d%e5%8f%af%e4%bd%9c%e4%b8%bagc-root%e7%9a%84%e5%af%b9%e8%b1%a1">4种可作为GC root的对象</a></li>
+<li><a href="#%e4%bb%80%e4%b9%88%e6%83%85%e5%86%b5%e4%b8%8b%e5%88%a4%e6%96%ad%e9%9c%80%e8%a6%81%e8%b0%83%e6%95%b4%e6%96%b0%e7%94%9f%e5%b8%a6%e7%9a%84%e5%a4%a7%e5%b0%8f">什么情况下判断需要调整新生带的大小</a></li>
+<li><a href="#jvm%e7%9a%84%e5%b8%b8%e8%a7%81%e5%8f%82%e6%95%b0">jvm的常见参数</a></li>
+</ul>
+</li>
+<li><a href="#static--final">static &amp; final</a><ul>
+<li><a href="#hashtablehashmapcurrenthashmap">hashtable、hashmap、currenthashmap:</a></li>
+<li><a href="#%e5%ba%8f%e5%88%97%e5%8c%96">序列化：</a></li>
+<li><a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b">多线程：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%e4%ba%8c-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9f%a5%e8%af%86">二. 数据库知识</a><pre><code>- [ACID](#acid)
+- [脏读、不可重复读、幻读](#%e8%84%8f%e8%af%bb%e4%b8%8d%e5%8f%af%e9%87%8d%e5%a4%8d%e8%af%bb%e5%b9%bb%e8%af%bb)
+- [索引](#%e7%b4%a2%e5%bc%95)
+- [MyISAM和InnoDB](#myisam%e5%92%8cinnodb)
+  - [分页查询](#%e5%88%86%e9%a1%b5%e6%9f%a5%e8%af%a2)</code></pre></li>
+<li><a href="#%e4%b8%89-%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e7%9f%a5%e8%af%86">三. 计算机网络知识</a><ul>
+<li><a href="#%e5%8d%8f%e8%ae%ae%e4%b8%89%e8%a6%81%e7%b4%a0">协议三要素</a></li>
+<li><a href="#http%e4%b8%8ehttps%e7%9a%84%e5%8c%ba%e5%88%ab">http与https的区别</a></li>
+<li><a href="#tcp%e5%8f%af%e9%9d%a0%e4%bc%a0%e8%be%93%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b%e5%9b%9b%e6%ad%a4%e6%8c%a5%e6%89%8b">TCP可靠传输&amp;三次握手&amp;四此挥手</a></li>
+<li><a href="#ddos%e6%94%bb%e5%87%bb">DDOS攻击</a></li>
+<li><a href="#getpost">GET&amp;POST</a></li>
+<li><a href="#osi%e6%a8%a1%e5%9e%8b">OSI模型</a><ul>
+<li><a href="#6-%e7%bd%91%e7%bb%9c%e5%b1%82">6. 网络层</a></li>
+<li><a href="#7-%e6%95%b0%e6%8d%ae%e9%93%be%e8%b7%af%e5%b1%82">7. 数据链路层</a><ul>
+<li><a href="#71-%e5%a4%9a%e8%b7%af%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6%e5%8d%8f%e8%ae%aemac">7.1 多路访问控制协议MAC</a></li>
+<li><a href="#72-arp%e5%8d%8f%e8%ae%ae">7.2 ARP协议</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tcp%e5%bf%ab%e9%80%9f%e9%87%8d%e4%bc%a0">TCP快速重传</a></li>
+<li><a href="#5%e7%b1%bbip%e5%9c%b0%e5%9d%80">5类ip地址</a></li>
+<li><a href="#%e5%89%91%e6%8c%87off">剑指off</a><h1 id="一-Java知识总结"><a href="#一-Java知识总结" class="headerlink" title="一. Java知识总结"></a>一. Java知识总结</h1></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-java-4-特征：抽象、封装、继承、多态"><a href="#1-java-4-特征：抽象、封装、继承、多态" class="headerlink" title="1. java 4 特征：抽象、封装、继承、多态;"></a>1. java 4 特征：抽象、封装、继承、多态;</h2><p>重载：方法同名，参数不同;参数类型、或个数不同，或顺序不同<br>重写：比父类更好访问，最好不要额外申明异常（里氏替换原则），其他返回类型，参数都要相同;</p>
+<h2 id="2-六大原则："><a href="#2-六大原则：" class="headerlink" title="2. 六大原则："></a>2. 六大原则：</h2><h3 id="单一职责"><a href="#单一职责" class="headerlink" title="单一职责"></a>单一职责</h3><p>该原则提出对象不应该承担太多职责，如果一个对象承担了太多的职责，至少存在以下两个缺点：一个职责的变化可能会削弱或者抑制这个类实现其他职责的能力；当客户端需要该对象的某一个职责时，不得不将其他不需要的职责全都包含进来，从而造成冗余代码或代码的浪费</p>
+<h3 id="开闭"><a href="#开闭" class="headerlink" title="开闭"></a>开闭</h3><p>对扩展开放,对修改关闭  </p>
+<h3 id="里氏替换"><a href="#里氏替换" class="headerlink" title="里氏替换"></a>里氏替换</h3><p>父类所拥有的性质在子类仍然成立,即子类可以扩展父类的功能,但不能改变父类原有的功能. </p>
+<h3 id="依赖倒置"><a href="#依赖倒置" class="headerlink" title="依赖倒置"></a>依赖倒置</h3><p>高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象  </p>
+<h3 id="合成聚合复用"><a href="#合成聚合复用" class="headerlink" title="合成聚合复用"></a>合成聚合复用</h3><p>它要求在软件复用时，要尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现。</p>
+<h3 id="接口隔离"><a href="#接口隔离" class="headerlink" title="接口隔离"></a>接口隔离</h3><p>要求程序员尽量将臃肿庞大的接口拆分成更小的和更具体的接口，让接口中只包含客户感兴趣的方法。<br>接口隔离原则和单一职责都是为了提高类的内聚性、降低它们之间的耦合性，体现了封装的思想，但两者是不同的：<br>单一职责原则注重的是职责，而接口隔离原则注重的是对接口依赖的隔离。<br>单一职责原则主要是约束类，它针对的是程序中的实现和细节；接口隔离原则主要约束接口，主要针对抽象和程序整体框架的构建。</p>
+<h3 id="狄米特法则"><a href="#狄米特法则" class="headerlink" title="狄米特法则"></a>狄米特法则</h3><p>如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。其目的是降低类之间的耦合度，提高模块的相对独立性。</p>
+<h2 id="3-23种设计模式"><a href="#3-23种设计模式" class="headerlink" title="3. 23种设计模式"></a>3. 23种设计模式</h2><hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>创建型模式<ul>
+<li>单例模式</li>
+<li>原型模式</li>
+<li>工厂模式</li>
+<li>建造者模式</li>
+</ul>
+</li>
+<li>结构型模式<ul>
+<li>代理</li>
+<li>适配器</li>
+<li>桥接</li>
+<li>装饰</li>
+<li>外观</li>
+<li>享元</li>
+<li>组合</li>
+</ul>
+</li>
+<li>行为型模式<ul>
+<li>模版方法</li>
+<li>策略</li>
+<li>命令</li>
+<li>职责链</li>
+<li>观察者</li>
+<li>中介者</li>
+<li>迭代器</li>
+<li>备忘录</li>
+<li>解释器</li>
+</ul>
+</li>
+</ul>
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>只产生一个实例，内部新建一个实例，通过static方法返回这个实例</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><p>复制实例以创建实例</p>
+<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><h4 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h4><h4 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h4><p>主要角色有:抽象工厂,具体工厂,抽象产品,具体产品<br>每个具体工厂对应着具体产品</p>
+<h4 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><p>可生产多个等级的产品<br><img src="image/3-1Q11416002NW.gif" alt="">  </p>
+<h3 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h3><p>将一个复杂的对象分解为多个简单的对象,然后一步一步构建而成. 主要角色有产品, 抽象建造者, 具体建造者, 指挥者<br><img src="image/3-1Q1141H441X4.gif" alt="建造者模式"></p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><p>代理模式的主要角色如下。<br>抽象主题（Subject）类：通过接口或抽象类声明真实主题和代理对象实现的业务方法。<br>真实主题（Real Subject）类：实现了抽象主题中的具体业务，是代理对象所代表的真实对象，是最终要引用的对象。<br>代理（Proxy）类：提供了与真实主题相同的接口，其内部含有对真实主题的引用，它可以访问、控制或扩展真实主题的功能。<br><img src="image/3-1Q115093011523.gif" alt=""></p>
+<h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><p>将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。适配器模式分为类结构型模式和对象结构型模式两种，前者类之间的耦合度比后者高，且要求程序员了解现有组件库中的相关组件的内部结构，所以应用相对较少些。</p>
+<p>类适配器<br><img src="image/3-1Q1151045351c.gif" alt=""><br>对象适配器<br><img src="image/3-1Q1151046105A.gif" alt=""></p>
+<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。<br>可以将抽象化部分与实现化部分分开，取消二者的继承关系，改用组合关系。<br>模式的结构<br>桥接（Bridge）模式包含以下主要角色。<br>抽象化（Abstraction）角色：定义抽象类，并包含一个对实现化对象的引用。<br>扩展抽象化（Refined    Abstraction）角色：是抽象化角色的子类，实现父类中的业务方法，并通过组合关系调用实现化角色中的业务方法。<br>实现化（Implementor）角色：定义实现化角色的接口，供扩展抽象化角色调用。<br>具体实现化（Concrete Implementor）角色：给出实现化角色接口的具体实现。<br><img src="image/3-1Q115125253H1.gif" alt=""><br>桥接模式通常适用于以下场景。<br>当一个类存在两个独立变化的维度，且这两个维度都需要进行扩展时。<br>当一个系统不希望使用继承或因为多层次继承导致系统类的个数急剧增加时。<br>当一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性时。  </p>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>观察对象接口（+observerList、-add、-remove、-change)<br>观察者接口：（-change）<br>当观察者对象改变时调用change函数，遍历调用observerList的观察者的change函数<br>主要角色有:抽象主题, 具体主题, 抽象观察者, 具体观察者<br><img src="image/3-1Q1161A6221S.gif" alt="观察者模式"><br><br><br>实现代码如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> observer;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ObserverPattern</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Subject subject=<span class="keyword">new</span> ConcreteSubject();</span><br><span class="line">        Observer obs1=<span class="keyword">new</span> ConcreteObserver1();</span><br><span class="line">        Observer obs2=<span class="keyword">new</span> ConcreteObserver2();</span><br><span class="line">        subject.add(obs1);</span><br><span class="line">        subject.add(obs2);</span><br><span class="line">        subject.notifyObserver();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//抽象目标</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> List&lt;Observer&gt; observers=<span class="keyword">new</span> ArrayList&lt;Observer&gt;();   </span><br><span class="line">    <span class="comment">//增加观察者方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Observer observer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        observers.add(observer);</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="comment">//删除观察者方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(Observer observer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        observers.remove(observer);</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span>; <span class="comment">//通知观察者方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体目标</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteSubject</span> <span class="keyword">extends</span> <span class="title">Subject</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObserver</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体目标发生改变..."</span>);</span><br><span class="line">        System.out.println(<span class="string">"--------------"</span>);       </span><br><span class="line">       </span><br><span class="line">        <span class="keyword">for</span>(Object obs:observers)</span><br><span class="line">        &#123;</span><br><span class="line">            ((Observer)obs).response();</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">    &#125;          </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//抽象观察者</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span>; <span class="comment">//反应</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体观察者1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver1</span> <span class="keyword">implements</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体观察者1作出反应！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//具体观察者1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver2</span> <span class="keyword">implements</span> <span class="title">Observer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">response</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"具体观察者2作出反应！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-jvm-内容"><a href="#4-jvm-内容" class="headerlink" title="4. jvm 内容"></a>4. jvm 内容</h2><h3 id="常见的GC种类"><a href="#常见的GC种类" class="headerlink" title="常见的GC种类"></a>常见的GC种类</h3><p><img src="image/1.jpg" alt="HOTSpot"><br>注意:有连线表示可以搭配使用  </p>
+<h4 id="serial-串行"><a href="#serial-串行" class="headerlink" title="serial(串行)"></a>serial(串行)</h4><ul>
+<li>针对新生代</li>
+<li>复制算法</li>
+<li>单线程</li>
+<li>必须停止所有工作线程即”Stop the word”</li>
+<li>多应用于client模式</li>
+</ul>
+<h4 id="parNew"><a href="#parNew" class="headerlink" title="parNew"></a>parNew</h4><ul>
+<li>serial的多线程版本</li>
+<li>除多线程特点外和serial一样</li>
+<li>多应用于server模式</li>
+</ul>
+<h4 id="parallel-Scavebge"><a href="#parallel-Scavebge" class="headerlink" title="parallel Scavebge"></a>parallel Scavebge</h4><ul>
+<li>吞吐量收集器</li>
+<li>复制算法</li>
+<li>多线程</li>
+<li>目标是达到可控的吞吐量(吞吐量=运行用户代码时间/(运行用户代码时间+垃圾收集时间))</li>
+<li>减少垃圾收集时间,以让用户代码获得更长的运行时间</li>
+</ul>
+<h4 id="serial-old"><a href="#serial-old" class="headerlink" title="serial old"></a>serial old</h4><ul>
+<li>serial的老年代版本</li>
+<li>老年代</li>
+<li>单线程</li>
+<li>标记整理(有压缩)</li>
+<li>主要client模式</li>
+</ul>
+<h4 id="parallel-old"><a href="#parallel-old" class="headerlink" title="parallel old"></a>parallel old</h4><ul>
+<li>parallel Scavenge的老年代版本</li>
+<li>标记整理</li>
+<li>多线程 </li>
+</ul>
+<h4 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h4><ul>
+<li><p>并发标记清理 低停顿 低延迟</p>
+</li>
+<li><p>标记清除算法(不压缩,产生内存碎片)</p>
+</li>
+<li><p>消耗更多内存</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、初始标记</span><br><span class="line">只是标记一下 GC Roots 能直接关联的对象,速度很快,仍然需要暂停所有的工作线程。</span><br><span class="line">2、并发标记</span><br><span class="line">进行 GC Roots 跟踪的过程,和用户线程一起工作,不需要暂停工作线程。</span><br><span class="line">3、重新标记</span><br><span class="line">为了修正在并发标记期间,因用户程序继续运行而导致标记产生变动的那一部分对象的标记记录,仍然需要暂停所有的工作线程。</span><br><span class="line">4、并发清除</span><br><span class="line">清除 GC Roots 不可达对象,和用户线程一起工作,不需要暂停工作线程。由于耗时最长的并</span><br><span class="line">发标记和并发清除过程中,垃圾收集线程可以和用户现在一起并发工作,所以总体上来看</span><br><span class="line">CMS 收集器的内存回收和用户线程是一起并发地执行。</span><br></pre></td></tr></table></figure>
+
+<h4 id="G1-收集器"><a href="#G1-收集器" class="headerlink" title="G1 收集器"></a>G1 收集器</h4><p>  Garbage first 垃圾收集器是目前垃圾收集器理论发展的最前沿成果,相比与 CMS 收集器,G1 收<br>  集器两个最突出的改进是:</p>
+<ol>
+<li>基于标记-整理算法,不产生内存碎片。</li>
+<li>可以非常精确控制停顿时间,在不牺牲吞吐量前提下,实现低停顿垃圾回收。<br>G1 收集器避免全区域垃圾收集,它把堆内存划分为大小固定的几个独立区域,并且跟踪这些区域<br>的垃圾收集进度,同时在后台维护一个优先级列表,每次根据所允许的收集时间,优先回收垃圾<br>最多的区域。区域划分和优先级区域回收机制,确保 G1 收集器可以在有限时间获得最高的垃圾收<br>集效率。</li>
+</ol>
+<h3 id="Minor-GC-和Full-GC"><a href="#Minor-GC-和Full-GC" class="headerlink" title="Minor GC 和Full GC"></a>Minor GC 和Full GC</h3><p>MinorGC 是发生在新生代的GC<br>FullGC也称MajorGC,是发生在老年代的GC</p>
+<h3 id="新生代老年代"><a href="#新生代老年代" class="headerlink" title="新生代老年代"></a>新生代老年代</h3><p>一般新生代:老年代=1:2<br>新生代包含,Eden:servivor:servivor=8:1:1, 新生代因为对象”朝生夕死”故采用”复制清除法”,把Eden和一个servivor区域的存活对象复制到另一个servivor区域,两个servivor交替使用,即第一次minorGC时把Eden和servivor1的存活对象复制到servivor2,第二次就把Eden和servivor2的的存活对象复制到servivor1中,依次交替下.<br>老年代,一般使用标记整理法.对象放入老年代的原因可能有</p>
+<ul>
+<li>minorgc中servivor满了还未放进去的对象</li>
+<li>大对象</li>
+<li>经过多次minorGC还存活的对象(一般16次)</li>
+<li>servivor超过一半对象是某个年龄的对象(minor经历过GC的次数称为年龄),那么大于该年龄的对象会直接进入老年代</li>
+</ul>
+<h3 id="4种可作为GC-root的对象"><a href="#4种可作为GC-root的对象" class="headerlink" title="4种可作为GC root的对象"></a>4种可作为GC root的对象</h3><p>虚拟机栈中引用的对象<br>方法区静态属性引用的对象<br>方法区常量引用的对象<br>本地方法栈中JNI(即一般说的Native方法)引用的对象</p>
+<h3 id="4种引用类型"><a href="#4种引用类型" class="headerlink" title="4种引用类型"></a>4种引用类型</h3><p><strong>强引用</strong></p>
+<p>Java中默认声明的就是强引用，比如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object obj = <span class="keyword">new</span> Object(); <span class="comment">//只要obj还指向Object对象，Object对象就不会被回收</span></span><br><span class="line">obj = <span class="keyword">null</span>;  <span class="comment">//手动置null</span></span><br></pre></td></tr></table></figure>
+
+<p>只要强引用存在，垃圾回收器将永远不会回收被引用的对象，哪怕内存不足时，JVM也会直接抛出OutOfMemoryError，不会去回收。如果想中断强引用与对象之间的联系，可以显示的将强引用赋值为null，这样一来，JVM就可以适时的回收对象了</p>
+<p><strong>软引用</strong></p>
+<p>软引用是用来描述一些非必需但仍有用的对象。<strong>在内存足够的时候，软引用对象不会被回收，只有在内存不足时，系统则会回收软引用对象，如果回收了软引用对象之后仍然没有足够的内存，才会抛出内存溢出异常</strong>。这种特性常常被用来实现缓存技术，比如网页缓存，图片缓存等。<br>在 JDK1.2 之后，用java.lang.ref.SoftReference类来表示软引用。</p>
+<p>下面以一个例子来进一步说明强引用和软引用的区别：<br>在运行下面的Java代码之前，需要先配置参数 -Xms2M -Xmx3M，将 JVM 的初始内存设为2M，最大可用内存为 3M。</p>
+<p>首先先来测试一下强引用，在限制了 JVM 内存的前提下，下面的代码运行正常</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOOM</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         testStrongReference();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testStrongReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当 new byte为 1M 时，程序运行正常</span></span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果我们将</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+<p>替换为创建一个大小为 2M 的字节数组</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">2</span>];</span><br></pre></td></tr></table></figure>
+
+<p>则内存不够使用，程序直接报OOM，强引用并不会被回收</p>
+<p>接着来看一下软引用会有什么不一样，在下面的示例中连续创建了 10 个大小为 1M 的字节数组，并赋值给了软引用，然后循环遍历将这些对象打印出来。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOOM</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         testSoftReference();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSoftReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">            SoftReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> SoftReference&lt;&gt;(buff);</span><br><span class="line">            list.add(sr);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">            Object obj = ((SoftReference) list.get(i)).get();</span><br><span class="line">            System.out.println(obj);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们发现无论循环创建多少个软引用对象，打印结果总是只有最后一个对象被保留，其他的obj全都被置空回收了。<br>这里就说明了在内存不足的情况下，软引用将会被自动回收。<br>值得注意的一点 , 即使有 byte[] buff 引用指向对象, 且 buff 是一个strong reference, 但是 SoftReference sr 指向的对象仍然被回收了，这是因为Java的编译器发现了在之后的代码中, buff 已经没有被使用了, 所以自动进行了优化。<br>如果我们将上面示例稍微修改一下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testSoftReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] buff = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">        SoftReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> SoftReference&lt;&gt;(buff);</span><br><span class="line">        list.add(sr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">        Object obj = ((SoftReference) list.get(i)).get();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">"buff: "</span> + buff.toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则 buff 会因为强引用的存在，而无法被垃圾回收，从而抛出OOM的错误。</p>
+<p>如果一个对象惟一剩下的引用是软引用，那么该对象是软可及的（softly reachable）。垃圾收集器并不像其收集弱可及的对象一样尽量地收集软可及的对象，相反，它只在真正 “需要” 内存时才收集软可及的对象。</p>
+<p><strong>弱引用</strong></p>
+<p>弱引用的引用强度比软引用要更弱一些，<strong>无论内存是否足够，只要 JVM 开始进行垃圾回收，那些被弱引用关联的对象都会被回收</strong>。在 JDK1.2 之后，用 java.lang.ref.WeakReference 来表示弱引用。<br>我们以与软引用同样的方式来测试一下弱引用：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testWeakReference</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">        WeakReference&lt;<span class="keyword">byte</span>[]&gt; sr = <span class="keyword">new</span> WeakReference&lt;&gt;(buff);</span><br><span class="line">        list.add(sr);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    System.gc(); <span class="comment">//主动通知垃圾回收</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">        Object obj = ((WeakReference) list.get(i)).get();</span><br><span class="line">        System.out.println(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：全部为null</p>
+<p>可以发现所有被弱引用关联的对象都被垃圾回收了。</p>
+<p><strong>虚引用</strong></p>
+<p>虚引用是最弱的一种引用关系，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，它随时可能会被回收，在 JDK1.2 之后，用 PhantomReference 类来表示，通过查看这个类的源码，发现它只有一个构造函数和一个 get() 方法，而且它的 get() 方法仅仅是返回一个null，也就是说将永远无法通过虚引用来获取对象，虚引用必须要和 ReferenceQueue 引用队列一起使用。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhantomReference</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">Reference</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns this reference object's referent.  Because the referent of a</span></span><br><span class="line"><span class="comment">     * phantom reference is always inaccessible, this method always returns</span></span><br><span class="line"><span class="comment">     * &lt;code&gt;null&lt;/code&gt;.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  &lt;code&gt;null&lt;/code&gt;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">get</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PhantomReference</span><span class="params">(T referent, ReferenceQueue&lt;? <span class="keyword">super</span> T&gt; q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(referent, q);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>主要作用是跟踪对象被垃圾回收的状态</p>
+<h3 id="什么情况下判断需要调整新生带的大小"><a href="#什么情况下判断需要调整新生带的大小" class="headerlink" title="什么情况下判断需要调整新生带的大小"></a>什么情况下判断需要调整新生带的大小</h3><p>笨想一下,新生代最好每次minorGC最好大部分对象已经”死去”,这样对新生代采用的”复制清除算法”更有利.</p>
+<h3 id="jvm的常见参数"><a href="#jvm的常见参数" class="headerlink" title="jvm的常见参数"></a>jvm的常见参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-verbose:gc -XX:+printGC</td>
+<td>打印GC的简要信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintGCDetails</td>
+<td>打印GC详细信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintGCTimeStamps</td>
+<td>打印GC发生的时间戳</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xlog:&lt;path&gt;</td>
+<td>指定GClog的的位置,文件输出log</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:TraceClassLoading</td>
+<td>监控类的的加载</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+PrintClassHistogram</td>
+<td>按下Ctr+Break后,打印类的信息</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xmx -Xms</td>
+<td>指定最大堆,最小堆</td>
+<td>默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制.空余堆内存大于70%时，JVM会减少堆直到 -Xms的最小限制</td>
+</tr>
+<tr>
+<td>-XX:NewRatio</td>
+<td>表示老年代:新生代的比值</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:SurivorRatio</td>
+<td>eden:survivor的值</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+HeapDumpOnOutOfMemoryError</td>
+<td>OOM时导出堆到文件</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:+HeapDumpPath</td>
+<td>导出OOM的路径</td>
+<td></td>
+</tr>
+<tr>
+<td>-Xss</td>
+<td>设置栈的大小</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:PermSize</td>
+<td>永久区的初始空间</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:MaxPermSize</td>
+<td>永久区的最大空间</td>
+<td></td>
+</tr>
+<tr>
+<td>-XX:OnOutOfMemoryError</td>
+<td>在OOM时执行一个脚本</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="static-amp-final"><a href="#static-amp-final" class="headerlink" title="static &amp; final"></a>static &amp; final</h2><p>static:</p>
+<ul>
+<li>变量：类加载时被初始话，内存中只有一个;</li>
+<li>方法：不能引用非static的方法或变量、必须实现;  </li>
+<li>因为static是成员变量是gcRoot,不会随着该类new出来的对象回收而回收<br>static 变量在内存只有一个实体, 如下述代码中, 三个输出结果皆为2. <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ChildrenMySort.anInt=<span class="number">0</span>;</span><br><span class="line">        ChildrenMySort childrenMySort=<span class="keyword">new</span> ChildrenMySort();</span><br><span class="line">        ChildrenMySort childrenMySort2=<span class="keyword">new</span> ChildrenMySort();</span><br><span class="line">        childrenMySort.anInt=<span class="number">1</span>;</span><br><span class="line">        childrenMySort2.anInt=<span class="number">2</span>;</span><br><span class="line">        System.out.println(ChildrenMySort.anInt);</span><br><span class="line">        System.out.println(childrenMySort.anInt);</span><br><span class="line">        System.out.println(childrenMySort2.anInt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+final ：</li>
+<li>变量：类加载初始化，不可改变或引用不可变;</li>
+<li>方法：不能被被子类重写;类：不能被继承;</li>
+<li>形参：不能被子类修改;</li>
+<li>final修饰的成员变量是gcroot 不会随改类定义的对象回收而回收;</li>
+</ul>
+<h3 id="hashtable、hashmap、currenthashmap"><a href="#hashtable、hashmap、currenthashmap" class="headerlink" title="hashtable、hashmap、currenthashmap:"></a>hashtable、hashmap、currenthashmap:</h3><p>线程安全：table安全，current安全而且效率更高，因为划分粒度更小，将哈希桶分段加锁;map不线程安全<br>null：table不允许空值，map允许，key和value都包括;<br>遍历：table使用枚举类，map使用迭代类<br>父类：table是Dictionary类，map继承AbstractMap<br>哈希值使用：table直接使用hashcode，map对hashcode在hash()<br>map的初始容量16 转化因子0.75</p>
+<p>String +String 实际转化成stringbuild 的append（）</p>
+<h3 id="序列化："><a href="#序列化：" class="headerlink" title="序列化："></a>序列化：</h3><p>TODO<br>将对象转化成字节序列，java远程调用，javabean。序列化内容：类名、属性，static属性不序列化、方法不序列化;反序列花：需要对应的class文件，实现ExternalSerialble的会调用构造方法，seriable不会;transient关键字修饰不必序列花的属性。</p>
+<h3 id="多线程："><a href="#多线程：" class="headerlink" title="多线程："></a>多线程：</h3><p>TODO<br>三种方式：<br>继承Thread类，重写run函数<br>runable接口<br>callable接口 有返回值<br>线程安全：<br>volitate<br>synchronized<br>lock</p>
+<p>线程池：</p>
+<p>java内存泄露与溢出</p>
+<h1 id="二-数据库知识"><a href="#二-数据库知识" class="headerlink" title="二. 数据库知识"></a>二. 数据库知识</h1><h4 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h4><p>原子性：保证事务中的所有操作全部或全部不执行</p>
+<p>一致性： 保持系统处于一致的状态</p>
+<p>隔离性： 多事务并发执行 ，结果与多个事务串行效果一致</p>
+<p>持久性：事物务操作后，对数据库的影响是持久的，即使数据库因故障而受到破坏。</p>
+<h4 id="脏读、不可重复读、幻读"><a href="#脏读、不可重复读、幻读" class="headerlink" title="脏读、不可重复读、幻读"></a>脏读、不可重复读、幻读</h4><p>脏读：T1更新了一行记录的内容、但是没有提交、T2读取更新的行，然后T1回滚，T2就无效了。</p>
+<p>不可重复读：T1读取一行，T2修改该行，T1又再次读取这行，发现与读取的结果不同</p>
+<p>幻读：T1根据条件索引到N条数据，T2增添了M条数据，T1再次搜索发现幻读</p>
+<h4 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h4><h4 id="MyISAM和InnoDB"><a href="#MyISAM和InnoDB" class="headerlink" title="MyISAM和InnoDB"></a>MyISAM和InnoDB</h4><p>m非事务安全，i事务安全</p>
+<p>m粒度表级，i行级</p>
+<p>m支持全文类型索引，而I不支持</p>
+<p>m相对简单，效率高，适合小型应用</p>
+<p>m表保存为文件格式，数据转移简单</p>
+<p>i更安全</p>
+<p>m适合查询，i适合修改</p>
+<h5 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h5><p>select * from table limit m offset n;</p>
+<h1 id="三-计算机网络知识"><a href="#三-计算机网络知识" class="headerlink" title="三. 计算机网络知识"></a>三. 计算机网络知识</h1><h2 id="协议三要素"><a href="#协议三要素" class="headerlink" title="协议三要素"></a>协议三要素</h2><p>语法、语义、时序</p>
+<p>DNS 查询：迭代、递归</p>
+<p>格式：（name,value,type,type,ttl）</p>
+<p>Type=A name 主机域名 value Ip地址</p>
+<p>Ns  域 该域权威域名解析服务器的主机域名</p>
+<p>chame 真实域名的别名 真实域名</p>
+<p>MX valueiname相对应的邮件服务器</p>
+<h2 id="http与https的区别"><a href="#http与https的区别" class="headerlink" title="http与https的区别"></a>http与https的区别</h2><p>http-TCP 80 </p>
+<p>https-SSL/TLS-TCP 443 需要证书，一般收费</p>
+<h2 id="TCP可靠传输-amp-三次握手-amp-四此挥手"><a href="#TCP可靠传输-amp-三次握手-amp-四此挥手" class="headerlink" title="TCP可靠传输&amp;三次握手&amp;四此挥手"></a>TCP可靠传输&amp;三次握手&amp;四此挥手</h2><p>可靠：数据包校验、超时重传、流量控制 </p>
+<p>三次：c反送SYN包 x 、s发送SYN ACK ack=x+1 编号 y 、c发送ACK  ack=y+1</p>
+<p>四次：c发送FIN 编号m 、s发送ack m+1 、s发送FIN n、c发送ack n+1</p>
+<h2 id="DDOS攻击"><a href="#DDOS攻击" class="headerlink" title="DDOS攻击"></a>DDOS攻击</h2><p>一直握2次手，不握第三次</p>
+<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET&amp;POST"></a>GET&amp;POST</h2><p>三get：数据小，不能发大量数据，请求不安全，幂等，</p>
+<p>post：不能被缓存、安全、稳定可靠、数据量无限制</p>
+<h2 id="OSI模型"><a href="#OSI模型" class="headerlink" title="OSI模型"></a>OSI模型</h2><ul>
+<li>应用层</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<h3 id="6-网络层"><a href="#6-网络层" class="headerlink" title="6. 网络层"></a>6. 网络层</h3><p>核心功能: 转发与路由</p>
+<h3 id="7-数据链路层"><a href="#7-数据链路层" class="headerlink" title="7. 数据链路层"></a>7. 数据链路层</h3><p>负责通过一条链路从一个节点向另一个物理链路直接相连的相邻节点传送数据报<br>功能:</p>
+<ul>
+<li>组帧</li>
+<li>链路接入,在共享介质中需要信道接入</li>
+<li>可靠交付,有线链路很少采用,无线链路误码率高故需采用</li>
+<li>流量控制</li>
+<li>差错检测 接收端通知重传或直接丢弃</li>
+<li>差错纠正 接收端直接纠正</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>发送端</th>
+<th>接收端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>将数据封装成帧</td>
+<td>提取数据报,交付上层协议</td>
+</tr>
+<tr>
+<td>增加差错检测</td>
+<td>检测差错,实现可靠数据传输和流量控制</td>
+</tr>
+</tbody></table>
+<h4 id="7-1-多路访问控制协议MAC"><a href="#7-1-多路访问控制协议MAC" class="headerlink" title="7.1 多路访问控制协议MAC"></a>7.1 多路访问控制协议MAC</h4><p>点对点链路: </p>
+<ul>
+<li>拨号的PPP</li>
+<li>以太网交换机与主机  </li>
+</ul>
+<p>广播链路:</p>
+<ul>
+<li>802.11无线局域网</li>
+</ul>
+<p>MAC三大类:</p>
+<ul>
+<li><p>信道划分</p>
+<blockquote>
+<p>多路复用,TDMA,FDMA,CDMA,WDMA</p>
+</blockquote>
+</li>
+<li><p>随机访问</p>
+<blockquote>
+<p>允许冲突,冲突恢复机制</p>
+</blockquote>
+</li>
+<li><p>轮转</p>
+<blockquote>
+<p>轮流使用</p>
+</blockquote>
+<h4 id="7-2-ARP协议"><a href="#7-2-ARP协议" class="headerlink" title="7.2 ARP协议"></a>7.2 ARP协议</h4></li>
+</ul>
+<h2 id="TCP快速重传"><a href="#TCP快速重传" class="headerlink" title="TCP快速重传"></a>TCP快速重传</h2><p>连续收到三个相同的ACK就直接重传</p>
+<h2 id="5类ip地址"><a href="#5类ip地址" class="headerlink" title="5类ip地址"></a>5类ip地址</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>组成</th>
+<th>范围</th>
+<th>备注</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>1字节的网络地址3字节的主机地址</td>
+<td>1.0.0.0~127.0.0.0</td>
+<td>最高位为0,为大型网络设计</td>
+<td>127.0.0.1表示主机本身</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2字节网络2字节主机</td>
+<td>128.0.0.0~191.255.255.255</td>
+<td>网络地址最高为为10</td>
+<td>其中128.0.0.0和191.255.0.0为保留ip，实际范围是128.1.0.0–191.254.0.0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3字节网络地址1字节主机地址</td>
+<td>192.0.0.0~223.255.255.255</td>
+<td>最高位110</td>
+<td>其中192.0.0.0和223.255.255.0为保留ip，实际范围是192.0.1.0–223.255.254.0</td>
+</tr>
+<tr>
+<td>D</td>
+<td>多点广播</td>
+<td>224.0.0~239.255.255.255</td>
+<td>最高位1110</td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>保留地址</td>
+<td>240.0.0.0~255.255.255.254</td>
+<td>最高11110</td>
+<td>255.255.255.255用于广播</td>
+</tr>
+</tbody></table>
+<ul>
+<li>0.0.0.0 对应当前主机</li>
+<li></li>
+</ul>
+<h2 id="剑指off"><a href="#剑指off" class="headerlink" title="剑指off"></a>剑指off</h2><p>不确定问题大胆提问</p>
+<p>自我介绍：30到60秒，主要学习经历</p>
+<p>项目介绍：简短的项目背景、详细自己完成的任务、详细自己怎么完成的、自己的贡献</p>
+<p>了解、熟悉、精通</p>
+<p>重点算法：二分查找、归并排序、快速排序、动态规划、贪心算法</p>
+<p>简单程序要有健壮性，考虑特殊情况</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>芝士</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网易有道2019秋一面</title>
+    <url>/2020/05/26/interview/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<h1 id="一-面试问题"><a href="#一-面试问题" class="headerlink" title="一. 面试问题"></a>一. 面试问题</h1><p>此次面试主要是围着我自我介绍时说的一些自己做的项目提的问题, 比如</p>
+<h2 id="1-自我介绍"><a href="#1-自我介绍" class="headerlink" title="1. 自我介绍"></a>1. 自我介绍</h2><h2 id="2-java-类的加载过程"><a href="#2-java-类的加载过程" class="headerlink" title="2. java 类的加载过程"></a>2. java 类的加载过程</h2><h2 id="３-java-类的查找过程"><a href="#３-java-类的查找过程" class="headerlink" title="３. java 类的查找过程"></a><strong>３. java 类的查找过程</strong></h2><h2 id="springMVC的配置过程"><a href="#springMVC的配置过程" class="headerlink" title="springMVC的配置过程"></a>springMVC的配置过程</h2><h2 id="jvm虚拟机怎么指定老年代新生代的大小"><a href="#jvm虚拟机怎么指定老年代新生代的大小" class="headerlink" title="jvm虚拟机怎么指定老年代新生代的大小?"></a>jvm虚拟机怎么指定老年代新生代的大小?</h2><h2 id="jvm什么时候要调整新生代老年代大小"><a href="#jvm什么时候要调整新生代老年代大小" class="headerlink" title="jvm什么时候要调整新生代老年代大小"></a>jvm什么时候要调整新生代老年代大小</h2><h2 id="springcloud有用过"><a href="#springcloud有用过" class="headerlink" title="springcloud有用过?"></a>springcloud有用过?</h2><h2 id="搭私服maven-的seting-poml文件有哪些特殊设置"><a href="#搭私服maven-的seting-poml文件有哪些特殊设置" class="headerlink" title="搭私服maven 的seting,poml文件有哪些特殊设置"></a>搭私服maven 的seting,poml文件有哪些特殊设置</h2><h2 id="poi的相关使用"><a href="#poi的相关使用" class="headerlink" title="poi的相关使用"></a>poi的相关使用</h2><h2 id="java-线程池相关知识"><a href="#java-线程池相关知识" class="headerlink" title="java 线程池相关知识"></a>java 线程池相关知识</h2><p>一面挂掉</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>shell教程</title>
+    <url>/2020/05/26/learn/shell/</url>
+    <content><![CDATA[<h1 id="shell-基础"><a href="#shell-基础" class="headerlink" title="shell 基础"></a>shell 基础</h1><h2 id="Shell-变量"><a href="#Shell-变量" class="headerlink" title="Shell 变量"></a><strong>Shell 变量</strong></h2><p><strong>定义</strong><br>Shell 变量分为<strong>系统变量</strong>和<strong>自定义变量</strong>。系统变量有$HOME、$PWD、$USER等，显示当前 Shell 中所有变量：<code>set</code> 。<br>变量名可以由字母、数字、下划线组成，不能以数字开头。<br><strong>基本语法</strong></p>
+<ul>
+<li><strong>定义变量：</strong>变量名=变量值，等号两侧不能有空格，变量名一般习惯用大写。</li>
+<li><strong>删除变量：</strong>unset 变量名 。</li>
+<li><strong>声明静态变量：</strong>readonly 变量名，静态变量不能unset。</li>
+<li><strong>使用变量：</strong>$变量名</li>
+</ul>
+<p><strong>将命令返回值赋给变量（重点）</strong></p>
+<ul>
+<li>A=`ls` 反引号,执行里面的命令</li>
+<li>A=$(ls) 等价于反引号</li>
+<li>A=”ls” 存储一条命令</li>
+<li>A=”ls;pwd” </li>
+<li>echo “$(eval $A)” 使用eval执行多条命令</li>
+</ul>
+<p><strong>Shell 环境变量</strong></p>
+<p><strong>基本语法</strong></p>
+<ol>
+<li>export 变量名=变量值，将 Shell 变量输出为环境变量。</li>
+<li>source 配置文件路径，让修改后的配置信息立即生效。</li>
+<li>echo $变量名，检查环境变量是否生效</li>
+</ol>
+<p><strong>位置参数变量</strong><br><strong>基本语法</strong></p>
+<ul>
+<li>$n ：$1 代表命令本身、$1-$9 代表第1到9个参数，10以上参数用花括号，如 ${10}。</li>
+<li>$* ：命令行中所有参数，且把所有参数看成一个整体。</li>
+<li>$@ ：命令行中所有参数，且把每个参数区分对待。</li>
+<li>$# ：所有参数个数。</li>
+</ul>
+<p><strong>实例：</strong><br>编写 Shell 脚本 positionPara.sh ，输出命令行输入的各个参数信息。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash     </span></span><br><span class="line"><span class="comment"># 输出各个参数 </span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$0</span> <span class="variable">$1</span> <span class="variable">$2</span> </span><br><span class="line"><span class="built_in">echo</span> $* </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$@</span> </span><br><span class="line"><span class="built_in">echo</span> 参数个数=<span class="variable">$#</span></span><br></pre></td></tr></table></figure>
+
+
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x positionPara.sh </span><br><span class="line">.&#x2F;positionPara.sh 10 20</span><br></pre></td></tr></table></figure>
+
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;positionPara.sh 10 20 </span><br><span class="line">10 20 </span><br><span class="line">10 20 </span><br><span class="line">参数个数&#x3D;2</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>预定义变量</strong><br><strong>定义</strong><br>在赋值定义之前，事先在 Shell 脚本中直接引用的变量。<br><strong>基本语法</strong></p>
+<ul>
+<li>$$ ：当前进程的 PID 进程号。</li>
+<li>$! ：后台运行的最后一个进程的 PID 进程号。</li>
+<li>$? ：最后一次执行的命令的返回状态，0为执行正确，非0执行失败。</li>
+</ul>
+<p><strong>实例：</strong><br>编写 Shell 脚本 prePara.sh ，输出命令行输入的各个参数信息。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash     </span></span><br><span class="line"><span class="built_in">echo</span> 当前的进程号=$$ </span><br><span class="line"><span class="comment"># &amp;：以后台的方式运行程序 </span></span><br><span class="line">./hello.sh </span><br><span class="line">&amp; <span class="built_in">echo</span> 最后一个进程的进程号=$! </span><br><span class="line"><span class="built_in">echo</span> 最后执行的命令结果=$?</span><br></pre></td></tr></table></figure>
+
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">当前的进程号&#x3D;41752 </span><br><span class="line">最后一个进程的进程号&#x3D;41753 </span><br><span class="line">最后执行的命令结果&#x3D;0 # hello world!</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>运算符</strong><br><strong>基本语法</strong></p>
+<ul>
+<li>$((运算式)) 或 $[运算式]</li>
+<li>expr m + n 注意 expr 运算符间要有空格</li>
+<li>expr m - n</li>
+<li>expr *，/，% 分别代表乘，除，取余</li>
+</ul>
+<p><strong>实例</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第1种方式 $(()) </span></span><br><span class="line"><span class="built_in">echo</span> $(((2+3)*4))   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 第2种方式 $[]，推荐 </span></span><br><span class="line"><span class="built_in">echo</span> $[(2+3)*4]  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 expr </span></span><br><span class="line">TEMP=`expr 2 + 3` </span><br><span class="line"><span class="built_in">echo</span> `expr <span class="variable">$TEMP</span> \* 4`</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a><strong>条件判断</strong></h2><p><strong>基本语法</strong><br>[ condition ] 注意condition前后要有空格。非空返回0，0为 true，否则为 false 。<br><strong>实例</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">'test01'</span> = <span class="string">'test'</span> ] </span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'等于'</span> </span><br><span class="line"><span class="keyword">fi</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 20是否大于10 </span></span><br><span class="line"><span class="keyword">if</span> [ 20 -gt 10] </span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'大于'</span> </span><br><span class="line"><span class="keyword">fi</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否存在文件/root/shell/a.txt </span></span><br><span class="line"><span class="keyword">if</span> [ -e /root/shell/a.txt ] </span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'存在'</span> </span><br><span class="line"><span class="keyword">fi</span>  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">'test02'</span> = <span class="string">'test02'</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">'hello'</span> || <span class="built_in">echo</span> <span class="string">'world'</span> </span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">     <span class="built_in">echo</span> <span class="string">'条件满足，执行后面的语句'</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">大于 </span><br><span class="line">hello </span><br><span class="line">条件满足，执行后面的语句</span><br></pre></td></tr></table></figure>
+
+<p><strong>逻辑运算符</strong></p>
+<ul>
+<li>-o或or，或者，同||</li>
+<li>-a或and，与，同&amp;&amp;</li>
+<li>! ，非</li>
+</ul>
+<p><strong>实例</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 三种等价的写法</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一种 用-o</span></span><br><span class="line">if [ 10 -gt 5 -o 10 -gt 4 ];</span><br><span class="line">then </span><br><span class="line">echo ""</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第二种 用or</span></span><br><span class="line">if [ 10 -gt 5 or 10 -gt 4 ];</span><br><span class="line">then </span><br><span class="line">echo ""</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 第三种种 用||</span></span><br><span class="line">if [ 10 -gt 5 ] || [ 10 -gt 4 ];</span><br><span class="line">then </span><br><span class="line">echo ""</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>整数判断，下面只能用于整数</p>
+<ul>
+<li>-eq 两数是否相等</li>
+<li>-ne 两数是否不等</li>
+<li>-gt 前者是否大于后者（greater then）</li>
+<li>-lt 前面是否小于后者（less than）</li>
+<li>-ge 前者是否大于等于后者（greater then or equal）</li>
+<li>-le 前者是否小于等于后者（less than or equal）</li>
+</ul>
+<p>字符串判断str1 exp str2：</p>
+<ul>
+<li>-z “$str1” str1是否为空字符串</li>
+<li>-n “$str1” str1是否不是空字符串</li>
+<li>“$str1” == “$str2” str1是否与str2相等</li>
+<li>“$str1” != “$str2” str1是否与str2不等</li>
+<li>“$str1” =~ “str2” str1是否包含str2</li>
+</ul>
+<p>特别注意，exp的前后有空格， <strong>字符串变量最好用引号引起来</strong>，因为一旦字符串中有空格，这个表达式就错了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">str1=<span class="string">"hello word"</span></span><br><span class="line">str2=<span class="string">"hello"</span></span><br><span class="line"><span class="comment"># 因为字符串变量没有用引号引起来</span></span><br><span class="line"><span class="comment"># 运行后报错</span></span><br><span class="line"><span class="comment"># 第 5 行: [: 参数太多</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$str1</span>  ==  <span class="variable">$str2</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"1"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"2"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>文件目录判断：filename</p>
+<ul>
+<li>-f $filename 是否为文件</li>
+<li>-e $filename 是否存在</li>
+<li>-d $filename 是否为目录</li>
+<li>-s $filename 文件存在且不为空</li>
+<li>! -s $filename 文件是否为空</li>
+</ul>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="if-判断"><a href="#if-判断" class="headerlink" title="if 判断"></a><strong>if 判断</strong></h3><p><strong>基本语法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> [ 条件判断式 ];<span class="keyword">then</span>   </span><br><span class="line">    程序   </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者（推荐）</span></span><br><span class="line"><span class="keyword">if</span> [ 条件判断式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    程序</span><br><span class="line"><span class="keyword">elif</span> [ 条件判断式 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    程序</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong></p>
+<p>编写 Shell 程序：如果输入的参数大于60，输出“及格”，否则输出“不及格”。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$1</span> -ge 60 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> 及格</span><br><span class="line"><span class="keyword">elif</span> [ <span class="variable">$1</span> -lt 60 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"不及格"</span> </span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="case-分支"><a href="#case-分支" class="headerlink" title="case 分支"></a><strong>case 分支</strong></h3><p><strong>基本语法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> $变量名 <span class="keyword">in</span></span><br><span class="line"><span class="string">"值1"</span>)</span><br><span class="line">如果变量值等于值1，则执行此处程序1</span><br><span class="line">;;</span><br><span class="line"><span class="string">"值2"</span>)</span><br><span class="line">如果变量值等于值2，则执行此处程序2</span><br><span class="line">;;</span><br><span class="line">...省略其它分支...</span><br><span class="line">*)</span><br><span class="line">如果变量值不等于以上列出的值，则执行此处程序</span><br><span class="line">;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong></p>
+<p>当命令行参数为1时输出“周一”，2时输出“周二”，其他情况输出“其它”。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line"><span class="string">"1"</span>)</span><br><span class="line"><span class="built_in">echo</span> 周一</span><br><span class="line">;;</span><br><span class="line"><span class="string">"2"</span>)</span><br><span class="line"><span class="built_in">echo</span> 周二</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> 其它</span><br><span class="line">;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a><strong>for 循环</strong></h3><p><strong>基本语法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 语法1</span></span><br><span class="line"><span class="keyword">for</span> 变量名 <span class="keyword">in</span> 值1 值2 值3...</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    程序</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 语法2</span></span><br><span class="line"><span class="keyword">for</span> ((初始值;循环控制条件;变量变化))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    程序</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="comment"># 语法3</span></span><br><span class="line"><span class="comment"># 等价于 </span></span><br><span class="line"><span class="comment"># for ((i=1;i&lt;=5;i++))</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..5&#125;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">程序</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="comment"># 语法4</span></span><br><span class="line"><span class="comment"># 等价于</span></span><br><span class="line"><span class="comment"># for ((i=1;i&lt;=5;i+=2))</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..5..2&#125;</span><br><span class="line"><span class="keyword">do</span> </span><br><span class="line">程序</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong></p>
+<ol>
+<li>打印命令行输入的参数。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用$* </span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">"$*"</span> </span><br><span class="line"><span class="keyword">do</span>     </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"the arg is <span class="variable">$i</span>"</span> </span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"=================="</span>  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用$@ </span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">"<span class="variable">$@</span>"</span> </span><br><span class="line"><span class="keyword">do</span>     </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"the arg is <span class="variable">$j</span>"</span> </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果（回顾一下 $* 和 $@ 的区别）： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">the arg is 1 2 3 </span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; </span><br><span class="line">the arg is 1 </span><br><span class="line">the arg is 2 </span><br><span class="line">the arg is 3</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>输出从1加到100的值。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line">SUM=0  </span><br><span class="line"><span class="keyword">for</span> ((i=1;i&lt;=100;i++)) </span><br><span class="line"><span class="keyword">do</span>     </span><br><span class="line">    SUM=$[<span class="variable">$SUM</span>+<span class="variable">$i</span>] </span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SUM</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>输出1到5</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..5&#125;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="comment"># 输出为</span></span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a><strong>while 循环</strong></h3><p><strong>基本语法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当条件表达式为false退出循环</span></span><br><span class="line"><span class="keyword">while</span> [ 条件判断式 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    程序</span><br><span class="line"><span class="keyword">done</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 类似的</span></span><br><span class="line"><span class="comment"># 当条件表达式为true退出循环</span></span><br><span class="line">until [ 条件表达式 ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">程序</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong></p>
+<p>输出从1加到100的值。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">SUM=0</span><br><span class="line">i=0</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -le <span class="variable">$1</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    SUM=$[<span class="variable">$SUM</span>+<span class="variable">$i</span>]</span><br><span class="line">    i=$[<span class="variable">$i</span>+1]</span><br><span class="line"><span class="keyword">done</span>       </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SUM</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="读取控制台输入"><a href="#读取控制台输入" class="headerlink" title="读取控制台输入"></a><strong>读取控制台输入</strong></h2><p><strong>基本语法</strong></p>
+<p>read(选项)(参数)<br><strong>选项</strong></p>
+<ul>
+<li>-p：指定读取值时的提示符</li>
+<li>-t：指定读取值时等待的时间（秒），如果没有在指定时间内输入，就不再等待了。</li>
+</ul>
+<p><strong>参数</strong></p>
+<ul>
+<li>变量名：读取值的变量名</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>读取控制台输入一个num值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">read -p &quot;请输入一个数num1&#x3D;&quot; NUM1</span><br><span class="line">echo &quot;你输入num1的值是：$NUM1&quot;</span><br><span class="line"></span><br><span class="line">read -t 10 -p &quot;请在10秒内输入一个数num2&#x3D;&quot; NUM2</span><br><span class="line">echo &quot;你输入num2的值是：$NUM2&quot;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入一个数num1&#x3D;10</span><br><span class="line">你输入num1的值是：10</span><br><span class="line">请在10秒内输入一个数num2&#x3D;20</span><br><span class="line">你输入num2的值是：20</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h2><p>和其它编程语言一样，Shell 编程有系统函数和自定义函数，本文只举两个常用系统函数。</p>
+<h3 id="系统函数"><a href="#系统函数" class="headerlink" title="系统函数"></a><strong>系统函数</strong></h3><ul>
+<li><p>basename，删掉路径最后一个 / 前的所有部分（包括/），常用于获取文件名。<br><strong>基本语法</strong></p>
+</li>
+<li><ul>
+<li>basename [pathname] [suffx]</li>
+<li>basename [string] [suffx]</li>
+<li>如果指定 suffx，也会删掉pathname或string的后缀部分。</li>
+</ul>
+</li>
+</ul>
+<p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># basename &#x2F;usr&#x2F;bin&#x2F;sort  </span><br><span class="line">sort  </span><br><span class="line"></span><br><span class="line"># basename include&#x2F;stdio.h  </span><br><span class="line">stdio.h  </span><br><span class="line"></span><br><span class="line"># basename include&#x2F;stdio.h .h </span><br><span class="line">stdio</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>dirname，删掉路径最后一个 / 后的所有部分（包括/），常用于获取文件路径。<br><strong>基本语法</strong></p>
+</li>
+<li><ul>
+<li>dirname pathname</li>
+<li>如果路径中不含 / ，则返回 ‘.’ （当前路径）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dirname &#x2F;usr&#x2F;bin&#x2F;  </span><br><span class="line">&#x2F;usr  </span><br><span class="line"></span><br><span class="line"># dirname dir1&#x2F;str dir2&#x2F;str </span><br><span class="line">dir1 </span><br><span class="line">dir2  </span><br><span class="line"></span><br><span class="line"># dirname stdio.h </span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a><strong>自定义函数</strong></h3><p><strong>基本语法</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ function ] funname[()]</span><br><span class="line">&#123;</span><br><span class="line">    Action;</span><br><span class="line">    [return int;] </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 调用</span><br><span class="line">funname 参数1 参数2...</span><br><span class="line"># 函数返回值只支持0-255，</span><br><span class="line"># 通过 val&#x3D;$(funname) 获取返回值</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例</strong></p>
+<p>计算输入两个参数的和。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">function getSum()&#123;</span><br><span class="line">    SUM&#x3D;$[$n1+$n2]</span><br><span class="line">    echo &quot;sum&#x3D;$SUM&quot;</span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line">read -p &quot;请输入第一个参数n1：&quot; n1</span><br><span class="line">read -p &quot;请输入第二个参数n2：&quot; n2</span><br><span class="line"></span><br><span class="line"># 调用 getSum 函数</span><br><span class="line">getSum $n1 $n2</span><br></pre></td></tr></table></figure>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>shell通过#来注释一行内容，前面我们已经看到过了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> <span class="comment">#!/bin/bash`</span></span><br><span class="line"><span class="comment"># 这是一行注释</span></span><br><span class="line">:<span class="string">'</span></span><br><span class="line"><span class="string">这是</span></span><br><span class="line"><span class="string">多行</span></span><br><span class="line"><span class="string">注释</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line">ls</span><br><span class="line">:&lt;&lt;EOF</span><br><span class="line">这也可以</span><br><span class="line">达到</span><br><span class="line">多行注释</span><br><span class="line">的目的</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="日志保存"><a href="#日志保存" class="headerlink" title="日志保存"></a>日志保存</h3><p>脚本执行后免不了要记录日志，最常用的方法就是重定向。以下面的脚本为例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># !/bin/bash</span></span><br><span class="line"><span class="comment">#test.sh</span></span><br><span class="line">lll <span class="comment">#这个命令是没有的，因此会报错`</span></span><br><span class="line">date</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>方式一，将标准输出保存到文件中，打印标准错误：</p>
+<ol>
+<li><code>./test.sh &gt; log.dat</code></li>
+</ol>
+<p>这种情况下，如果命令执行出错，错误将会打印到控制台。所以如果你在程序中调用，这样将不会讲错误信息保存在日志中。</p>
+<p>方式二，标准输出和标准错误都保存到日志文件中：</p>
+<ol>
+<li><code>./test.sh &gt; log.dat 2&gt;&amp;1</code></li>
+</ol>
+<p>2&gt;&amp;1的含义</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">在shell中有默认的文件描述符分别如下</span><br><span class="line">0 - 标准输入</span><br><span class="line">1 - 标准输出</span><br><span class="line">2 - 标准错误输出</span><br><span class="line">2 &gt; &amp;1的意思是将标准错误输出的内容重定向到标准输出里</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方式三，保存日志文件的同时，也输出到控制台：</p>
+<ol>
+<li><code>./test.sh |tee log.dat</code></li>
+</ol>
+<h3 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h3><p>最常见的执行方式前面已经看到了：</p>
+<ol>
+<li><code>./test.sh</code></li>
+</ol>
+<p>其它执行方式：</p>
+<ol>
+<li><code>sh test.sh #在子进程中执行</code></li>
+<li><code>sh -x test.sh #会在终端打印执行到命令，适合调试</code></li>
+<li><code>source test.sh #test.sh在父进程中执行</code></li>
+<li><code>. test.sh #不需要赋予执行权限，临时执行</code></li>
+</ol>
+<h3 id="脚本退出码"><a href="#脚本退出码" class="headerlink" title="脚本退出码"></a>脚本退出码</h3><p>很多时候我们需要获取脚本的执行结果，即退出状态，通常0表示执行成功，而非0表示失败。为了获得退出码，我们需要使用exit。例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">function</span> myfun()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>[ <span class="variable">$#</span> -lt 2 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"para num error"</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"ok"</span></span><br><span class="line"><span class="built_in">exit</span> 2</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"para num error"</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">returnVal=`myfun aa`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"end shell"</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里需要特别注意的一点是，使用</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">returnVal=`myfun aa`</span><br></pre></td></tr></table></figure>
+
+<p>这样的句子执行函数，即便函数里面有exit，它也不会退出脚本执行，而只是会退出该函数，这是因为<strong>exit是退出当前进程</strong>，而这种方式执行函数，相当于fork了一个子进程，因此不会退出当前脚本。最终结果就会看到，无论你的函数参数是什么最后end shell都会打印。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./test.sh;<span class="built_in">echo</span> $?</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<p>这里的0就是脚本的执行结果。</p>
+<h3 id="脚本失败时即退出"><a href="#脚本失败时即退出" class="headerlink" title="脚本失败时即退出"></a><strong>脚本失败时即退出</strong></h3><p>可以在脚本的开头设置如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set -e</span><br></pre></td></tr></table></figure>
+
+<p>举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#！&#x2F;bin&#x2F;bash</span><br><span class="line">set -e</span><br><span class="line">lp    #这里运行会出错</span><br><span class="line">date</span><br></pre></td></tr></table></figure>
+
+<p>这种情况下，运行一旦出错就会退出，不放过一个问题：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ .&#x2F;test.sh</span><br><span class="line">lp: Error - no default destination available.</span><br></pre></td></tr></table></figure>
+
+<p>当然了，这也有不好的地方，有时候命令执行本来就可能是失败的，你还是希望它继续，可以临时加上|| true：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#！&#x2F;bin&#x2F;bash</span><br><span class="line">set -e</span><br><span class="line">lp  || true  </span><br><span class="line">date</span><br></pre></td></tr></table></figure>
+
+<p>不过个人觉得这样的设置用处不是特别大，因为很多时候就是需要处理不同的错误情况，而这样只能要么遇到错误退出，要么认为正确，导致无法走到异常分支。<br>通过set +e设置回来：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set -e</span><br><span class="line">#command</span><br><span class="line">set +e</span><br><span class="line">#other command</span><br></pre></td></tr></table></figure>
+
+<h3 id="打印脚本执行过程"><a href="#打印脚本执行过程" class="headerlink" title="打印脚本执行过程"></a><strong>打印脚本执行过程</strong></h3><p>调试阶段，你可能想知道整个过程是执行了哪些命令，每条命令都具体执行了什么，可以利用下面的方式执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sh -x test.sh</span><br></pre></td></tr></table></figure>
+
+<p>或者，和上面类似，在开头加上set -x：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">//来源：公众号【编程珠玑】</span><br><span class="line">//作者：守望先生</span><br><span class="line"><span class="comment">#！/bin/bash</span></span><br><span class="line">set <span class="literal">-x</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$</span><span class="comment"># -lt 1 ]</span></span><br><span class="line"><span class="type">then</span></span><br><span class="line">   <span class="type">echo</span>  <span class="string">"no para"</span></span><br><span class="line"><span class="type">else</span></span><br><span class="line">   <span class="type">echo</span> <span class="string">"para 1 <span class="variable">$1</span>"</span></span><br><span class="line"><span class="type">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>执行时，输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+ [ 0 -le 1 ]</span><br><span class="line">+ echo no para</span><br><span class="line">no para</span><br></pre></td></tr></table></figure>
+
+<p>前面带+的内容就是命令实际执行的，你可以看到比较条件是什么，变量被展开成了具体内容，走到了哪个分支，非常清楚。</p>
+<h3 id="显示未定义的变量"><a href="#显示未定义的变量" class="headerlink" title="显示未定义的变量"></a><strong>显示未定义的变量</strong></h3><p>shell中变量没有定义，仍然是可以使用的，但是它的结果可能不是你所预期的。举个例子：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#！/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$var</span>"</span> = <span class="string">"abc"</span> ]</span><br><span class="line">then</span><br><span class="line">   echo  <span class="string">" not abc"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   echo <span class="string">" abc "</span></span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>这里本来想判断var的内容是否为abc，实际上var并没有定义，但是在这里使用并没有报错，如果我们想早点发现这类问题，避免在复杂的脚本中问题被掩盖，那么可以在开头加上<br>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set -u</span><br></pre></td></tr></table></figure>
+
+<p>再次运行就会提示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.sh: 3: test.sh: num: parameter not set</span><br></pre></td></tr></table></figure>
+
+<p>再想象一下，你本来想删除：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf $dir&#x2F;*</span><br></pre></td></tr></table></figure>
+
+<p>然后dir是空的时候，变成了什么？</p>
+<p>是不是有种后背发凉的感觉？</p>
+<blockquote>
+<p> 来源：公号【编程珠玑】</p>
+</blockquote>
+<h3 id="管道命令一个失败时整个失败"><a href="#管道命令一个失败时整个失败" class="headerlink" title="管道命令一个失败时整个失败"></a><strong>管道命令一个失败时整个失败</strong></h3><p>有时候我们可能会执行类似这样的命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat test.sh |grep if | cut -d &#39;;&#39; -f 2</span><br></pre></td></tr></table></figure>
+
+<p>三条命令一行执行，如果我们希望在其中一条失败，整个命令就失败，而避免执行后面无意义的命令，那么可以在开始设置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set -o pipefail</span><br></pre></td></tr></table></figure>
+
+<p>不设置的情况下，cat test.sh即使执行失败了，后面的grep实际上还会继续执行，可能会导致一些意想不到的情况发生，如果不想这样的情况发生，那么这样设置是有帮助的。</p>
+<h3 id="对于静态变量使用readonly"><a href="#对于静态变量使用readonly" class="headerlink" title="对于静态变量使用readonly"></a><strong>对于静态变量使用readonly</strong></h3><p>通常我们会在脚本开头定义一些静态变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MY_PATH&#x3D;&#x2F;usr&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>而为了避免MY_PATH被意外修改，可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">readonly MY_PATH&#x3D;&#x2F;usr&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>这样的话，一旦后面有命令尝试修改，就会报错。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">readonly MY_PATH&#x3D;&#x2F;usr&#x2F;bin</span><br><span class="line">MY_PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;bin</span><br></pre></td></tr></table></figure>
+
+<p>运行一下试试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sh test.sh</span><br><span class="line">test.sh: 3: test.sh: MY_PATH: is read only</span><br></pre></td></tr></table></figure>
+
+<p>看，给你提示了！</p>
+<h3 id="给变量设置可选的初始值"><a href="#给变量设置可选的初始值" class="headerlink" title="给变量设置可选的初始值"></a><strong>给变量设置可选的初始值</strong></h3><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">name&#x3D;$&#123;1:-shouwang&#125;</span><br><span class="line">echo &quot;$&#123;name&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这里让name为$1，即第一个参数，而当它为空时，另name为shouwang。</p>
+<h3 id="多条命令执行使用-amp-amp"><a href="#多条命令执行使用-amp-amp" class="headerlink" title="多条命令执行使用&amp;&amp;"></a><strong>多条命令执行使用&amp;&amp;</strong></h3><p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cmd0;cmd1;cmd1</span><br></pre></td></tr></table></figure>
+
+<p>这里如果cmd0失败了，后面的命令仍然会执行，而如果不希望后面的命令执行，可以使用：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cmd0 &amp;&amp; cmd1 &amp;&amp; cmd1</span><br></pre></td></tr></table></figure>
+
+<h1 id="linux-命令"><a href="#linux-命令" class="headerlink" title="linux 命令"></a>linux 命令</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.zhihu.com/question/387878326/answer/1162110940" target="_blank" rel="noopener">作者：守望 </a></p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flink笔记</title>
+    <url>/2020/05/26/learn/flink/</url>
+    <content><![CDATA[<h1 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1 基础概念"></a>1 基础概念</h1><h2 id="bound"><a href="#bound" class="headerlink" title="bound"></a>bound</h2><p>bounded数据 有始有终的数据<br>unbounde数据 无界的数据,有始无终 </p>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>无状态是数据来一条处理一条,不装载数据 </p>
+<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>Even Time : event创建的时间<br>ingestion time:<br>Process time:</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>有界无界数据流<br>部署灵活<br>极高伸缩性<br>极致流式处理性能  </p>
+<h2 id="operatino"><a href="#operatino" class="headerlink" title="operatino"></a>operatino</h2><p>高可用  </p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>心理学</title>
+    <url>/2020/05/26/learn/%E5%BF%83%E7%90%86%E5%AD%A6/</url>
+    <content><![CDATA[<h1 id="社会心理学"><a href="#社会心理学" class="headerlink" title="社会心理学"></a>社会心理学</h1><h2 id="相关法和实验法"><a href="#相关法和实验法" class="headerlink" title="相关法和实验法"></a>相关法和实验法</h2><p><strong>焦点效应</strong><br>人类往往会把自己看做一切的中心，并且直觉地高估别人对我们的关注程度<br><strong>透明度错觉</strong><br>我们也倾向于认为我们的情绪总是表现得比实际情况更明显</p>
+<p>保罗-萨特 首先存在于环境之中，我们不能脱离环境 环境塑造了我们决定了我们的可能性。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看的动漫</title>
+    <url>/2020/05/26/essay/anime/anime/</url>
+    <content><![CDATA[<h1 id="目录"><a href="#目录" class="headerlink" title="目录  "></a>目录  <!-- omit in toc --></h1><ul>
+<li><a href="#%e5%85%b3%e4%ba%8e">关于</a></li>
+<li><a href="#%e5%8a%a8%e6%bc%ab%e5%88%97%e8%a1%a8">动漫列表</a></li>
+<li><a href="#%e5%8f%8d%e6%ad%a3%e6%b2%a1%e4%ba%ba%e7%9c%8b%e5%8f%af%e4%bb%a5%e9%9a%8f%e4%be%bf%e5%86%99">反正没人看可以随便写</a><ul>
+<li><a href="#1%e5%8f%af%e5%a1%91%e6%80%a7%e8%ae%b0%e5%bf%86">1.《可塑性记忆》</a></li>
+<li><a href="#2-quot%e6%a0%a1%e5%9b%adf4quot">2. &quot;校园f4&quot;</a><ul>
+<li><a href="#%e5%86%b0%e8%8f%93">《冰菓》</a></li>
+<li><a href="#%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%88%b0%e5%ae%9e%e5%8a%9b%e8%87%b3%e4%b8%8a%e6%95%99%e5%ae%a4">《欢迎来到实力至上教室》</a></li>
+<li><a href="#%e9%9d%92%e6%98%a5%e7%8c%aa%e5%a4%b4%e5%b0%91%e5%b9%b4%e4%b8%8d%e4%bc%9a%e6%a2%a6%e5%88%b0%e5%85%94%e5%a5%b3%e9%83%8e%e5%ad%a6%e5%a7%90">《青春猪头少年不会梦到兔女郎学姐》</a></li>
+<li><a href="#%e6%88%91%e7%9a%84%e9%9d%92%e6%98%a5%e6%97%a0%e8%af%ad%e6%9e%9c%e7%84%b6%e6%9c%89%e9%97%ae%e9%a2%98">《我的青春无语果然有问题》</a></li>
+</ul>
+</li>
+<li><a href="#%ef%bc%93%e6%9f%90%e7%a7%91%e5%ad%a6%e7%9a%84%e8%b6%85%e7%94%b5%e7%a3%81%e7%82%ae">３.《某科学的超电磁炮》</a></li>
+<li><a href="#4%e5%91%bd%e8%bf%90%e7%9f%b3%e4%b9%8b%e9%97%a8">4.《命运石之门》</a><ul>
+<li><a href="#5-%e5%8f%aa%e6%9c%89%e6%88%91%e4%b8%8d%e5%9c%a8%e7%9a%84%e8%a1%97%e9%81%93">5. 《只有我不在的街道》</a></li>
+<li><a href="#6re-%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e7%9a%84%e5%bc%82%e4%b8%96%e7%95%8c%e7%94%9f%e6%b4%bb">6.《re 从零开始的异世界生活》</a></li>
+</ul>
+</li>
+<li><a href="#5-%e6%b2%bb%e6%84%88">5. “治愈”</a><ul>
+<li><a href="#%e6%88%91%e4%bb%ac%e4%bb%8d%e6%9c%aa%e7%9f%a5%e9%81%93%e9%82%a3%e5%a4%a9%e6%89%80%e7%9c%8b%e8%a7%81%e7%9a%84%e8%8a%b1%e7%9a%84%e5%90%8d%e5%ad%97">《我们仍未知道那天所看见的花的名字》</a></li>
+<li><a href="#%e5%9b%9b%e6%9c%88%e6%98%af%e4%bd%a0%e7%9a%84%e8%b0%8e%e8%a8%80">《四月是你的谎言》</a></li>
+<li><a href="#%e5%a2%83%e7%95%8c%e7%9a%84%e5%bd%bc%e6%96%b9">《境界的彼方》</a></li>
+<li><a href="#%e9%ad%94%e6%b3%95%e5%b0%91%e5%a5%b3%e5%b0%8f%e5%9c%86">《魔法少女小圆》</a></li>
+</ul>
+</li>
+<li><a href="#%ef%bc%96-%e7%ac%91">６. “笑”</a></li>
+<li><a href="#7-%e7%8b%97%e7%b2%ae">7. “狗粮”</a><ul>
+<li><a href="#%e6%93%85%e9%95%bf%e6%8d%89%e5%bc%84%e4%ba%ba%e7%9a%84%e9%ab%98%e6%9c%a8%e5%90%8c%e5%ad%a6">《擅长捉弄人的高木同学》</a></li>
+<li><a href="#%e9%99%a1%e7%84%b6%e5%96%9c%e6%ac%a2%e4%bd%a0">《陡然喜欢你》</a></li>
+</ul>
+</li>
+<li><a href="#8-quot%e9%82%aa%e6%95%99quot">8. &quot;邪教&quot;</a><ul>
+<li><a href="#%e8%af%b7%e9%97%ae%e4%bb%8a%e5%a4%a9%e4%b9%9f%e8%a6%81%e6%9d%a5%e7%82%b9%e5%85%94%e5%ad%90%e5%90%97">《请问今天也要来点兔子吗》</a></li>
+</ul>
+</li>
+<li><a href="#9-%e5%ae%b6%e9%95%bf%e9%99%aa%e5%90%8c">9. “家长陪同”</a><ul>
+<li><a href="#%e7%bc%98%e4%b9%8b%e7%a9%ba">《缘之空》</a></li>
+<li><a href="#%e6%97%a5%e5%9c%a8%e6%a0%a1%e5%9b%ad">《日在校园》</a></li>
+<li><a href="#%e6%9f%91%e6%a9%98%e5%91%b3%e9%a6%99%e6%b0%94">《柑橘味香气》</a></li>
+</ul>
+</li>
+<li><a href="#10-%e5%be%85%e7%bb%ad">10. 待续</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1><p>想整理一下自己所看的动漫,顺便练一下Markdown。<br>文笔？不管，反正自己看。<br>错别字？ 尽量吧。</p>
+<h1 id="动漫列表"><a href="#动漫列表" class="headerlink" title="动漫列表"></a>动漫列表</h1><p>以下是我接触过的一些番剧，大部分是看完的，按记忆顺序排序，逃～</p>
+<p><strong>看完了的</strong></p>
+<ul>
+<li><p>《可塑型记忆》</p>
+</li>
+<li><p>小林家的龙女仆</p>
+</li>
+<li><p>冰菓</p>
+</li>
+<li><p>缘之空</p>
+</li>
+<li><p>日在校园</p>
+</li>
+<li><p>柑橘味香气</p>
+</li>
+<li><p>欢迎来到实力之上教室</p>
+</li>
+<li><p>青春猪头少年不会梦到兔女郎学姐</p>
+</li>
+<li><p>我的青春物语果然有问题</p>
+</li>
+<li><p>请问您今天也来点兔子吗</p>
+</li>
+<li><p>干物妹,小埋</p>
+</li>
+<li><p>命运石之门</p>
+</li>
+<li><p>只有我不在的街道</p>
+</li>
+<li><p>某科学的超电磁炮</p>
+</li>
+<li><p>凉宫春日的忧郁</p>
+</li>
+<li><p>漆黑的子弹</p>
+</li>
+<li><p>擅长捉弄人的高木同学</p>
+</li>
+<li><p>中二病也要谈恋爱</p>
+</li>
+<li><p>境界的彼方</p>
+</li>
+<li><p>女高中生的虚度日常</p>
+</li>
+<li><p>四月是你的谎言</p>
+</li>
+<li><input disabled="" type="checkbox"> <p>男子高中生的日常 </p>
+</li>
+<li><p>天使的心跳</p>
+</li>
+<li><p>伪恋</p>
+</li>
+<li><p>魔法少女小圆</p>
+</li>
+<li><p>陡然喜欢你</p>
+</li>
+<li><p>我们仍未知道那天所看见的花的名字</p>
+</li>
+<li><p>家有女友</p>
+</li>
+<li><p>re 从零开始的异世界</p>
+</li>
+<li><p>刀剑神域　</p>
+</li>
+<li><p>深海之蓝</p>
+</li>
+<li><p>夏洛特 （Charlotte）</p>
+</li>
+<li><p>fate zero</p>
+</li>
+<li><p>绅士学园</p>
+</li>
+<li><p>fate UWB</p>
+</li>
+<li><p>幻想嘉年华</p>
+<p><strong>没看完的</strong></p>
+</li>
+<li><p>某科学的一方通行</p>
+</li>
+<li><p>魔法禁书目录</p>
+</li>
+<li><p>珈百璃的堕落</p>
+</li>
+<li><p>辉夜大小姐想让我告白</p>
+</li>
+<li><p>clannad</p>
+</li>
+<li><p>游戏人生</p>
+</li>
+<li><p>工作细胞</p>
+</li>
+<li><p>邻家索菲</p>
+</li>
+<li><p>我的妹妹不可能这么可爱</p>
+</li>
+<li><p>埃罗芒阿老师</p>
+</li>
+<li><p>零之使魔</p>
+</li>
+<li><p>天行九歌</p>
+</li>
+<li><p>五等分的新娘 </p>
+</li>
+<li><p>齐神</p>
+</li>
+<li><p>幸运星</p>
+</li>
+<li><p>爱情研究所</p>
+</li>
+<li><p>urara迷路贴</p>
+</li>
+<li><p>刀剑神域</p>
+</li>
+<li><p>一起一起这里哪里</p>
+</li>
+</ul>
+<p><strong>购物车（也就是待看的）</strong></p>
+<ul>
+<li>竞女</li>
+<li>月刊少女野崎君</li>
+<li>白箱</li>
+<li>钢之炼金术</li>
+<li>进击的巨人</li>
+<li>天使降临我身边</li>
+<li>new game</li>
+<li>百变小樱魔术卡</li>
+<li>love live school idol project</li>
+<li>属性咖啡厅</li>
+<li>龙王的工作</li>
+<li>killer killer</li>
+<li>亚人酱有话要说</li>
+<li>魔物娘的同居日常</li>
+<li>约定的梦幻岛</li>
+<li>在地下城寻求邂逅是否搞错了</li>
+<li>少女遇见熊</li>
+<li>这个美术师有大问题</li>
+<li>夏日友人帐</li>
+<li>排球少年</li>
+<li>jojo</li>
+</ul>
+<h1 id="反正没人看可以随便写"><a href="#反正没人看可以随便写" class="headerlink" title="反正没人看可以随便写"></a>反正没人看可以随便写</h1><h2 id="1-《可塑性记忆》"><a href="#1-《可塑性记忆》" class="headerlink" title="1.《可塑性记忆》"></a>1.《可塑性记忆》</h2><p>入坑番,在上面列表唯一打上书名号以表现Error初恋地位（其实是因为懒-_-）</p>
+<h2 id="2-“校园f4”"><a href="#2-“校园f4”" class="headerlink" title="2. “校园f4”"></a>2. “校园f4”</h2><h3 id="《冰菓》"><a href="#《冰菓》" class="headerlink" title="《冰菓》"></a>《冰菓》</h3><p>“我很好奇?”,女主萌到毁天灭地;整片画风无敌,分分钟截壁纸的那种;没有大事件波澜不惊的推理也能那么有意思;人物刻画都很鲜明,尤其是男二女二的角色形象丝毫不逊主角,这点太可贵了;最高能的是两个人在教师里全集”凭空推理”,颇有电影《看不见的客人》的味道;结局表明心意那段也太美了;</p>
+<h3 id="《欢迎来到实力至上教室》"><a href="#《欢迎来到实力至上教室》" class="headerlink" title="《欢迎来到实力至上教室》"></a>《欢迎来到实力至上教室》</h3><p>“只有我一个人不会受伤的世界完成了”,一部不错的番,但总觉得看完没什么记住的东西.</p>
+<h3 id="《青春猪头少年不会梦到兔女郎学姐》"><a href="#《青春猪头少年不会梦到兔女郎学姐》" class="headerlink" title="《青春猪头少年不会梦到兔女郎学姐》"></a>《青春猪头少年不会梦到兔女郎学姐》</h3><p>各种有趣的”青春期现象”,薛定谔的猫-没被观察就会消失,拨弄时间的色子–不爽就让时间重来好了…把青春期的种种问题加上了脑洞大开的超自然设定,十分有意思.除此之外,此番看点还有男主史诗级的骚话连篇以及教科书级的”撩学姐”操作,男主和学姐间令人羡慕的爱情故事,也有很多令人深思的地方,比如男主和她妹篇，看时我就一直在想生命本质上会不会等价于记忆?</p>
+<h3 id="《我的青春无语果然有问题》"><a href="#《我的青春无语果然有问题》" class="headerlink" title="《我的青春无语果然有问题》"></a>《我的青春无语果然有问题》</h3><p>“只有我一个人受伤的世界完成了”,是 “实力教室”的另个极端.F4中目前唯一有第二季的.可能是个人情商原因,有好多情节对话看不太懂,但即使这样我也觉得这部番相当好看.</p>
+<h2 id="３-《某科学的超电磁炮》"><a href="#３-《某科学的超电磁炮》" class="headerlink" title="３.《某科学的超电磁炮》"></a>３.《某科学的超电磁炮》</h2><p>“你指尖跃动的电光 是我此生不变的信仰!”<br>2020要出第三季，期待！<br>附另外几部不太重要的“前传”或“后传”</p>
+<ul>
+<li>《魔法禁书目录》</li>
+<li>《某科学的一方通行》</li>
+</ul>
+<h2 id="4-《命运石之门》"><a href="#4-《命运石之门》" class="headerlink" title="4.《命运石之门》"></a>4.《命运石之门》</h2><p>前期一直在铺垫，挖坑，而且有一些不必要的中二，可能会有点看不下去。<br>但撑到撑到十集左右后, 就会感觉前面的忍耐都是值得的。<br>亮点是 故事逻辑严谨而富有波折 阐述了关于时间穿梭的很有趣的一个理论。<br>“一切都是命运石之门的选择!”</p>
+<h3 id="5-《只有我不在的街道》"><a href="#5-《只有我不在的街道》" class="headerlink" title="5. 《只有我不在的街道》"></a>5. 《只有我不在的街道》</h3><p>和石头门对比,该剧的重点没有在穿越的原理和细节,悬疑推理上也不是很深, 更多是在描写正义小伙伴们大战恋童癖怪叔的故事, 并着重墨于细腻的感情描写中. 全作被雏月加代吸引, 狂投加代股, 虽然最后赔的血本无归, 但慢慢也释然了. 该番因为结局的原因被戏称为”只有我被NTR的街道”, 但也有人说这部番里有各种细腻的感情,但就是没有爱情, 也没有人被NTR. 虽然加代党的糖吃的十分开心, 但动画里展现出的友情和亲情也十分令人羡慕. 总之,是一部十分值得一看的番.</p>
+<h3 id="6-《re-从零开始的异世界生活》"><a href="#6-《re-从零开始的异世界生活》" class="headerlink" title="6.《re 从零开始的异世界生活》"></a>6.《re 从零开始的异世界生活》</h3><p>这部番我个人的话有两个喜欢的点，一个是蕾姆，一个是男主像一个普通人。看腻了那种完人般的主角，什么“正义的伙伴”之类的，看看有优点缺点也不小的主角，会觉得更真实，代入到故事情节中会更有趣点。</p>
+<h2 id="5-“治愈”"><a href="#5-“治愈”" class="headerlink" title="5. “治愈”"></a>5. “治愈”</h2><h3 id="《我们仍未知道那天所看见的花的名字》"><a href="#《我们仍未知道那天所看见的花的名字》" class="headerlink" title="《我们仍未知道那天所看见的花的名字》"></a>《我们仍未知道那天所看见的花的名字》</h3><p>ed太好听了 可以说是曾经沧海难为水,看完这部以后看其他所谓的催泪番都相当的平静.</p>
+<h3 id="《四月是你的谎言》"><a href="#《四月是你的谎言》" class="headerlink" title="《四月是你的谎言》"></a>《四月是你的谎言》</h3><p>总觉得以前看过类似的情节,所以开头就猜中了结局,催泪效果也就大打折扣了.玩音乐玩出了战斗番的意味.可惜不懂钢琴和小提琴,全程只能看观众的反应判断弹的好不好听.</p>
+<h3 id="《境界的彼方》"><a href="#《境界的彼方》" class="headerlink" title="《境界的彼方》"></a>《境界的彼方》</h3><p>猜测应该是个催泪番吧,因为我感觉它后期是想催泪的,但我好像,,,,可能是年龄大了,也可能是前期太好笑了，尤其是第6集.</p>
+<h3 id="《魔法少女小圆》"><a href="#《魔法少女小圆》" class="headerlink" title="《魔法少女小圆》"></a>《魔法少女小圆》</h3><p>颠覆对魔法少女的认知,十分治愈. 狗头.jpg 老虚还是名不虚传。</p>
+<h2 id="６-“笑”"><a href="#６-“笑”" class="headerlink" title="６. “笑”"></a>６. “笑”</h2><p>笑就完了，嗯就这样…..</p>
+<ul>
+<li>《女高中生的虚度日常》</li>
+<li>《男子高中生的日常》</li>
+<li>《深海之蓝》</li>
+<li>《监狱学园》  </li>
+</ul>
+<h2 id="7-“狗粮”"><a href="#7-“狗粮”" class="headerlink" title="7. “狗粮”"></a>7. “狗粮”</h2><h3 id="《擅长捉弄人的高木同学》"><a href="#《擅长捉弄人的高木同学》" class="headerlink" title="《擅长捉弄人的高木同学》"></a>《擅长捉弄人的高木同学》</h3><p>一部疯狂塞狗粮的番。<br>刚看时觉得画风有点奇怪，后面高木太太越看越好看，狗粮也越吃越香。<br>真的很羡慕这样的青春时代! </p>
+<h3 id="《陡然喜欢你》"><a href="#《陡然喜欢你》" class="headerlink" title="《陡然喜欢你》"></a>《陡然喜欢你》</h3><p>和高木同学不一样，这里的粮食不仅量大，而且口味良多。可恶，我一单身狗为什么要看这个!  -&gt; _ -&gt; </p>
+<h2 id="8-“邪教”"><a href="#8-“邪教”" class="headerlink" title="8. “邪教”"></a>8. “邪教”</h2><h3 id="《请问今天也要来点兔子吗》"><a href="#《请问今天也要来点兔子吗》" class="headerlink" title="《请问今天也要来点兔子吗》"></a>《请问今天也要来点兔子吗》</h3><p>我好歹堂堂八尺男儿，结果 。。。   </p>
+<p><img src="img/diantu.jpg" alt=""></p>
+<p><strong>但是，真好看！</strong></p>
+<ul>
+<li>《干物妹,小埋》</li>
+<li>《小林家的龙女仆》</li>
+<li>《urara迷路贴》</li>
+</ul>
+<h2 id="9-“家长陪同”"><a href="#9-“家长陪同”" class="headerlink" title="9. “家长陪同”"></a>9. “家长陪同”</h2><h3 id="《缘之空》"><a href="#《缘之空》" class="headerlink" title="《缘之空》"></a>《缘之空》</h3><p>妹萌文化的代表作之一,看着这部番时还不知道”galgame”,觉得这样回到选择点作不同选择有不同故事发展的叙事方式很新颖.最爱巫女线.工口画面好像对情节推进没什么作用,像是完成一条线后给的奖励.另外,对妹妹这条线总觉得不太舒服.</p>
+<h3 id="《日在校园》"><a href="#《日在校园》" class="headerlink" title="《日在校园》"></a>《日在校园》</h3><p>一部著名的工口黑暗番.其实不要把伊藤诚当人,把他当成一个交配道具看这个番体验会好很多.当初是很喜欢桂言叶的这个角色,然后看时就特别难受.后面想想如果对这些女性角色不抱感情的话,就可以格挡掉这些黑暗成分了,专心享受工口. 总的来说, 这部番女性角色感觉没有一个是正常的, 整部番也是,为了猎奇而猎奇,为了黑暗而黑暗, 没啥好看的. </p>
+<h3 id="《柑橘味香气》"><a href="#《柑橘味香气》" class="headerlink" title="《柑橘味香气》"></a>《柑橘味香气》</h3><p>“橘里橘气”的由来,有”真实战斗指导”的百合番.据说公开版是去掉了少儿不宜的画面以便在正规网站上映,但是只是把镜头切向了环境画面,声音还在! 所谓无声胜有声!</p>
+<p>附</p>
+<ul>
+<li>《监狱学院》</li>
+<li>《家有女友》</li>
+</ul>
+<h2 id="10-待续"><a href="#10-待续" class="headerlink" title="10. 待续"></a>10. 待续</h2>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+</search>
