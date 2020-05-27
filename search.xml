@@ -3,7 +3,7 @@
   <entry>
     <title>About Me</title>
     <url>/2020/05/26/about/</url>
-    <content><![CDATA[<p>GitHub: <a href="https://github.com/yzqaq" target="_blank" rel="noopener">Shen-Yu</a><br>mail: <a href="mailto:abloibce@qq.com">abloibce@qq.com</a></p>
+    <content><![CDATA[<p>GitHub: <a href="https://github.com/yzqaq" target="_blank" rel="noopener">yzqaq</a><br>mail: <a href="mailto:abloibce@qq.com">abloibce@qq.com</a></p>
 ]]></content>
       <tags>
         <tag>随笔</tag>
@@ -862,22 +862,6 @@ final ：</li>
       </tags>
   </entry>
   <entry>
-    <title>flink笔记</title>
-    <url>/2020/05/26/learn/flink/</url>
-    <content><![CDATA[<h1 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1 基础概念"></a>1 基础概念</h1><h2 id="bound"><a href="#bound" class="headerlink" title="bound"></a>bound</h2><p>bounded数据 有始有终的数据<br>unbounde数据 无界的数据,有始无终 </p>
-<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>无状态是数据来一条处理一条,不装载数据 </p>
-<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>Even Time : event创建的时间<br>ingestion time:<br>Process time:</p>
-<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>有界无界数据流<br>部署灵活<br>极高伸缩性<br>极致流式处理性能  </p>
-<h2 id="operatino"><a href="#operatino" class="headerlink" title="operatino"></a>operatino</h2><p>高可用  </p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>shell教程</title>
     <url>/2020/05/26/learn/shell/</url>
     <content><![CDATA[<h1 id="shell-基础"><a href="#shell-基础" class="headerlink" title="shell 基础"></a>shell 基础</h1><h2 id="Shell-变量"><a href="#Shell-变量" class="headerlink" title="Shell 变量"></a><strong>Shell 变量</strong></h2><p><strong>定义</strong><br>Shell 变量分为<strong>系统变量</strong>和<strong>自定义变量</strong>。系统变量有$HOME、$PWD、$USER等，显示当前 Shell 中所有变量：<code>set</code> 。<br>变量名可以由字母、数字、下划线组成，不能以数字开头。<br><strong>基本语法</strong></p>
@@ -1230,6 +1214,22 @@ final ：</li>
       </categories>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flink笔记</title>
+    <url>/2020/05/26/learn/flink/</url>
+    <content><![CDATA[<h1 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1 基础概念"></a>1 基础概念</h1><h2 id="bound"><a href="#bound" class="headerlink" title="bound"></a>bound</h2><p>bounded数据 有始有终的数据<br>unbounde数据 无界的数据,有始无终 </p>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>无状态是数据来一条处理一条,不装载数据 </p>
+<h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><p>Even Time : event创建的时间<br>ingestion time:<br>Process time:</p>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><p>有界无界数据流<br>部署灵活<br>极高伸缩性<br>极致流式处理性能  </p>
+<h2 id="operatino"><a href="#operatino" class="headerlink" title="operatino"></a>operatino</h2><p>高可用  </p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
