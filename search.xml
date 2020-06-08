@@ -83,6 +83,29 @@
       </tags>
   </entry>
   <entry>
+    <title>快手2019秋一面</title>
+    <url>/2020/05/26/interview/%E5%BF%AB%E6%89%8B%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<ul>
+<li>自我介绍一下</li>
+<li>你学过的比较好的课程</li>
+<li>java有哪些基础类型</li>
+<li>int 和byte的区别</li>
+<li>除了基础了类型还有哪些类型</li>
+<li>进程和线程的区别</li>
+<li>java一个程序可以开几个线程</li>
+<li>给定一串连续数字,会缺失一个数字,求找出这个数字,如  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">input: &#123;0,1,2,4,5,6&#125;</span><br><span class="line">output &#123;3&#125;</span><br></pre></td></tr></table></figure>
+因为做这道题做太久了,后面面试官就没有再问,应该是没有二面了.</li>
+</ul>
+<p>9.4 227 18.30</p>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>面试清单（抄于知乎）</title>
     <url>/2020/05/26/blog/%E9%9D%A2%E8%AF%95%E6%B8%85%E5%8D%95/</url>
     <content><![CDATA[<p><strong>面试清单（Java岗）</strong></p>
@@ -115,20 +138,10 @@
       </tags>
   </entry>
   <entry>
-    <title>快手2019秋一面</title>
-    <url>/2020/05/26/interview/%E5%BF%AB%E6%89%8B%E4%B8%80%E9%9D%A2/</url>
-    <content><![CDATA[<ul>
-<li>自我介绍一下</li>
-<li>你学过的比较好的课程</li>
-<li>java有哪些基础类型</li>
-<li>int 和byte的区别</li>
-<li>除了基础了类型还有哪些类型</li>
-<li>进程和线程的区别</li>
-<li>java一个程序可以开几个线程</li>
-<li>给定一串连续数字,会缺失一个数字,求找出这个数字,如  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">input: &#123;0,1,2,4,5,6&#125;</span><br><span class="line">output &#123;3&#125;</span><br></pre></td></tr></table></figure>
-因为做这道题做太久了,后面面试官就没有再问,应该是没有二面了.</li>
-</ul>
-<p>9.4 227 18.30</p>
+    <title>网易有道2019秋一面</title>
+    <url>/2020/05/26/interview/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/</url>
+    <content><![CDATA[<h1 id="一-面试问题"><a href="#一-面试问题" class="headerlink" title="一. 面试问题"></a>一. 面试问题</h1><p>此次面试主要是围着我自我介绍时说的一些自己做的项目提的问题, 比如</p>
+<h2 id="1-自我介绍"><a href="#1-自我介绍" class="headerlink" title="1. 自我介绍"></a>1. 自我介绍</h2><h2 id="2-java-类的加载过程"><a href="#2-java-类的加载过程" class="headerlink" title="2. java 类的加载过程"></a>2. java 类的加载过程</h2><h2 id="３-java-类的查找过程"><a href="#３-java-类的查找过程" class="headerlink" title="３. java 类的查找过程"></a><strong>３. java 类的查找过程</strong></h2><h2 id="springMVC的配置过程"><a href="#springMVC的配置过程" class="headerlink" title="springMVC的配置过程"></a>springMVC的配置过程</h2><h2 id="jvm虚拟机怎么指定老年代新生代的大小"><a href="#jvm虚拟机怎么指定老年代新生代的大小" class="headerlink" title="jvm虚拟机怎么指定老年代新生代的大小?"></a>jvm虚拟机怎么指定老年代新生代的大小?</h2><h2 id="jvm什么时候要调整新生代老年代大小"><a href="#jvm什么时候要调整新生代老年代大小" class="headerlink" title="jvm什么时候要调整新生代老年代大小"></a>jvm什么时候要调整新生代老年代大小</h2><h2 id="springcloud有用过"><a href="#springcloud有用过" class="headerlink" title="springcloud有用过?"></a>springcloud有用过?</h2><h2 id="搭私服maven-的seting-poml文件有哪些特殊设置"><a href="#搭私服maven-的seting-poml文件有哪些特殊设置" class="headerlink" title="搭私服maven 的seting,poml文件有哪些特殊设置"></a>搭私服maven 的seting,poml文件有哪些特殊设置</h2><h2 id="poi的相关使用"><a href="#poi的相关使用" class="headerlink" title="poi的相关使用"></a>poi的相关使用</h2><h2 id="java-线程池相关知识"><a href="#java-线程池相关知识" class="headerlink" title="java 线程池相关知识"></a>java 线程池相关知识</h2><p>一面挂掉</p>
 ]]></content>
       <categories>
         <category>面试</category>
@@ -846,19 +859,6 @@ final ：</li>
       </categories>
       <tags>
         <tag>芝士</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网易有道2019秋一面</title>
-    <url>/2020/05/26/interview/%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E4%B8%80%E9%9D%A2/</url>
-    <content><![CDATA[<h1 id="一-面试问题"><a href="#一-面试问题" class="headerlink" title="一. 面试问题"></a>一. 面试问题</h1><p>此次面试主要是围着我自我介绍时说的一些自己做的项目提的问题, 比如</p>
-<h2 id="1-自我介绍"><a href="#1-自我介绍" class="headerlink" title="1. 自我介绍"></a>1. 自我介绍</h2><h2 id="2-java-类的加载过程"><a href="#2-java-类的加载过程" class="headerlink" title="2. java 类的加载过程"></a>2. java 类的加载过程</h2><h2 id="３-java-类的查找过程"><a href="#３-java-类的查找过程" class="headerlink" title="３. java 类的查找过程"></a><strong>３. java 类的查找过程</strong></h2><h2 id="springMVC的配置过程"><a href="#springMVC的配置过程" class="headerlink" title="springMVC的配置过程"></a>springMVC的配置过程</h2><h2 id="jvm虚拟机怎么指定老年代新生代的大小"><a href="#jvm虚拟机怎么指定老年代新生代的大小" class="headerlink" title="jvm虚拟机怎么指定老年代新生代的大小?"></a>jvm虚拟机怎么指定老年代新生代的大小?</h2><h2 id="jvm什么时候要调整新生代老年代大小"><a href="#jvm什么时候要调整新生代老年代大小" class="headerlink" title="jvm什么时候要调整新生代老年代大小"></a>jvm什么时候要调整新生代老年代大小</h2><h2 id="springcloud有用过"><a href="#springcloud有用过" class="headerlink" title="springcloud有用过?"></a>springcloud有用过?</h2><h2 id="搭私服maven-的seting-poml文件有哪些特殊设置"><a href="#搭私服maven-的seting-poml文件有哪些特殊设置" class="headerlink" title="搭私服maven 的seting,poml文件有哪些特殊设置"></a>搭私服maven 的seting,poml文件有哪些特殊设置</h2><h2 id="poi的相关使用"><a href="#poi的相关使用" class="headerlink" title="poi的相关使用"></a>poi的相关使用</h2><h2 id="java-线程池相关知识"><a href="#java-线程池相关知识" class="headerlink" title="java 线程池相关知识"></a>java 线程池相关知识</h2><p>一面挂掉</p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
